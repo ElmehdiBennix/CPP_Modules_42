@@ -6,11 +6,18 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 20:47:27 by ebennix           #+#    #+#             */
-/*   Updated: 2023/11/01 04:13:39 by ebennix          ###   ########.fr       */
+/*   Updated: 2023/11/01 04:37:45 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "phonebook.hpp"
+
+void    exit_prog(int e_n)
+{
+    std::cout << "\n##################################################" << std::endl;
+    std::cout << "   -> Thanks for using the crappy phonebook <-   " << std::endl;
+    exit(e_n);
+}
 
 class Contacts 
 {
@@ -58,34 +65,36 @@ class Contacts
 class PhoneBook
 {
     public:
-        PhoneBook(void): _index(0), total_flag(false) {};
+        PhoneBook(void): index(0), total_flag(false) {};
         void    add(void)
         {
             string fields[5] = {"first name : ", "last name : " ,"nickname : ", "phone number : ", "darkest secret : "};
             string args[5];
-            if (_index == MAX_CONTACTS)
+            if (index == MAX_CONTACTS)
             {
                 std::cout << "-> Phonebook is full replacing the oldest one." << std::endl;
                 total_flag = true;
-                _index = 0;
+                index = 0;
             }
             for (int i = 0; i < 5 ;i++)
             {
                 std::cout << "enter " << fields[i];
-                std::getline(std::cin, args[i]);
+                if (!std::getline(std::cin, args[i]))
+                    exit_prog(1);
                 while (isWhitespaceOrEmpty(args[i]) == true)
                 {
                     std::cout << "-> invalid field try again." << std::endl;
                     std::cout << "enter " << fields[i];
-                    std::getline(std::cin, args[i]);
+                    if (!std::getline(std::cin, args[i]))
+                        exit_prog(1);
                 }
             }
-            _contacts[_index] = Contacts(args[0],args[1],args[2],args[3],args[4]);
-            _index++;
+            _contacts[index] = Contacts(args[0],args[1],args[2],args[3],args[4]);
+            index++;
         }
         void    search(void)
         {   
-            if (total_flag == false && _index == 0)
+            if (total_flag == false && index == 0)
             {
                 std::cout << "-> phonebook is empty." << std::endl;
                 return;
@@ -94,17 +103,17 @@ class PhoneBook
             std::cout << "|Index     |FirstName |LastName  |NickName  |" << std::endl;
             for (int i(0); i < MAX_CONTACTS ; i++)
             {
-                if (total_flag == false && i == _index)
+                if (total_flag == false && i == index)
                     break;
                 std::cout << "---------------------------------------------" << std::endl;
-                std::cout << "|" << i << "         |" << _contacts[i].trunc_getter(0) << "|" << _contacts[i].trunc_getter(1) << "|" << _contacts[i].trunc_getter(2) << "|" << std::endl; // problem spaces
+                std::cout << "|" << i << "         |" << _contacts[i].trunc_getter(0) << "|" << _contacts[i].trunc_getter(1) << "|" << _contacts[i].trunc_getter(2) << "|" << std::endl;
             }
             std::cout << "---------------------------------------------" << std::endl;
             get_index();
         }
         
     private:
-        int      _index;
+        int      index;
         bool      total_flag;
         Contacts _contacts[MAX_CONTACTS];
         bool isWhitespaceOrEmpty(const string& str) 
@@ -129,16 +138,18 @@ class PhoneBook
         {
             string prompt;
             std::cout << "enter index : ";
-            std::getline(std::cin,prompt);
+            if (!std::getline(std::cin, prompt))
+                exit_prog(2);
             while (isNumeric(prompt) == false || isWhitespaceOrEmpty(prompt) == true)
             {
                 std::cout << "-> Invalid index." << std::endl;
                 std::cout << "enter index : " << prompt;
-                std::getline(std::cin,prompt);
+                if (!std::getline(std::cin, prompt))
+                    exit_prog(2);
             }
 
             int arg = atoi(prompt.c_str());
-            if ((total_flag == true && (arg >= 0 && arg < MAX_CONTACTS)) || (total_flag == false && (arg >= 0 && arg < _index)))
+            if ((total_flag == true && (arg >= 0 && arg < MAX_CONTACTS)) || (total_flag == false && (arg >= 0 && arg < index)))
                 _contacts[arg].display();
             else
             {
@@ -159,17 +170,12 @@ int main(void)
     while (true)
     {
         std::cout << "Enter a command 'ADD' or 'SEARCH' or 'EXIT': ";
-        std::getline(std::cin, command);
-        if (command == "ADD")
+        if (!std::getline(std::cin, command) || command == "EXIT")
+            exit_prog(0);
+        else if (command == "ADD")
             phonebook.add();
         else if (command == "SEARCH")
             phonebook.search();
-        else if (command == "EXIT")
-        {
-            std::cout << "##################################################" << std::endl;
-            std::cout << "   -> Thanks for using the crappy phonebook <-   " << std::endl;
-            break ;
-        }
         else
             std::cout << "-> Invalid command." << std::endl;
     }
