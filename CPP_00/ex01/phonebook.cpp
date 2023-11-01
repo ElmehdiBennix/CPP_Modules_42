@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 20:47:27 by ebennix           #+#    #+#             */
-/*   Updated: 2023/11/01 02:53:18 by ebennix          ###   ########.fr       */
+/*   Updated: 2023/11/01 03:12:36 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,15 +54,15 @@ class Contacts
         string _nickname;
         string _phone_number;
         string _darkest_secret;
-        string trunc(string field)
+        string trunc(const string& field)
         {
+            string padded = field;
             if (field.length() > 10)
             {
-                return (field.substr(0, 9) + ".");
+                return (padded.substr(0, 9) + ".");
             }
             else
             {
-                string padded = field;
                 for (int i(0); i < (int)(10 - field.length()); i++)
                     padded += ' '; 
                 return padded;
@@ -126,6 +126,11 @@ class PhoneBook
             std::cout << "enter index : ";
             std::getline(std::cin,prompt);
             // PARSE THIS DATA if there is characters in it FAIL IT HIR
+            if (isNumeric(prompt) == false || isWhitespaceOrEmpty(prompt) == true)
+            {
+                std::cout << "Invalid" << std::endl;
+                return;
+            }
             int arg = atoi(prompt.c_str());
             if ((total_flag == true && (arg >= 0 && arg < MAX_CONTACTS)) || (total_flag == false && (arg >= 0 && arg < _index)))
                 display(arg);
@@ -137,6 +142,24 @@ class PhoneBook
             string fields[5] = {"first name = ", "last name = " ,"nickname = ", "phone number = ", "darkest secret = "};
             for (int i(0); i < 5; i++)
                 std::cout << fields[i] << _contacts[arg].get_arg(i) << std::endl;
+        }
+        bool isNumeric(const string& str)
+        {
+            for (int i = 0; str[i]; i++)
+            {
+                if (!std::isdigit(str[i]))
+                    return false;
+            }
+            return true;  // If all characters are numeric, return true
+        }
+        bool isWhitespaceOrEmpty(const string& str) 
+        {
+            for (int i = 0; str[i]; i++)
+            {
+                if (!std::isspace(str[i]))
+                    return false;
+            }
+            return true;
         }
 };
 
@@ -167,3 +190,4 @@ int main(void)
     return (0);
 
 }
+// cntrl d infinite loop
