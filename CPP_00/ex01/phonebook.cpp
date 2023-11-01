@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 20:47:27 by ebennix           #+#    #+#             */
-/*   Updated: 2023/11/01 03:29:18 by ebennix          ###   ########.fr       */
+/*   Updated: 2023/11/01 03:43:18 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,35 +17,22 @@ class Contacts
     public:
         Contacts(): _first_name(""), _last_name(""), _nickname(""), _phone_number(""), _darkest_secret("") {};
         Contacts(string& fname, string& lname, string& nname, string& nbr, string& secret): _first_name(fname), _last_name(lname), _nickname(nname), _phone_number(nbr), _darkest_secret(secret) {};
-        string get_arg(int argno)
+        void    display()
         {
-            if (argno == 0)
-                return (_first_name);
-            if (argno == 1)
-                return (_last_name);
-            if (argno == 2)
-                return (_nickname);
-            if (argno == 3)
-                return (_phone_number);
-            if (argno == 4)
-                return (_darkest_secret);
-            else
-                return (NULL);
+            std::cout << "first name = " << _first_name << std::endl;
+            std::cout << "last name = " << _last_name << std::endl;
+            std::cout << "nickname = " << _nickname << std::endl;
+            std::cout << "phone number = " << _phone_number << std::endl;
+            std::cout << "darkest secret = " << _darkest_secret << std::endl;
         }
-        string trunc_arg(int argno)
+        string trunc_getter(int argno)
         {
             if (argno == 0)
                 return (trunc(_first_name));
-            if (argno == 1)
+            else if (argno == 1)
                 return (trunc(_last_name));
-            if (argno == 2)
-                return (trunc(_nickname));
-            if (argno == 3)
-                return (trunc(_phone_number));
-            if (argno == 4)
-                return (trunc(_darkest_secret));
             else
-                return (NULL);
+                return (trunc(_nickname));
         }
 
     private:
@@ -76,7 +63,6 @@ class PhoneBook
         PhoneBook(void): _index(0), total_flag(false) {};
         void    add(void)
         {
-            // bool   error;
             string fields[5] = {"first name : ", "last name : " ,"nickname : ", "phone number : ", "darkest secret : "};
             string args[5];
             if (_index == MAX_CONTACTS)
@@ -89,14 +75,12 @@ class PhoneBook
             {
                 std::cout << "enter " << fields[i];
                 std::getline(std::cin, args[i]);
-                while (isWhitespaceOrEmpty(args[i]) == true) // parse elements sends the iter number and it parses it depending on condtions of each field
+                while (isWhitespaceOrEmpty(args[i]) == true)
                 {
                     std::cout << "-> invalid field try again ." << std::endl;
                     std::cout << "enter " << fields[i];
                     std::getline(std::cin, args[i]);
-                    // if i < 2 only alpha phone nbr only number and + and -
                 }
-                // error = false
             }
             _contacts[_index] = Contacts(args[0],args[1],args[2],args[3],args[4]);
             _index++;
@@ -110,7 +94,7 @@ class PhoneBook
                 if (total_flag == false && i == _index)
                     break;
                 std::cout << "---------------------------------------------" << std::endl;
-                std::cout << "|" << i << "         |" << _contacts[i].trunc_arg(0) << "|" << _contacts[i].trunc_arg(1) << "|" << _contacts[i].trunc_arg(2) << "|" << std::endl; // problem spaces
+                std::cout << "|" << i << "         |" << _contacts[i].trunc_getter(0) << "|" << _contacts[i].trunc_getter(1) << "|" << _contacts[i].trunc_getter(2) << "|" << std::endl; // problem spaces
             }
             std::cout << "---------------------------------------------" << std::endl;
             if (total_flag == false && _index == 0)
@@ -122,28 +106,14 @@ class PhoneBook
         int      _index;
         bool      total_flag;
         Contacts _contacts[MAX_CONTACTS];
-        void    get_index(void)
+        bool isWhitespaceOrEmpty(const string& str) 
         {
-            string prompt;
-            std::cout << "enter index : ";
-            std::getline(std::cin,prompt);
-            // PARSE THIS DATA if there is characters in it FAIL IT HIR
-            if (isNumeric(prompt) == false || isWhitespaceOrEmpty(prompt) == true)
+            for (int i = 0; str[i]; i++)
             {
-                std::cout << "Invalid" << std::endl;
-                return;
+                if (!std::isspace(str[i]))
+                    return false;
             }
-            int arg = atoi(prompt.c_str());
-            if ((total_flag == true && (arg >= 0 && arg < MAX_CONTACTS)) || (total_flag == false && (arg >= 0 && arg < _index)))
-                display(arg);
-            else
-                std::cout << "Invalid" << std::endl;
-        }
-        void    display(int arg) // gotta go public in contacs
-        {
-            string fields[5] = {"first name = ", "last name = " ,"nickname = ", "phone number = ", "darkest secret = "};
-            for (int i(0); i < 5; i++)
-                std::cout << fields[i] << _contacts[arg].get_arg(i) << std::endl;
+            return true;
         }
         bool isNumeric(const string& str)
         {
@@ -154,14 +124,21 @@ class PhoneBook
             }
             return true;  // If all characters are numeric, return true
         }
-        bool isWhitespaceOrEmpty(const string& str) 
+        void    get_index(void)
         {
-            for (int i = 0; str[i]; i++)
+            string prompt;
+            std::cout << "enter index : ";
+            std::getline(std::cin,prompt);
+            if (isNumeric(prompt) == false || isWhitespaceOrEmpty(prompt) == true)
             {
-                if (!std::isspace(str[i]))
-                    return false;
+                std::cout << "-> Invalid index." << std::endl;
+                return;
             }
-            return true;
+            int arg = atoi(prompt.c_str());
+            if ((total_flag == true && (arg >= 0 && arg < MAX_CONTACTS)) || (total_flag == false && (arg >= 0 && arg < _index)))
+                _contacts[arg].display();
+            else
+                std::cout << "-> Invalid index." << std::endl;
         }
 };
 
@@ -175,7 +152,7 @@ int main(void)
 
     while (true)
     {
-        std::cout << "Enter a command: ";
+        std::cout << "Enter a command 'ADD' or 'SEARCH' or 'EXIT': ";
         std::getline(std::cin, command);
         if (command == "ADD")
             phonebook.add();
