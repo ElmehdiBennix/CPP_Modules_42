@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 20:47:27 by ebennix           #+#    #+#             */
-/*   Updated: 2023/11/01 01:31:42 by ebennix          ###   ########.fr       */
+/*   Updated: 2023/11/01 02:14:40 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,12 @@ class Contacts
                 return (field.substr(0, 9) + ".");
             }
             else
-                return field ;
+            {
+                string padded = field;
+                for (int i(0); i < (int)(10 - field.length()); i++)
+                    padded += ' '; 
+                return padded;
+            }
         }
 };
 
@@ -71,7 +76,7 @@ class PhoneBook
         PhoneBook(void): _index(0), total_flag(false) {};
         void    add(void)
         {
-            string fields[5] = {"first name : ","first name : " ,"nickname : ", "phone number : ", "darkest secret : "};
+            string fields[5] = {"first name : ", "last name : " ,"nickname : ", "phone number : ", "darkest secret : "};
             string args[5];
             if (_index == MAX_CONTACTS)
             {
@@ -97,14 +102,35 @@ class PhoneBook
         void    search(void)
         {   
             std::cout << "---------------------------------------------" << std::endl;
-            std::cout << "|   index  |first name| lastname | nickname |" << std::endl;
+            std::cout << "|index     |first name| lastname | nickname |" << std::endl;
             for (int i(0); i < MAX_CONTACTS ; i++)
             {
                 if (total_flag == false && i == _index)
+                {
+                    std::cout << "---------------------------------------------" << std::endl;
                     break;
-                std::cout << "|" << i << "        |" << _contacts[i].trunc_arg(0) << "|" << _contacts[i].trunc_arg(1) << "|" << _contacts[i].trunc_arg(2) << "|" << std::endl; // problem spaces
+                }
+                std::cout << "---------------------------------------------" << std::endl;
+                std::cout << "|" << i << "         |" << _contacts[i].trunc_arg(0) << "|" << _contacts[i].trunc_arg(1) << "|" << _contacts[i].trunc_arg(2) << "|" << std::endl; // problem spaces
             }
             std::cout << "---------------------------------------------" << std::endl;
+            std::cout << "enter index : " << std::endl;
+            string prompt;
+            std::getline(std::cin,prompt);
+            if (total_flag == true)
+            {
+                //get what ever
+            }
+            else if (total_flag == false && 0 < atoi(prompt.c_str()) < _index)
+            {
+                
+            }
+            else
+            {
+                std::cout << "invalide" << std::endl;
+                //recosive
+            }
+            
         }
         
     private:
