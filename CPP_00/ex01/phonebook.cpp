@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 20:47:27 by ebennix           #+#    #+#             */
-/*   Updated: 2023/11/01 02:14:40 by ebennix          ###   ########.fr       */
+/*   Updated: 2023/11/01 02:53:18 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,37 +106,38 @@ class PhoneBook
             for (int i(0); i < MAX_CONTACTS ; i++)
             {
                 if (total_flag == false && i == _index)
-                {
-                    std::cout << "---------------------------------------------" << std::endl;
                     break;
-                }
                 std::cout << "---------------------------------------------" << std::endl;
                 std::cout << "|" << i << "         |" << _contacts[i].trunc_arg(0) << "|" << _contacts[i].trunc_arg(1) << "|" << _contacts[i].trunc_arg(2) << "|" << std::endl; // problem spaces
             }
             std::cout << "---------------------------------------------" << std::endl;
-            std::cout << "enter index : " << std::endl;
-            string prompt;
-            std::getline(std::cin,prompt);
-            if (total_flag == true)
-            {
-                //get what ever
-            }
-            else if (total_flag == false && 0 < atoi(prompt.c_str()) < _index)
-            {
-                
-            }
-            else
-            {
-                std::cout << "invalide" << std::endl;
-                //recosive
-            }
-            
+            if (total_flag == false && _index == 0)
+                return;
+            get_index();
         }
         
     private:
         int      _index;
         bool      total_flag;
         Contacts _contacts[MAX_CONTACTS];
+        void    get_index(void)
+        {
+            string prompt;
+            std::cout << "enter index : ";
+            std::getline(std::cin,prompt);
+            // PARSE THIS DATA if there is characters in it FAIL IT HIR
+            int arg = atoi(prompt.c_str());
+            if ((total_flag == true && (arg >= 0 && arg < MAX_CONTACTS)) || (total_flag == false && (arg >= 0 && arg < _index)))
+                display(arg);
+            else
+                std::cout << "Invalid" << std::endl;
+        }
+        void    display(int arg) // gotta go public in contacs
+        {
+            string fields[5] = {"first name = ", "last name = " ,"nickname = ", "phone number = ", "darkest secret = "};
+            for (int i(0); i < 5; i++)
+                std::cout << fields[i] << _contacts[arg].get_arg(i) << std::endl;
+        }
 };
 
 int main(void)
