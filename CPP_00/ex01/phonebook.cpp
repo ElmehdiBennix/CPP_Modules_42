@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 20:47:27 by ebennix           #+#    #+#             */
-/*   Updated: 2023/11/01 03:43:18 by ebennix          ###   ########.fr       */
+/*   Updated: 2023/11/01 03:55:36 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ class Contacts
         Contacts(string& fname, string& lname, string& nname, string& nbr, string& secret): _first_name(fname), _last_name(lname), _nickname(nname), _phone_number(nbr), _darkest_secret(secret) {};
         void    display()
         {
-            std::cout << "first name = " << _first_name << std::endl;
-            std::cout << "last name = " << _last_name << std::endl;
-            std::cout << "nickname = " << _nickname << std::endl;
-            std::cout << "phone number = " << _phone_number << std::endl;
-            std::cout << "darkest secret = " << _darkest_secret << std::endl;
+            std::cout << " # first name = " << _first_name << std::endl;
+            std::cout << " # last name = " << _last_name << std::endl;
+            std::cout << " # nickname = " << _nickname << std::endl;
+            std::cout << " # phone number = " << _phone_number << std::endl;
+            std::cout << " # darkest secret = " << _darkest_secret << std::endl;
         }
         string trunc_getter(int argno)
         {
@@ -77,7 +77,7 @@ class PhoneBook
                 std::getline(std::cin, args[i]);
                 while (isWhitespaceOrEmpty(args[i]) == true)
                 {
-                    std::cout << "-> invalid field try again ." << std::endl;
+                    std::cout << "-> invalid field try again." << std::endl;
                     std::cout << "enter " << fields[i];
                     std::getline(std::cin, args[i]);
                 }
@@ -87,8 +87,13 @@ class PhoneBook
         }
         void    search(void)
         {   
+            if (total_flag == false && _index == 0)
+            {
+                std::cout << "-> phonebook is empty." << std::endl;
+                return;
+            }
             std::cout << "---------------------------------------------" << std::endl;
-            std::cout << "|index     |first name| lastname | nickname |" << std::endl;
+            std::cout << "|Index     |FirstName |LastName  |NickName  |" << std::endl;
             for (int i(0); i < MAX_CONTACTS ; i++)
             {
                 if (total_flag == false && i == _index)
@@ -97,8 +102,6 @@ class PhoneBook
                 std::cout << "|" << i << "         |" << _contacts[i].trunc_getter(0) << "|" << _contacts[i].trunc_getter(1) << "|" << _contacts[i].trunc_getter(2) << "|" << std::endl; // problem spaces
             }
             std::cout << "---------------------------------------------" << std::endl;
-            if (total_flag == false && _index == 0)
-                return;
             get_index();
         }
         
@@ -129,16 +132,21 @@ class PhoneBook
             string prompt;
             std::cout << "enter index : ";
             std::getline(std::cin,prompt);
-            if (isNumeric(prompt) == false || isWhitespaceOrEmpty(prompt) == true)
+            while (isNumeric(prompt) == false || isWhitespaceOrEmpty(prompt) == true)
             {
                 std::cout << "-> Invalid index." << std::endl;
-                return;
+                std::cout << "enter index : " << prompt;
+                std::getline(std::cin,prompt);
             }
+
             int arg = atoi(prompt.c_str());
             if ((total_flag == true && (arg >= 0 && arg < MAX_CONTACTS)) || (total_flag == false && (arg >= 0 && arg < _index)))
                 _contacts[arg].display();
             else
+            {
                 std::cout << "-> Invalid index." << std::endl;
+                get_index();
+            }
         }
 };
 
@@ -147,8 +155,8 @@ int main(void)
     PhoneBook phonebook;
     
     string command;
-    std::cout << "Welcome to the phonebook." << std::endl;
-    std::cout << "###############################################" << std::endl;
+    std::cout << "      -> Welcome to the crappy phonebook <-      " << std::endl;
+    std::cout << "##################################################" << std::endl;
 
     while (true)
     {
@@ -160,7 +168,8 @@ int main(void)
             phonebook.search();
         else if (command == "EXIT")
         {
-            std::cout << "-> bye bye !!!" << std::endl;
+            std::cout << "##################################################" << std::endl;
+            std::cout << "   -> Thanks for using the crappy phonebook <-   " << std::endl;
             break ;
         }
         else
@@ -170,3 +179,4 @@ int main(void)
 
 }
 // cntrl d infinite loop
+// DEFINE COLORS
