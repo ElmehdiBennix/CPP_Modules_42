@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 20:47:27 by ebennix           #+#    #+#             */
-/*   Updated: 2023/11/01 03:16:03 by ebennix          ###   ########.fr       */
+/*   Updated: 2023/11/01 03:29:18 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ class PhoneBook
         PhoneBook(void): _index(0), total_flag(false) {};
         void    add(void)
         {
+            // bool   error;
             string fields[5] = {"first name : ", "last name : " ,"nickname : ", "phone number : ", "darkest secret : "};
             string args[5];
             if (_index == MAX_CONTACTS)
@@ -88,13 +89,14 @@ class PhoneBook
             {
                 std::cout << "enter " << fields[i];
                 std::getline(std::cin, args[i]);
-                if (isWhitespaceOrEmpty(args[i]) == true) // parse elements sends the iter number and it parses it depending on condtions of each field
+                while (isWhitespaceOrEmpty(args[i]) == true) // parse elements sends the iter number and it parses it depending on condtions of each field
                 {
                     std::cout << "-> invalid field try again ." << std::endl;
                     std::cout << "enter " << fields[i];
                     std::getline(std::cin, args[i]);
                     // if i < 2 only alpha phone nbr only number and + and -
                 }
+                // error = false
             }
             _contacts[_index] = Contacts(args[0],args[1],args[2],args[3],args[4]);
             _index++;
