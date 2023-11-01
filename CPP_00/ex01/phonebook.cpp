@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 20:47:27 by ebennix           #+#    #+#             */
-/*   Updated: 2023/11/01 03:55:36 by ebennix          ###   ########.fr       */
+/*   Updated: 2023/11/01 04:13:39 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,7 @@ class Contacts
         {
             string padded = field;
             if (field.length() > 10)
-            {
                 return (padded.substr(0, 9) + ".");
-            }
             else
             {
                 for (int i(0); i < (int)(10 - field.length()); i++)
@@ -67,7 +65,7 @@ class PhoneBook
             string args[5];
             if (_index == MAX_CONTACTS)
             {
-                std::cout << "Phonebook is full replacing the oldest one." << std::endl;
+                std::cout << "-> Phonebook is full replacing the oldest one." << std::endl;
                 total_flag = true;
                 _index = 0;
             }
