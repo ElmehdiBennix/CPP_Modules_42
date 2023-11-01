@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 20:47:27 by ebennix           #+#    #+#             */
-/*   Updated: 2023/11/01 03:12:36 by ebennix          ###   ########.fr       */
+/*   Updated: 2023/11/01 03:16:03 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ class PhoneBook
             {
                 std::cout << "enter " << fields[i];
                 std::getline(std::cin, args[i]);
-                if (args[i].empty()) // parse elements
+                if (isWhitespaceOrEmpty(args[i]) == true) // parse elements sends the iter number and it parses it depending on condtions of each field
                 {
                     std::cout << "-> invalid field try again ." << std::endl;
                     std::cout << "enter " << fields[i];
