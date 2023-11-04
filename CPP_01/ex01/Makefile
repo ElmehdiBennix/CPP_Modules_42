@@ -6,13 +6,13 @@
 #    By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/30 20:20:38 by ebennix           #+#    #+#              #
-#    Updated: 2023/11/04 17:45:40 by ebennix          ###   ########.fr        #
+#    Updated: 2023/11/04 17:51:42 by ebennix          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 EXE := Moar_brainz
 
-CC := c++ -std=c++98
+CC := c++ 
 
 HEADER := Zombie.hpp
 
