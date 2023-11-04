@@ -6,34 +6,26 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 04:19:16 by ebennix           #+#    #+#             */
-/*   Updated: 2023/11/04 14:25:57 by ebennix          ###   ########.fr       */
+/*   Updated: 2023/11/04 17:47:45 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include <iostream>
+#include <string>
 
-// void leaks(void)
-// {
-//     system("leaks Moar_brainz");
-// }
+int main() {
+    std::string     myString = "HI THIS IS BRAIN";
+    std::string*    stringPTR = &myString;
+    std::string&    stringREF = myString;
 
-int main (void)
-{
-    int N = -5;
-    Zombie *ptr = zombieHorde(N, "el gato");
-    if (ptr == NULL)
-        return (1);
+    std::cout << "-> Memory address of the string variable: " << &myString << std::endl;
+    std::cout << "-> Memory address held by stringPTR: " << stringPTR << std::endl;
+    std::cout << "-> Memory address held by stringREF: " << &stringREF << std::endl;
 
-    std::cout << "**********************************" << std::endl;
+    std::cout << "-> Value of the string variable: " << myString << std::endl;
+    std::cout << "-> Value pointed to by stringPTR: " << *stringPTR << std::endl;
+    std::cout << "-> Value pointed to by stringREF: " << stringREF << std::endl;
 
-    for (int i = 0; i < N; i++)
-        ptr[i].announce();
-    
-    std::cout << "**************************************** " << std::endl;
-    
-    delete[] ptr;
-    // atexit(leaks);
+    return 0;
 }
 
-// delete is used to free allocated memory using new
-// if u wanna clear out an allocated array u have to use delete[]
