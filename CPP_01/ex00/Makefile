@@ -6,17 +6,17 @@
 #    By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/30 20:20:38 by ebennix           #+#    #+#              #
-#    Updated: 2023/11/04 11:42:53 by ebennix          ###   ########.fr        #
+#    Updated: 2023/11/04 12:54:05 by ebennix          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 EXE := BraiiiiiiinnnzzzZ
 
-CC := c++ -std=c++98
+CC := c++
 
 HEADER := Zombie.hpp
 
-CPPFLAGS := -Wall -Wextra -Werror
+CPPFLAGS := -std=c++98 -Wall -Wextra -Werror
 
 SRC := main \
 	   Zombie	\
