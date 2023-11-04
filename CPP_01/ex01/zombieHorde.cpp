@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 11:48:04 by ebennix           #+#    #+#             */
-/*   Updated: 2023/11/04 12:53:00 by ebennix          ###   ########.fr       */
+/*   Updated: 2023/11/04 14:24:44 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 Zombie* zombieHorde(int N, std::string name)
 {
+    if (N < 0)
+        return (NULL);
     Zombie *ptr = new Zombie[N];
 
     std::cout << "**********************************" << std::endl;
