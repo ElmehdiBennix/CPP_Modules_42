@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 04:19:16 by ebennix           #+#    #+#             */
-/*   Updated: 2023/11/04 11:57:25 by ebennix          ###   ########.fr       */
+/*   Updated: 2023/11/04 17:54:47 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int main (void)
     delete ptr;
     std::cout << "**************************************** " << std::endl;
     // atexit(leaks);
+    return 0;
 }
 
 // the destructor is a special member function of a class that is automatically 
