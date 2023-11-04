@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 04:19:16 by ebennix           #+#    #+#             */
-/*   Updated: 2023/11/04 14:25:57 by ebennix          ###   ########.fr       */
+/*   Updated: 2023/11/04 17:54:30 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int main (void)
     
     delete[] ptr;
     // atexit(leaks);
+    return 0;
 }
 
 // delete is used to free allocated memory using new
