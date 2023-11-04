@@ -6,17 +6,20 @@
 #    By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/30 20:20:38 by ebennix           #+#    #+#              #
-#    Updated: 2023/11/04 17:46:32 by ebennix          ###   ########.fr        #
+#    Updated: 2023/11/04 17:51:34 by ebennix          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 EXE := this_brain
 
-CC := c++ -std=c++98
+CC := c++ 
 
 CPPFLAGS := -std=c++98 -Wall -Wextra -Werror
 
 SRC := main \
+	   HumanA \
+	   HumanB \
+	   Weapon \
 
 FILES := $(SRC:=.cpp)
 
