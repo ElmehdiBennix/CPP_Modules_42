@@ -6,7 +6,7 @@
 #    By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/30 20:20:38 by ebennix           #+#    #+#              #
-#    Updated: 2023/11/04 12:54:05 by ebennix          ###   ########.fr        #
+#    Updated: 2023/11/06 10:03:54 by ebennix          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,8 +36,8 @@ all : $(EXE)
 $(EXE) : $(OBJ)
 	$(CC)  $(OBJ) -o $(EXE)
 
-%.o : %.c $(HEADER)
-	$(CC) $(CPPFLAGS) -c $< -o $@
+%.o : %.cpp $(HEADER)
+	$(CC) $(CPPFLAGS) -c -o $@ $<
 
 clean :
 	$(RM) $(OBJ)

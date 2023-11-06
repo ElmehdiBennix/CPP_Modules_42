@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 17:49:59 by ebennix           #+#    #+#             */
-/*   Updated: 2023/11/04 18:14:31 by ebennix          ###   ########.fr       */
+/*   Updated: 2023/11/06 10:01:35 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,16 @@
 class Weapon
 {
     public:
-        Weapon() : type("") {};
-
+        Weapon(const std::string& _type) : type(_type) {};
+        
         const std::string   get_Type(void) const;
         void    set_Type(const std::string& newType);
         
+        void   displayType(void)
+        {
+            std::cout << type <<std::endl;  
+        };
+
     private:
         std::string type;
 };
