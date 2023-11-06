@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 04:19:16 by ebennix           #+#    #+#             */
-/*   Updated: 2023/11/06 09:48:40 by ebennix          ###   ########.fr       */
+/*   Updated: 2023/11/06 10:06:37 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,15 @@ int main(void)
         HumanA bob("Bob", club);
         bob.attack();
         club.set_Type("some other type of club");
-        club.displayType();
         bob.attack();
     }
     {
-        Weapon club = Weapon("crude luber club");
+        Weapon club = Weapon("crude spiked club");
 
         HumanB jim("Jim");
         jim.setWeapon(club);
         jim.attack();
         club.set_Type("some other type of club");
-        club.displayType();
         jim.attack();
     }
     
