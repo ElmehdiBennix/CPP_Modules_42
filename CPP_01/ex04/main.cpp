@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 10:11:43 by ebennix           #+#    #+#             */
-/*   Updated: 2023/11/06 15:01:40 by ebennix          ###   ########.fr       */
+/*   Updated: 2023/11/06 15:04:52 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void replace(std::string filename, std::string  s1, std::string s2)
         return ;
     }
     std::string line;
-    while(std::getline(infile,line))
+    while (std::getline(infile,line))
     {
         size_t pos = 0;
         while ((pos = line.find(s1, pos)) != std::string::npos)
