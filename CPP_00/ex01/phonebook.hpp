@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 20:47:30 by ebennix           #+#    #+#             */
-/*   Updated: 2023/11/01 21:34:23 by ebennix          ###   ########.fr       */
+/*   Updated: 2023/11/04 11:43:56 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,12 @@
 #define PHONEBOOK_HPP_
 
 #include <iostream>
+
+#define RESET "\033[0m";
+#define RED "\033[31m";
+#define GREEN "\033[32m";
+#define YELLOW "\033[33m";
+#define BLUE "\033[34m";
 
 #define MAX_CONTACTS 8
 #define string std::string
