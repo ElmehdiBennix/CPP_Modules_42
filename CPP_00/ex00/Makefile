@@ -6,15 +6,15 @@
 #    By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/30 20:20:38 by ebennix           #+#    #+#              #
-#    Updated: 2023/10/30 20:28:59 by ebennix          ###   ########.fr        #
+#    Updated: 2023/11/08 01:22:19 by ebennix          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 EXE := megaphone
 
-CC := c++ -std=c++98
+CC := c++
 
-CPPFLAGS := -Wall -Wextra -Werror
+CPPFLAGS := -std=c++98 -Wall -Wextra -Werror
 
 FILES := megaphone.cpp
 
@@ -29,8 +29,8 @@ all : $(EXE)
 $(EXE) : $(OBJ)
 	$(CC)  $(OBJ) -o $(EXE) 
 
-%.o : %.c
-	$(CC) $(CPPFLAGS) -c $< -o $@
+%.o : %.cpp
+	$(CC) $(CPPFLAGS) -c -o $@ $<
 
 clean :
 	$(RM) $(OBJ)
@@ -40,6 +40,9 @@ fclean : clean
 
 re : fclean all
 
+git : fclean
+	sh ../../push.sh
+
 ################################################################################
 
-.PHONY : all clean fclean re
+.PHONY : all clean fclean re git
