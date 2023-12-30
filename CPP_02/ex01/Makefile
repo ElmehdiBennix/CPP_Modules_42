@@ -6,11 +6,11 @@
 #    By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/08 13:58:53 by ebennix           #+#    #+#              #
-#    Updated: 2023/12/30 00:44:34 by ebennix          ###   ########.fr        #
+#    Updated: 2023/12/30 04:13:14 by ebennix          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-EXE := test00
+EXE := test01
 
 CPP := clang++
 
@@ -29,7 +29,7 @@ OBJ :=$(SRC:.cpp=.o)
 all: $(EXE)
 
 $(EXE): $(OBJ)
-	$(CPP) $(CPPFLAGS) $(OBJ) main.cpp -o $(EXE)
+	$(CPP) $(CPPFLAGS) main.cpp $(OBJ) -o $(EXE)
 
 %.o: %.cpp $(INC)
 	$(CPP) $(CPPFLAGS) -c -o $@ $<
