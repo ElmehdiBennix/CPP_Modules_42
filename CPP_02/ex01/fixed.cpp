@@ -6,26 +6,33 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 13:58:43 by ebennix           #+#    #+#             */
-/*   Updated: 2023/12/30 01:13:05 by ebennix          ###   ########.fr       */
+/*   Updated: 2023/12/30 04:55:53 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fixed.hpp"
 
-Fixed::Fixed(void) : Fixed_point(0)
+Fixed::Fixed() : Fixed_point(0)
 {    
     std::cout<<"Default constractor called"<<std::endl;
 }
 
-Fixed::Fixed(int _Fixed_point) : Fixed_point(_Fixed_point)
+Fixed::Fixed(const int int_to_fixed)
 {
-    std::cout<<"not so Default constractor called"<<std::endl;
+    this->Fixed_point = int_to_fixed << Fractional_bits;
+    std::cout << "Int constructor called" << std::endl;
+}
+
+Fixed::Fixed(const float float_to_fixed)
+{
+    this->Fixed_point = roundf(float_to_fixed * (1 << this->Fractional_bits));
+    std::cout << "float constructor called" << std::endl;
 }
 
 Fixed::Fixed(const Fixed &source)
 {
     std::cout<<"Copy constructor called"<<std::endl;
-    *this = source;
+    *this = source; // test this out
 }
 
 Fixed&
@@ -54,7 +61,25 @@ Fixed::getRawBits(void) const
     return (this->Fixed_point);
 }
 
+int
+Fixed::toInt(void) const
+{
+    return (this->Fixed_point >> this->Fractional_bits);
+}
+
+float
+Fixed::toFloat(void) const
+{
+    return static_cast<float>(this->Fixed_point) / (1 << this->Fractional_bits);
+}
+
 Fixed::~Fixed(void)
 {
     std::cout<<"Destructor called"<<std::endl;
+}
+
+std::ostream& operator<<(std::ostream& os, const Fixed& obj) 
+{
+    os << obj.toFloat();
+    return os;
 }
