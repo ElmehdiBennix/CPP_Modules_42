@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 13:58:41 by ebennix           #+#    #+#             */
-/*   Updated: 2023/12/31 05:20:32 by ebennix          ###   ########.fr       */
+/*   Updated: 2024/01/02 22:35:39 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,9 @@ class Fixed
         Fixed& operator/(const Fixed &source);
 
         //increment / decrement operators
-        Fixed  operator++(int);
+        Fixed  operator++(int){
+            
+        };
         Fixed& operator++(void);
         Fixed  operator--(int);
         Fixed& operator--(void);
@@ -58,7 +60,7 @@ class Fixed
         static const Fixed& min(const Fixed& F_p_A, const Fixed& F_p_B);
         static Fixed& max(Fixed& F_p_A, Fixed& F_p_B);
         static const Fixed& max(const Fixed& F_p_A, const Fixed& F_p_B);
-    
+
         //destructor
         ~Fixed(void);
 
@@ -69,6 +71,6 @@ class Fixed
 };
 
 // overlaod for the << operator;
-std::ostream& operator<<(std::ostream& os, const Fixed& obj); 
+std::ostream &operator<<(std::ostream& os, const Fixed& obj); 
 
 #endif
