@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 13:58:41 by ebennix           #+#    #+#             */
-/*   Updated: 2024/01/02 22:35:39 by ebennix          ###   ########.fr       */
+/*   Updated: 2024/01/08 05:57:24 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,26 +29,66 @@ class Fixed
         Fixed& operator=(const Fixed &source);
         
         //comparison operators
-        Fixed& operator>(const Fixed &source);
-        Fixed& operator<(const Fixed &source);
-        Fixed& operator>=(const Fixed &source);
-        Fixed& operator<=(const Fixed &source);
-        Fixed& operator==(const Fixed &source);
-        Fixed& operator!=(const Fixed &source);
-        
-        //arithmetic operators
-        Fixed& operator+(const Fixed &source);
-        Fixed& operator-(const Fixed &source);
-        Fixed& operator*(const Fixed &source);
-        Fixed& operator/(const Fixed &source);
-
-        //increment / decrement operators
-        Fixed  operator++(int){
-            
+        bool operator>(const Fixed &source) const {
+            return (this->Fixed_point > source.Fixed_point)? true : false;
         };
-        Fixed& operator++(void);
-        Fixed  operator--(int);
-        Fixed& operator--(void);
+        bool operator<(const Fixed &source) const {
+            return (this->Fixed_point < source.Fixed_point)? true : false;
+        };
+        bool operator>=(const Fixed &source) const {
+            return (this->Fixed_point >= source.Fixed_point)? true : false;
+        };
+        bool operator<=(const Fixed &source) const {
+            return (this->Fixed_point <= source.Fixed_point)? true : false;
+
+        };
+        bool operator==(const Fixed &source) const {
+            return (this->Fixed_point == source.Fixed_point)? true : false;
+        };
+        bool operator!=(const Fixed &source) const {
+            return (this->Fixed_point != source.Fixed_point)? true : false;
+        };
+        //arithmetic operators
+        Fixed operator+(const Fixed &source){
+            Fixed tmp;
+            tmp.Fixed_point = this->Fixed_point + source.Fixed_point;
+            return tmp;
+        };
+        Fixed operator-(const Fixed &source){
+            Fixed tmp;
+            tmp.Fixed_point = this->Fixed_point - source.Fixed_point;
+            return tmp;
+        };
+        Fixed operator*(const Fixed &source){
+            Fixed tmp;
+            tmp.Fixed_point = this->Fixed_point * source.Fixed_point;
+            return tmp;
+        };
+        Fixed operator/(const Fixed &source){
+            Fixed tmp;
+            tmp.Fixed_point = this->Fixed_point / source.Fixed_point;
+            return tmp;
+        };
+
+        //increment / decrement operators  \\ prefix and postfix 
+        Fixed  operator++(int){
+            Fixed tmp = *this;
+            ++this->Fixed_point;
+            return tmp;
+        };
+        Fixed& operator++(void){
+            ++this->Fixed_point;
+            return *this;
+        };
+        Fixed  operator--(int){
+            Fixed tmp = *this;
+            --this->Fixed_point;
+            return tmp;
+        };
+        Fixed& operator--(void){
+            --this->Fixed_point;
+            return *this;
+        };
 
         // memeber functions
         int getRawBits(void) const;
@@ -56,10 +96,19 @@ class Fixed
         float toFloat(void) const;
         int toInt(void) const;
 
-        static Fixed& min(Fixed& F_p_A, Fixed& F_p_B);
-        static const Fixed& min(const Fixed& F_p_A, const Fixed& F_p_B);
-        static Fixed& max(Fixed& F_p_A, Fixed& F_p_B);
-        static const Fixed& max(const Fixed& F_p_A, const Fixed& F_p_B);
+        static Fixed& min(Fixed& F_p_A, Fixed& F_p_B){
+            return (F_p_A.Fixed_point > F_p_B.Fixed_point)? F_p_B : F_p_A;
+        };
+        static const Fixed& min(const Fixed& F_p_A, const Fixed& F_p_B){
+            return (F_p_A.Fixed_point > F_p_B.Fixed_point)? F_p_B : F_p_A;
+        };
+        static Fixed& max(Fixed& F_p_A, Fixed& F_p_B){
+            return (F_p_A.Fixed_point > F_p_B.Fixed_point)? F_p_A : F_p_B;
+
+        };
+        static const Fixed& max(const Fixed& F_p_A, const Fixed& F_p_B){
+            return (F_p_A.Fixed_point > F_p_B.Fixed_point)? F_p_A : F_p_B;
+        };
 
         //destructor
         ~Fixed(void);
@@ -72,5 +121,7 @@ class Fixed
 
 // overlaod for the << operator;
 std::ostream &operator<<(std::ostream& os, const Fixed& obj); 
+
+//static functions 
 
 #endif

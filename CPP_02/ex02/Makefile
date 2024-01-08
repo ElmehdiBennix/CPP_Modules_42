@@ -6,7 +6,7 @@
 #    By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/08 13:58:53 by ebennix           #+#    #+#              #
-#    Updated: 2023/12/31 00:24:49 by ebennix          ###   ########.fr        #
+#    Updated: 2024/01/08 05:55:38 by ebennix          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CPP := clang++
 
 CPPFLAGS := -Wall -Wextra -Werror
 
-INC :=fixed.hpp
+INC := fixed.hpp
 
 FILE := fixed
 
