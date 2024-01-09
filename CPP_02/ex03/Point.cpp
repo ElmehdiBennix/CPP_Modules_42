@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Point.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/08 13:58:38 by ebennix           #+#    #+#             */
-/*   Updated: 2024/01/09 01:58:01 by ebennix          ###   ########.fr       */
+/*   Created: 2024/01/09 07:43:22 by ebennix           #+#    #+#             */
+/*   Updated: 2024/01/09 09:44:56 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fixed.hpp"
+#include "Point.hpp"
 
-int main( void ) {
+Point::Point( void ) : x(0), y(0) {};
 
-    Fixed a;
-    Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
+Point::Point( const float _x , const float _y): x(_x), y(_y) {};
 
-    std::cout << a << std::endl;
-    std::cout << ++a << std::endl;
-    std::cout << a << std::endl;
-    std::cout << a++ << std::endl;
-    std::cout << a << std::endl;
+Point::Point (const Point &obj): x(obj.x), y(obj.y) {};
 
-    std::cout << b << std::endl;
-    
-    std::cout << Fixed::max( a, b ) << std::endl;
+Point& 
+Point::operator=(const Point &source){
+    if (this != &source)
+    {
+        (Fixed) x = source.x;
+        (Fixed) y = source.y;
+    }
+    return (*this);
+};
 
-    return 0;
-}
+Point::~Point( void ) {};
