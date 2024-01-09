@@ -5,25 +5,27 @@
 #                                                     +:+ +:+         +:+      #
 #    By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/12/08 13:58:53 by ebennix           #+#    #+#              #
-#    Updated: 2024/01/08 23:42:13 by ebennix          ###   ########.fr        #
+#    Created: 2024/01/09 07:43:20 by ebennix           #+#    #+#              #
+#    Updated: 2024/01/09 07:48:08 by ebennix          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-EXE := test02
+EXE := test03
 
 CPP := clang++
 
 CPPFLAGS := -Wall -Wextra -Werror
 
-INC := fixed.hpp
+INC := Fixed.hpp Point.hpp
 
 FILE := main \
-		fixed \
+		Fixed \
+		Point \
+		bsp \
 
 SRC := $(FILE:=.cpp)
 
-OBJ :=$(SRC:.cpp=.o)
+OBJ := $(SRC:.cpp=.o)
 
 ################################################################################ 
 

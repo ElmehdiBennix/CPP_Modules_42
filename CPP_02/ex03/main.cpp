@@ -5,27 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/08 13:58:38 by ebennix           #+#    #+#             */
-/*   Updated: 2024/01/09 01:58:01 by ebennix          ###   ########.fr       */
+/*   Created: 2024/01/09 07:43:06 by ebennix           #+#    #+#             */
+/*   Updated: 2024/01/09 10:31:49 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fixed.hpp"
+#include "Point.hpp"
 
-int main( void ) {
-
-    Fixed a;
-    Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
-
-    std::cout << a << std::endl;
-    std::cout << ++a << std::endl;
-    std::cout << a << std::endl;
-    std::cout << a++ << std::endl;
-    std::cout << a << std::endl;
-
-    std::cout << b << std::endl;
+int main ( void ) {
     
-    std::cout << Fixed::max( a, b ) << std::endl;
 
-    return 0;
+ 
+    
 }
