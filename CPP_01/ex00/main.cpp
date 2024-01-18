@@ -6,16 +6,16 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 04:19:16 by ebennix           #+#    #+#             */
-/*   Updated: 2023/11/04 17:54:47 by ebennix          ###   ########.fr       */
+/*   Updated: 2024/01/18 05:53:03 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-void leaks(void)
-{
-    system("leaks BraiiiiiiinnnzzzZ");
-}
+// void leaks(void)
+// {
+//     system("leaks BraiiiiiiinnnzzzZ");
+// }
 
 int main (void)
 {
@@ -37,7 +37,7 @@ int main (void)
 }
 
 // the destructor is a special member function of a class that is automatically 
-//called when an object of that class goes out of scope or is explicitly deleted. You don't
+// called when an object of that class goes out of scope or is explicitly deleted. You don't
 // need to call the destructor manually; it is called automatically by the C++ runtime system. 
-//The purpose of the destructor is to perform any necessary cleanup or resource deallocation
+// The purpose of the destructor is to perform any necessary cleanup or resource deallocation
 // when an object's lifetime ends.

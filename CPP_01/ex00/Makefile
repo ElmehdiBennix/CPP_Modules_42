@@ -6,20 +6,20 @@
 #    By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/30 20:20:38 by ebennix           #+#    #+#              #
-#    Updated: 2023/11/06 15:02:55 by ebennix          ###   ########.fr        #
+#    Updated: 2024/01/18 05:56:13 by ebennix          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 EXE := BraiiiiiiinnnzzzZ
 
-CC := c++
+CC := c++ -std=c++98
 
-HEADER := Zombie.hpp
+HEADER := Zombie.hpp \
 
-CPPFLAGS := -std=c++98 -Wall -Wextra -Werror
+CPPFLAGS := -Wall -Wextra -Werror
 
 SRC := main \
-	   Zombie	\
+	   Zombie \
 	   newZombie \
 	   randomChump \
 
@@ -48,7 +48,7 @@ fclean : clean
 re : fclean all
 
 git : fclean
-	sh ../push.sh
+	sh ../../push.sh
 
 ################################################################################
 

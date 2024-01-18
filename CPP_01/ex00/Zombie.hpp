@@ -6,12 +6,12 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 20:27:30 by ebennix           #+#    #+#             */
-/*   Updated: 2023/11/04 11:44:08 by ebennix          ###   ########.fr       */
+/*   Updated: 2024/01/18 05:54:22 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP_
-#define ZOMBIE_HPP_
+#ifndef ZOMBIE_HPP__
+#define ZOMBIE_HPP__
 
 #include <iostream>
 
@@ -26,9 +26,10 @@ class Zombie
     public:
         Zombie(void);
         Zombie(std::string& _name);
-        ~Zombie(void);
         
         void announce(void);
+
+        ~Zombie(void);
 
     private:
         std::string name;
