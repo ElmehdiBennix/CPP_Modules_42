@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 13:58:43 by ebennix           #+#    #+#             */
-/*   Updated: 2024/01/18 10:31:20 by ebennix          ###   ########.fr       */
+/*   Updated: 2024/01/18 10:35:29 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ Fixed::Fixed(const float float_to_fixed)
 Fixed::Fixed(const Fixed &source)
 {
     std::cout<<"Copy constructor called"<<std::endl;
-    *this = source; // test this out
+    *this = source;
 }
 
 Fixed&
