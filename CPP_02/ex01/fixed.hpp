@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 13:58:41 by ebennix           #+#    #+#             */
-/*   Updated: 2024/01/18 10:32:37 by ebennix          ###   ########.fr       */
+/*   Updated: 2024/01/18 11:00:06 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ class Fixed
     
         ~Fixed(void);
 
-        int Fixed_point;
     private:
+        int Fixed_point;
         static const int Fractional_bits = 8;
 };
 

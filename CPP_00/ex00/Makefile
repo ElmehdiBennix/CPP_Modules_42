@@ -6,7 +6,7 @@
 #    By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/30 20:20:38 by ebennix           #+#    #+#              #
-#    Updated: 2024/01/18 09:41:25 by ebennix          ###   ########.fr        #
+#    Updated: 2024/01/18 11:02:37 by ebennix          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ EXE := megaphone
 
 CPP := c++ -std=c++98
 
-CPPFLAGS := -std=c++98 -Wall -Wextra -Werror
+CPPFLAGS := -Wall -Wextra -Werror
 
 FILES := megaphone.cpp
 
