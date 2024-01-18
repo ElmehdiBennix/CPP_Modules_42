@@ -6,42 +6,48 @@
 #    By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/08 13:58:53 by ebennix           #+#    #+#              #
-#    Updated: 2023/12/30 00:44:34 by ebennix          ###   ########.fr        #
+#    Updated: 2024/01/18 09:49:09 by ebennix          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-EXE := test00
+EXE := Exo_00
 
-CPP := clang++
+CPP := c++ -std=c++98
 
 CPPFLAGS := -Wall -Wextra -Werror
 
-INC :=fixed.hpp
+HEADER := Fixed.hpp
 
-FILE := fixed
+FILE := main \
+		Fixed \
 
 SRC := $(FILE:=.cpp)
 
 OBJ :=$(SRC:.cpp=.o)
+
+RM := rm -rf
 
 ################################################################################ 
 
 all: $(EXE)
 
 $(EXE): $(OBJ)
-	$(CPP) $(CPPFLAGS) $(OBJ) main.cpp -o $(EXE)
+	$(CPP) $(OBJ) -o $(EXE)
 
-%.o: %.cpp $(INC)
+%.o: %.cpp $(HEADER)
 	$(CPP) $(CPPFLAGS) -c -o $@ $<
 
 clean:
-	rm -f $(OBJ)
+	$(RM) $(OBJ)
 
 fclean: clean
-	rm -rf $(EXE)
+	$(RM) $(EXE)
 
 re: fclean all
 
+git : fclean
+	sh ../../push.sh
+
 ################################################################################ 
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re git

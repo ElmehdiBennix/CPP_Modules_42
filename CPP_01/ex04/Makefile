@@ -6,13 +6,13 @@
 #    By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/06 10:11:36 by ebennix           #+#    #+#              #
-#    Updated: 2024/01/18 05:58:08 by ebennix          ###   ########.fr        #
+#    Updated: 2024/01/18 09:42:45 by ebennix          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 EXE := replace
 
-CC := c++ -std=c++98
+CPP := c++ -std=c++98
 
 CPPFLAGS := -Wall -Wextra -Werror
 
@@ -29,10 +29,10 @@ RM := rm -rf
 all : $(EXE)
 
 $(EXE) : $(OBJ) 
-	$(CC)  $(OBJ) -o $(EXE)
+	$(CPP)  $(OBJ) -o $(EXE)
 
 %.o : %.cpp
-	$(CC) $(CPPFLAGS) -c -o $@ $< 
+	$(CPP) $(CPPFLAGS) -c -o $@ $< 
 
 clean :
 	$(RM) $(OBJ)

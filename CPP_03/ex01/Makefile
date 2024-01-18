@@ -6,17 +6,17 @@
 #    By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/09 11:52:08 by ebennix           #+#    #+#              #
-#    Updated: 2024/01/11 06:33:51 by ebennix          ###   ########.fr        #
+#    Updated: 2024/01/18 09:57:03 by ebennix          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-EXE := test00
+EXE := Exo_01
 
-CPP := clang++
+CPP := c++ -std=c++98
 
 CPPFLAGS := -Wall -Wextra -Werror
 
-INC := ClapTrap.hpp ScavTrap.hpp
+INC := ClapTrap.hpp ScavTrap.hpp \
 
 FILE := main \
 		ClapTrap \
@@ -26,24 +26,29 @@ SRC := $(FILE:=.cpp)
 
 OBJ := $(SRC:.cpp=.o)
 
+RM := rm -rf
+
 ################################################################################ 
 
 all: $(EXE)
 
 $(EXE): $(OBJ)
-	$(CPP) $(CPPFLAGS) $(OBJ) -o $(EXE)
+	$(CPP) $(OBJ) -o $(EXE)
 
 %.o: %.cpp $(INC)
 	$(CPP) $(CPPFLAGS) -c -o $@ $<
 
 clean:
-	rm -f $(OBJ)
+	$(RM) $(OBJ)
 
 fclean: clean
-	rm -rf $(EXE)
+	$(RM) $(EXE)
 
 re: fclean all
 
+git : fclean
+	sh ../../push.sh
+
 ################################################################################ 
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re git
