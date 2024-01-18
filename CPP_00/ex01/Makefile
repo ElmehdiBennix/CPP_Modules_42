@@ -6,21 +6,21 @@
 #    By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/30 20:45:13 by ebennix           #+#    #+#              #
-#    Updated: 2023/11/08 01:22:19 by ebennix          ###   ########.fr        #
+#    Updated: 2024/01/18 05:46:36 by ebennix          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-EXE := phonebook
+EXE := PhoneBook
 
-CC := c++
+CC := c++  -std=c++98
 
-CPPFLAGS := -std=c++98 -Wall -Wextra -Werror
+CPPFLAGS := -Wall -Wextra -Werror
 
-HEADER := phonebook.hpp
+HEADER := PhoneBook.hpp Contacts.hpp \
 
 SRC := main \
 	   Contacts \
-	   Phonebook \
+	   PhoneBook \
 
 FILES := $(SRC:=.cpp)
 

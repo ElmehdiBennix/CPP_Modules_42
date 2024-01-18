@@ -6,11 +6,15 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 20:05:30 by ebennix           #+#    #+#             */
-/*   Updated: 2023/11/01 21:34:23 by ebennix          ###   ########.fr       */
+/*   Updated: 2024/01/18 05:46:05 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Phonebook.hpp"
+#include "Contacts.hpp"
+
+Contacts::Contacts() : _first_name(""), _last_name(""), _nickname(""), _phone_number(""), _darkest_secret("") {};
+
+Contacts::Contacts(std::string& fname, std::string& lname, std::string& nname, std::string& nbr, std::string& secret) : _first_name(fname), _last_name(lname), _nickname(nname), _phone_number(nbr), _darkest_secret(secret) {};
 
 void    Contacts::display(void)
 {
@@ -21,7 +25,7 @@ void    Contacts::display(void)
     std::cout << " # darkest secret = " << _darkest_secret << std::endl;
 }
 
-string Contacts::trunc_getter(int argno)
+std::string Contacts::trunc_getter(int argno)
 {
     if (argno == 0)
         return (trunc(_first_name));
@@ -31,9 +35,9 @@ string Contacts::trunc_getter(int argno)
         return (trunc(_nickname));
 }
 
-string Contacts::trunc(const string& field)
+std::string Contacts::trunc(const std::string& field)
 {
-    string padded = field;
+    std::string padded = field;
     if (field.length() > 10)
         return (padded.substr(0, 9) + ".");
     else
