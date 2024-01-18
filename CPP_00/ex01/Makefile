@@ -6,13 +6,13 @@
 #    By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/30 20:45:13 by ebennix           #+#    #+#              #
-#    Updated: 2024/01/18 05:56:05 by ebennix          ###   ########.fr        #
+#    Updated: 2024/01/18 09:41:38 by ebennix          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 EXE := PhoneBook
 
-CC := c++  -std=c++98
+CPP := c++ -std=c++98
 
 CPPFLAGS := -Wall -Wextra -Werror
 
@@ -33,10 +33,10 @@ RM := rm -rf
 all : $(EXE)
 
 $(EXE) : $(OBJ)
-	$(CC) $(OBJ) -o $(EXE) 
+	$(CPP) $(OBJ) -o $(EXE) 
 
 %.o : %.cpp $(HEADER)
-	$(CC) $(CPPFLAGS) -c -o $@ $<
+	$(CPP) $(CPPFLAGS) -c -o $@ $<
 
 clean :
 	$(RM) $(OBJ)

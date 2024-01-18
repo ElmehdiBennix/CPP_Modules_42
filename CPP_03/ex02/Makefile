@@ -6,13 +6,13 @@
 #    By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/09 11:52:08 by ebennix           #+#    #+#              #
-#    Updated: 2024/01/11 06:33:28 by ebennix          ###   ########.fr        #
+#    Updated: 2024/01/18 09:58:13 by ebennix          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-EXE := test00
+EXE := Exo_02
 
-CPP := clang++
+CPP := c++ -std=c++98
 
 CPPFLAGS := -Wall -Wextra -Werror
 
@@ -26,6 +26,8 @@ SRC := $(FILE:=.cpp)
 
 OBJ := $(SRC:.cpp=.o)
 
+RM := rm -rf
+
 ################################################################################ 
 
 all: $(EXE)
@@ -37,13 +39,16 @@ $(EXE): $(OBJ)
 	$(CPP) $(CPPFLAGS) -c -o $@ $<
 
 clean:
-	rm -f $(OBJ)
+	$(RM) $(OBJ)
 
 fclean: clean
-	rm -rf $(EXE)
+	$(RM) $(EXE)
 
 re: fclean all
 
+git : fclean
+	sh ../../push.sh
+
 ################################################################################ 
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re git

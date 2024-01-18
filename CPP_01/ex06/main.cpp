@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 15:10:27 by ebennix           #+#    #+#             */
-/*   Updated: 2023/11/08 01:04:53 by ebennix          ###   ########.fr       */
+/*   Updated: 2024/01/18 09:38:40 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,9 @@
 
 int main(int ac, char *av[])
 {
-
-    (void)ac;
+    (void) ac;
 
     Harl h;
 
     h.complain(av[1]);
-
 }
