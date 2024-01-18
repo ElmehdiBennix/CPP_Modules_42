@@ -6,12 +6,12 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 20:05:30 by ebennix           #+#    #+#             */
-/*   Updated: 2024/01/18 05:48:28 by ebennix          ###   ########.fr       */
+/*   Updated: 2024/01/18 10:33:51 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONTACTS_HPP_
-#define CONTACTS_HPP_
+#ifndef CONTACTS_HPP__
+#define CONTACTS_HPP__
 
 #include <iostream>
 

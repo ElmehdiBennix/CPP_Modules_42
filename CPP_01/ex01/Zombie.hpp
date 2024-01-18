@@ -6,12 +6,12 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 20:27:30 by ebennix           #+#    #+#             */
-/*   Updated: 2024/01/18 06:18:56 by ebennix          ###   ########.fr       */
+/*   Updated: 2024/01/18 10:33:37 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP_
-#define ZOMBIE_HPP_
+#ifndef ZOMBIE_HPP__
+#define ZOMBIE_HPP__
 
 #include <iostream>
 
