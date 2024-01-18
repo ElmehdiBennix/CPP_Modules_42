@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 04:19:16 by ebennix           #+#    #+#             */
-/*   Updated: 2024/01/18 05:53:03 by ebennix          ###   ########.fr       */
+/*   Updated: 2024/01/18 09:08:03 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 //     system("leaks BraiiiiiiinnnzzzZ");
 // }
 
-int main (void)
+int main ( void )
 {
     randomChump("spitter");
     std::cout << "**************************************** " << std::endl;
