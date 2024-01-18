@@ -6,17 +6,17 @@
 #    By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/06 10:11:36 by ebennix           #+#    #+#              #
-#    Updated: 2023/11/07 16:20:28 by ebennix          ###   ########.fr        #
+#    Updated: 2024/01/18 05:57:28 by ebennix          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-EXE := Harl_2.0
+EXE := Harl_filter
 
-CC := c++ 
+CC := c++ -std=c++98 
 
 HEADER := Harl.hpp
 
-CPPFLAGS := -std=c++98 -Wall -Wextra -Werror
+CPPFLAGS := -Wall -Wextra -Werror
 
 SRC := main \
 	   Harl \
@@ -46,7 +46,7 @@ fclean : clean
 re : fclean all
 
 git : fclean
-	sh ../push.sh
+	sh ../../push.sh
 
 ################################################################################
 

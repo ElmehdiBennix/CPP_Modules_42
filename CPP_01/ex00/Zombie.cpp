@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 04:19:25 by ebennix           #+#    #+#             */
-/*   Updated: 2024/01/18 05:55:19 by ebennix          ###   ########.fr       */
+/*   Updated: 2024/01/18 06:13:46 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ Zombie::Zombie(std::string& _name) : name(_name)
     std::cout << "constructor has been called for : " << name << " ." << std::endl;
 }
 
-void Zombie::announce(void)
+void
+Zombie::announce(void)
 {
     std::cout << name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }

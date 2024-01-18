@@ -6,17 +6,17 @@
 #    By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/30 20:20:38 by ebennix           #+#    #+#              #
-#    Updated: 2023/11/06 15:02:48 by ebennix          ###   ########.fr        #
+#    Updated: 2024/01/18 06:18:17 by ebennix          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 EXE := Moar_brainz
 
-CC := c++ 
+CC := c++ -std=c++98
 
 HEADER := Zombie.hpp
 
-CPPFLAGS := -std=c++98 -Wall -Wextra -Werror
+CPPFLAGS := -Wall -Wextra -Werror
 
 SRC := main \
 	   Zombie \
@@ -47,7 +47,7 @@ fclean : clean
 re : fclean all
 
 git : fclean
-	sh ../push.sh
+	sh ../../push.sh
 
 ################################################################################
 
