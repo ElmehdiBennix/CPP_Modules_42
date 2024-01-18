@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 17:49:59 by ebennix           #+#    #+#             */
-/*   Updated: 2024/01/18 10:33:11 by ebennix          ###   ########.fr       */
+/*   Updated: 2024/01/18 10:37:49 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ class Weapon
     public:
         Weapon(const std::string& _type);
 
-        const std::string&   get_Type(void);
-        void    set_Type(const std::string& newType);
+        const std::string&  get_Type(void);
+        void                set_Type(const std::string& newType);
 
         ~Weapon(void);
 

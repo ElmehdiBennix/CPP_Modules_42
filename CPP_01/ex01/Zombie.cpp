@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 04:19:25 by ebennix           #+#    #+#             */
-/*   Updated: 2024/01/18 06:14:20 by ebennix          ###   ########.fr       */
+/*   Updated: 2024/01/18 10:38:25 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ Zombie::Zombie(void) : name("UNSET"), i(0)
     std::cout << "default constructor has been called for : " << name << "/" << i << " ." << std::endl;
 }
 
-Zombie::Zombie(std::string& _name, int _i) : name(_name), i(_i)
+Zombie::Zombie(const std::string& _name, int _i) : name(_name), i(_i)
 {
     std::cout << "constructor has been called for : " << name << "/" << i << " ." << std::endl;
 }
