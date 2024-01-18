@@ -6,14 +6,14 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 10:11:43 by ebennix           #+#    #+#             */
-/*   Updated: 2024/01/18 09:33:29 by ebennix          ###   ########.fr       */
+/*   Updated: 2024/01/18 10:37:35 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <fstream>
 
-void replace(std::string filename, std::string  s1, std::string s2)
+void replace(const std::string& filename, const std::string& s1, const std::string& s2)
 {
     std::ifstream infile(filename);
     if (!infile)
