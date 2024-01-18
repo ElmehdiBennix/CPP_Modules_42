@@ -6,13 +6,13 @@
 #    By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/30 20:20:38 by ebennix           #+#    #+#              #
-#    Updated: 2024/01/18 05:56:13 by ebennix          ###   ########.fr        #
+#    Updated: 2024/01/18 09:42:16 by ebennix          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 EXE := BraiiiiiiinnnzzzZ
 
-CC := c++ -std=c++98
+CPP := c++ -std=c++98
 
 HEADER := Zombie.hpp \
 
@@ -34,10 +34,10 @@ RM := rm -rf
 all : $(EXE)
 
 $(EXE) : $(OBJ)
-	$(CC)  $(OBJ) -o $(EXE)
+	$(CPP)  $(OBJ) -o $(EXE)
 
 %.o : %.cpp $(HEADER)
-	$(CC) $(CPPFLAGS) -c -o $@ $<
+	$(CPP) $(CPPFLAGS) -c -o $@ $<
 
 clean :
 	$(RM) $(OBJ)
