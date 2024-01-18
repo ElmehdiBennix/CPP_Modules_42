@@ -6,14 +6,13 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 04:19:16 by ebennix           #+#    #+#             */
-/*   Updated: 2024/01/18 06:18:37 by ebennix          ###   ########.fr       */
+/*   Updated: 2024/01/18 09:07:52 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include <string>
 
-int main()
+int main( void )
 {
     std::string     myString = "HI THIS IS BRAIN";
     std::string*    stringPTR = &myString;

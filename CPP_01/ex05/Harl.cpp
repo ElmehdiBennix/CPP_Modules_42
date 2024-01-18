@@ -6,42 +6,47 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 15:10:22 by ebennix           #+#    #+#             */
-/*   Updated: 2023/11/08 01:19:48 by ebennix          ###   ########.fr       */
+/*   Updated: 2024/01/18 09:32:57 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
 
-void Harl::complain(std::string level)
+void 
+Harl::complain(std::string level)
 {
     int i;
+
     std::string levels[4] = {"DEBUG","INFO","WARNING","ERROR"};
     void (Harl::*funcptr[4])(void) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
     for (i = 0; i < 4 && level != levels[i]; i++);
-    if (i == 4)
-    {
+    if (i == 4) {
         std::cout << "level : " << level << " does not exist ." << std::endl;
         return ;
     }
     (this->*funcptr[i])();
 }
 
-void Harl::debug(void)
+void
+Harl::debug(void) 
 {
     std::cout << "level : DEBUG = ''. " << std::endl;
 }
 
-void Harl::info(void)
+void
+Harl::info(void) 
 {
     std::cout << "level : INFO = ''. " << std::endl;
 }
 
-void Harl::warning(void)
+void
+Harl::warning(void) 
 {
     std::cout << "level : WARNING = ''. " << std::endl;
 }
 
-void Harl::error(void)
+void 
+Harl::error(void)
 {
     std::cout << "level : ERROR = ''. " << std::endl;
 }

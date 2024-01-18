@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 15:10:24 by ebennix           #+#    #+#             */
-/*   Updated: 2023/11/08 00:26:41 by ebennix          ###   ########.fr       */
+/*   Updated: 2024/01/18 09:37:38 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,12 @@
 #define HARL_HPP_
 
 #include <iostream>
+
+#define RESET "\033[0m";
+#define RED "\033[31m";
+#define GREEN "\033[32m";
+#define YELLOW "\033[33m";
+#define BLUE "\033[34m";
 
 class Harl
 {
@@ -26,7 +32,5 @@ class Harl
         void warning(void);
         void error(void);
 };
-
-
 
 #endif

@@ -6,15 +6,17 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 15:10:22 by ebennix           #+#    #+#             */
-/*   Updated: 2023/11/08 01:14:17 by ebennix          ###   ########.fr       */
+/*   Updated: 2024/01/18 09:36:59 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
 
-void Harl::complain(std::string level)
+void
+Harl::complain(std::string level)
 {
     int i = 0;
+
     std::string levels[4] = {"DEBUG","INFO","WARNING","ERROR"};
     for (;i < 4 && level != levels[i]; i++);
     switch (i)
@@ -31,26 +33,28 @@ void Harl::complain(std::string level)
         default:
             std::cout << "level : " << level << " does not exist ." << std::endl;
     }
-    
-    
-}
+};
 
-void Harl::debug(void)
+void
+Harl::debug(void)
 {
     std::cout << "level : DEBUG = ''. " << std::endl;
-}
+};
 
-void Harl::info(void)
+void
+Harl::info(void)
 {
     std::cout << "level : INFO = ''. " << std::endl;
-}
+};
 
-void Harl::warning(void)
+void
+Harl::warning(void)
 {
     std::cout << "level : WARNING = ''. " << std::endl;
-}
+};
 
-void Harl::error(void)
+void
+Harl::error(void)
 {
     std::cout << "level : ERROR = ''. " << std::endl;
-}
+};
