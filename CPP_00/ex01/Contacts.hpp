@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 20:05:30 by ebennix           #+#    #+#             */
-/*   Updated: 2024/01/18 10:33:51 by ebennix          ###   ########.fr       */
+/*   Updated: 2024/01/18 11:43:11 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 
 #include <iostream>
 
-class Contacts 
+class Contacts
 {
     public:
-        Contacts();
+        Contacts(void);
         Contacts(std::string& fname, std::string& lname, std::string& nname, std::string& nbr, std::string& secret);
 
         void    display(void);
