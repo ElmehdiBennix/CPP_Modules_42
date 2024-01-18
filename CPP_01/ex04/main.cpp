@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 10:11:43 by ebennix           #+#    #+#             */
-/*   Updated: 2023/11/06 15:04:52 by ebennix          ###   ########.fr       */
+/*   Updated: 2024/01/18 09:33:29 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,5 @@ int main(int ac, char **av)
         return 1;
     }
     replace(av[1], av[2], av[3]);
+    return 0;
 }

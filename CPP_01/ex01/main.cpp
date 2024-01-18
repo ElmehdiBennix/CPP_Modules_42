@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 04:19:16 by ebennix           #+#    #+#             */
-/*   Updated: 2023/11/04 17:54:30 by ebennix          ###   ########.fr       */
+/*   Updated: 2024/01/18 09:07:58 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 //     system("leaks Moar_brainz");
 // }
 
-int main (void)
+int main ( void )
 {
     int N = -5;
     Zombie *ptr = zombieHorde(N, "el gato");
