@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 07:43:24 by ebennix           #+#    #+#             */
-/*   Updated: 2024/01/18 10:34:33 by ebennix          ###   ########.fr       */
+/*   Updated: 2024/01/18 10:57:10 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,10 @@ class Point {
 
         Point& operator=(const Point &source);
 
-        Fixed getX() const { return x; }
-        Fixed getY() const { return y; }
-        ~Point( void );
+        Fixed get_X(void) const { return x; } // calls the copy constractor when i return this using the compiler is optimized for it its called (RVO) or (NRVO) to eliminate the need for the copy.
+        Fixed get_Y(void) const { return y; }
+
+        ~Point(void);
 
     private:
         const Fixed  x;

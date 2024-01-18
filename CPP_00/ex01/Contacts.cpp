@@ -6,13 +6,13 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 20:05:30 by ebennix           #+#    #+#             */
-/*   Updated: 2024/01/18 10:13:38 by ebennix          ###   ########.fr       */
+/*   Updated: 2024/01/18 11:43:05 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contacts.hpp"
 
-Contacts::Contacts() : _first_name(""), _last_name(""), _nickname(""), _phone_number(""), _darkest_secret("") {};
+Contacts::Contacts(void) : _first_name(""), _last_name(""), _nickname(""), _phone_number(""), _darkest_secret("") {};
 
 Contacts::Contacts(std::string& fname, std::string& lname, std::string& nname, std::string& nbr, std::string& secret) : _first_name(fname), _last_name(lname), _nickname(nname), _phone_number(nbr), _darkest_secret(secret) {};
 
