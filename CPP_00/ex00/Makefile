@@ -6,13 +6,13 @@
 #    By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/30 20:20:38 by ebennix           #+#    #+#              #
-#    Updated: 2023/11/08 01:22:19 by ebennix          ###   ########.fr        #
+#    Updated: 2024/01/18 04:08:33 by ebennix          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 EXE := megaphone
 
-CC := c++
+CC := c++ -std=c++98
 
 CPPFLAGS := -std=c++98 -Wall -Wextra -Werror
 
