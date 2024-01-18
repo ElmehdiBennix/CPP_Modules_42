@@ -6,17 +6,17 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 20:47:27 by ebennix           #+#    #+#             */
-/*   Updated: 2023/11/05 19:28:52 by ebennix          ###   ########.fr       */
+/*   Updated: 2024/01/18 05:46:22 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Phonebook.hpp"
+#include "PhoneBook.hpp"
 
 int main(void)
 {
     PhoneBook phonebook;
     
-    string command;
+    std::string command;
     std::cout << "      -> Welcome to the crappy phonebook <-      " << std::endl;
     std::cout << "##################################################" << std::endl;
 

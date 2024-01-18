@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Phonebook.cpp                                      :+:      :+:    :+:   */
+/*   phonebook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 20:05:27 by ebennix           #+#    #+#             */
-/*   Updated: 2023/11/01 21:35:34 by ebennix          ###   ########.fr       */
+/*   Updated: 2024/01/18 05:45:54 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Phonebook.hpp"
+#include "PhoneBook.hpp"
 
 void    PhoneBook::add(void)
 {
-    string fields[5] = {"first name : ", "last name : " ,"nickname : ", "phone number : ", "darkest secret : "};
-    string args[5];
+    std::string fields[5] = {"first name : ", "last name : " ,"nickname : ", "phone number : ", "darkest secret : "};
+    std::string args[5];
     if (index == MAX_CONTACTS)
     {
         std::cout << "-> Phonebook is full replacing the oldest one." << std::endl;
@@ -59,7 +59,7 @@ void    PhoneBook::search(void)
     get_index();
 }
 
-bool PhoneBook::isWhitespaceOrEmpty(const string& str) 
+bool PhoneBook::isWhitespaceOrEmpty(const std::string& str) 
 {
     for (int i = 0; str[i]; i++)
     {
@@ -69,19 +69,19 @@ bool PhoneBook::isWhitespaceOrEmpty(const string& str)
     return true;
 }
 
-bool PhoneBook::isNumeric(const string& str)
+bool PhoneBook::isNumeric(const std::string& str)
 {
     for (int i = 0; str[i]; i++)
     {
         if (!std::isdigit(str[i]))
             return false;
     }
-    return true;  // If all characters are numeric, return true
+    return true;
 }
 
 void    PhoneBook::get_index(void)
 {
-    string prompt;
+    std::string prompt;
     std::cout << "enter index : ";
     if (!std::getline(std::cin, prompt))
         exit_prog(2);
