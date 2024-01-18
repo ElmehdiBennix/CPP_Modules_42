@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 15:10:22 by ebennix           #+#    #+#             */
-/*   Updated: 2024/01/18 09:36:59 by ebennix          ###   ########.fr       */
+/*   Updated: 2024/01/18 10:14:55 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,28 +33,28 @@ Harl::complain(std::string level)
         default:
             std::cout << "level : " << level << " does not exist ." << std::endl;
     }
-};
+}
 
 void
 Harl::debug(void)
 {
     std::cout << "level : DEBUG = ''. " << std::endl;
-};
+}
 
 void
 Harl::info(void)
 {
     std::cout << "level : INFO = ''. " << std::endl;
-};
+}
 
 void
 Harl::warning(void)
 {
     std::cout << "level : WARNING = ''. " << std::endl;
-};
+}
 
 void
 Harl::error(void)
 {
     std::cout << "level : ERROR = ''. " << std::endl;
-};
+}

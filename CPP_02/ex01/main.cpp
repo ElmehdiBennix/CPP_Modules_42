@@ -6,11 +6,11 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 13:58:38 by ebennix           #+#    #+#             */
-/*   Updated: 2023/12/30 04:21:29 by ebennix          ###   ########.fr       */
+/*   Updated: 2024/01/18 10:31:25 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fixed.hpp"
+#include "Fixed.hpp"
 
 int main( void ) {
 
