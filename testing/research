@@ -131,3 +131,12 @@ Range of Values: If your computations involve very large or very small numbers, 
 Precision Requirements: If your computations require high precision, you'll need to consider which representation will best meet your needs. Fixed-point arithmetic can provide more precise results for a given number of bits when the values are within a certain range, while floating-point arithmetic can maintain precision over a wider range.
 Performance: Fixed-point arithmetic is generally faster than floating-point arithmetic, especially on hardware without dedicated floating-point units. However, the performance difference may not be noticeable in many applications.
 Complexity: Floating-point arithmetic is more complex to implement and understand, especially when it comes to handling rounding errors and other special cases. If simplicity and ease of implementation are important, fixed-point arithmetic might be the better choice.
+
+
+
+
+
+
+
+virtual function in the base class means it can be overwritten by another signature 
+we can add overide in the dirrived class to signify that it should overide the virtual function in base 
