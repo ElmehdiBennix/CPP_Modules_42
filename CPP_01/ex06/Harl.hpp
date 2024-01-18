@@ -6,12 +6,12 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 15:10:24 by ebennix           #+#    #+#             */
-/*   Updated: 2024/01/18 09:37:44 by ebennix          ###   ########.fr       */
+/*   Updated: 2024/01/18 10:32:49 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HARL_HPP_
-#define HARL_HPP_
+#ifndef HARL_HPP__
+#define HARL_HPP__
 
 #include <iostream>
 

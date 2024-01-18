@@ -6,12 +6,12 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 07:43:24 by ebennix           #+#    #+#             */
-/*   Updated: 2024/01/09 10:03:23 by ebennix          ###   ########.fr       */
+/*   Updated: 2024/01/18 10:34:33 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef POINT_HPP_
-#define POINT_HPP_
+#ifndef POINT_HPP__
+# define POINT_HPP__
 
 #include "Fixed.hpp"
 

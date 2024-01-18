@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.hpp                                      :+:      :+:    :+:   */
+/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 20:47:30 by ebennix           #+#    #+#             */
-/*   Updated: 2024/01/18 05:48:17 by ebennix          ###   ########.fr       */
+/*   Updated: 2024/01/18 10:33:55 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP_
-#define PHONEBOOK_HPP_
+#ifndef PHONEBOOK_HPP__
+#define PHONEBOOK_HPP__
 
 #include <iostream>
 #include "Contacts.hpp"
