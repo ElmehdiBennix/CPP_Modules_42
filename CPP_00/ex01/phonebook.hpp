@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 20:47:30 by ebennix           #+#    #+#             */
-/*   Updated: 2024/01/18 10:33:55 by ebennix          ###   ########.fr       */
+/*   Updated: 2024/01/19 20:17:08 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,10 @@ class PhoneBook
 
         void    add(void);
         void    search(void);
-        
+
     private:
         int      index;
-        bool      total_flag;
+        bool     total_flag;
         Contacts _contacts[MAX_CONTACTS];
 
         bool    isWhitespaceOrEmpty(const std::string& str);
