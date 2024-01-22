@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 15:10:22 by ebennix           #+#    #+#             */
-/*   Updated: 2024/01/18 10:41:54 by ebennix          ###   ########.fr       */
+/*   Updated: 2024/01/22 22:09:25 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ Harl::complain(std::string level)
     void (Harl::*funcptr[4])(void) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
     for (i = 0; i < 4 && level != levels[i]; i++);
     if (i == 4) {
-        std::cout << "level : " << level << " does not exist ." << std::endl;
+        std::cout << "level : '" << level << "' does not exist." << std::endl;
         return ;
     }
     (this->*funcptr[i])();
@@ -30,23 +30,27 @@ Harl::complain(std::string level)
 void
 Harl::debug(void) 
 {
-    std::cout << "level : DEBUG = ''. " << std::endl;
+    std::cout << "[ DEBUG ]" << std::endl;
+    std::cout << " Message : DEBUG = 'love having extra bacon for my 7XL-double-cheese-triple-pickle-special-ketchup burger. I really do !'" << std::endl;
 }
 
 void
 Harl::info(void) 
 {
-    std::cout << "level : INFO = ''. " << std::endl;
+    std::cout << "[ INFO ]" << std::endl;
+    std::cout << " Message : INFO = 'think I deserve to have some extra bacon for free. I’ve been coming for years whereas you started working here since last month.'" << std::endl;
 }
 
 void
 Harl::warning(void) 
 {
-    std::cout << "level : WARNING = ''. " << std::endl;
+    std::cout << "[ WARNING ]" << std::endl;
+    std::cout << " Message : WARNING = 'I think I deserve to have some extra bacon for free. I’ve been coming for ears whereas you started working here since last month.'" << std::endl;
 }
 
 void 
 Harl::error(void)
 {
-    std::cout << "level : ERROR = ''. " << std::endl;
+    std::cout << "[ ERROR ]" << std::endl;
+    std::cout << " Message : ERROR = 'his is unacceptable! I want to speak to the manager now.'" << std::endl;
 }
