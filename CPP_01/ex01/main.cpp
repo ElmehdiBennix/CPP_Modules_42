@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 04:19:16 by ebennix           #+#    #+#             */
-/*   Updated: 2024/01/18 09:07:58 by ebennix          ###   ########.fr       */
+/*   Updated: 2024/01/21 20:27:08 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,9 @@
 
 int main ( void )
 {
-    int N = -5;
+    int N = 5;
     Zombie *ptr = zombieHorde(N, "el gato");
+
     if (ptr == NULL)
         return (1);
 
@@ -28,9 +29,9 @@ int main ( void )
 
     for (int i = 0; i < N; i++)
         ptr[i].announce();
-    
+
     std::cout << "**************************************** " << std::endl;
-    
+
     delete[] ptr;
     // atexit(leaks);
     return 0;
