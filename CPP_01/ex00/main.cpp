@@ -6,22 +6,26 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 04:19:16 by ebennix           #+#    #+#             */
-/*   Updated: 2024/01/18 09:08:03 by ebennix          ###   ########.fr       */
+/*   Updated: 2024/01/19 21:25:26 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-// void leaks(void)
-// {
-//     system("leaks BraiiiiiiinnnzzzZ");
-// }
+void leaks(void)
+{
+    system("leaks BraiiiiiiinnnzzzZ");
+}
 
 int main ( void )
 {
     randomChump("spitter");
     std::cout << "**************************************** " << std::endl;
     randomChump("witch");
+    {
+        Zombie zambee = Zombie("tmp");
+        zambee.announce();
+    }
     std::cout << "**************************************** " << std::endl;
     Zombie *ptr ;
     ptr = newZombie("clicker");

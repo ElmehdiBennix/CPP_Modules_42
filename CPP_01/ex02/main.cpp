@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 04:19:16 by ebennix           #+#    #+#             */
-/*   Updated: 2024/01/18 09:07:52 by ebennix          ###   ########.fr       */
+/*   Updated: 2024/01/21 20:40:07 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ int main( void )
     std::cout << "-> Memory address of the string variable: " << &myString << std::endl;
     std::cout << "-> Memory address held by stringPTR: " << stringPTR << std::endl;
     std::cout << "-> Memory address held by stringREF: " << &stringREF << std::endl;
+    
+    std::cout << std::endl << "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++" << std::endl << std::endl;
 
     std::cout << "-> Value of the string variable: " << myString << std::endl;
     std::cout << "-> Value pointed to by stringPTR: " << *stringPTR << std::endl;
