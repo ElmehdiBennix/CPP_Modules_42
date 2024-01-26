@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 13:58:43 by ebennix           #+#    #+#             */
-/*   Updated: 2024/01/26 07:57:15 by ebennix          ###   ########.fr       */
+/*   Updated: 2024/01/26 09:03:34 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -166,7 +166,7 @@ Fixed::min(const Fixed& F_p_A, const Fixed& F_p_B)
 Fixed&
 Fixed::max(Fixed& F_p_A, Fixed& F_p_B)
 {
-    return (F_p_A.Fixed_point > F_p_B.Fixed_point)? F_p_A : F_p_B;
+    return (F_p_A.Fixed_point > F_p_B.Fixed_point)? F_p_A : F_p_B; 
 }
 
 const Fixed&

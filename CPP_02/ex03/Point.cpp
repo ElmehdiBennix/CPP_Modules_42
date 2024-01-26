@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 07:43:22 by ebennix           #+#    #+#             */
-/*   Updated: 2024/01/26 07:59:06 by ebennix          ###   ########.fr       */
+/*   Updated: 2024/01/26 09:12:40 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ Point::operator=(const Point &source)
 {
     if (this != &source)
     {
-        (Fixed)x = source.x;
-        (Fixed)y = source.y;
+        *((Fixed*)(&x))= source.x;
+        *((Fixed*)(&y)) = source.y;
     }
     return (*this);
 };
