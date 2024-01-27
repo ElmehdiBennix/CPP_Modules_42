@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 04:19:16 by ebennix           #+#    #+#             */
-/*   Updated: 2023/11/06 10:06:37 by ebennix          ###   ########.fr       */
+/*   Updated: 2024/01/23 22:02:27 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,3 @@ int main(void)
     
     return 0;
 }
-
-// Don’t forget to check for memory leaks.
-// In which case do you think it would be best to use a pointer to
-// Weapon? And a reference to Weapon? Why? Think about it before
-// starting this exercise.
-// 9

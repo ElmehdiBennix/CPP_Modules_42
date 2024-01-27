@@ -6,7 +6,7 @@
 #    By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/09 11:52:08 by ebennix           #+#    #+#              #
-#    Updated: 2024/01/18 09:58:13 by ebennix          ###   ########.fr        #
+#    Updated: 2024/01/27 16:32:39 by ebennix          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,7 @@ RM := rm -rf
 all: $(EXE)
 
 $(EXE): $(OBJ)
-	$(CPP) $(CPPFLAGS) $(OBJ) -o $(EXE)
+	$(CPP) $(OBJ) -o $(EXE)
 
 %.o: %.cpp $(INC)
 	$(CPP) $(CPPFLAGS) -c -o $@ $<
@@ -51,4 +51,4 @@ git : fclean
 
 ################################################################################ 
 
-.PHONY: all clean fclean re git
+.PHONY: clean fclean re git

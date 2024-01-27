@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 07:43:24 by ebennix           #+#    #+#             */
-/*   Updated: 2024/01/26 08:18:06 by ebennix          ###   ########.fr       */
+/*   Updated: 2024/01/27 14:02:26 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,10 @@ class Point {
 
         Point& operator=(const Point &source);
 
-        bool operator==(const Point &source) const {
-            return ((x == source.x && y == source.y) ? true : false );
-        };
+        bool operator==(const Point &source) const;
 
-        Fixed get_X(void) const { return x; }
-        Fixed get_Y(void) const { return y; }
+        Fixed get_X(void) const;
+        Fixed get_Y(void) const;
 
         ~Point(void);
 

@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 23:20:53 by ebennix           #+#    #+#             */
-/*   Updated: 2024/01/11 06:17:58 by ebennix          ###   ########.fr       */
+/*   Updated: 2024/01/27 14:25:17 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,19 @@
 
 #include "ClapTrap.hpp"
 
-class ScavTrap : public ClapTrap {
+class ScavTrap : public ClapTrap
+{
     public:
-        ScavTrap(std::string Name) : ClapTrap(Name, 100, 50, 20) {
-            std::cout << "ScavTrap " << Name << " created." << std::endl;
-        };
+        ScavTrap( void );
+        ScavTrap(const std::string& Name);
+        ScavTrap(const ScavTrap& source);
 
-        void guardGate() {
-            std::cout << "ScavTrap " << Name << " is now in Gate keeper mode." << std::endl;
-        };
+        ScavTrap& operator=(const ScavTrap& source);
 
-        ~ScavTrap() {
-            std::cout << "ScavTrap " << Name << " is being destroyed!" << std::endl;
-        };
+        void attack(const std::string& target);
+        void guardGate( void );
+
+        ~ScavTrap( void );
 };
-
 
 #endif

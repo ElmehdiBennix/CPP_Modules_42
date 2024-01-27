@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 23:20:53 by ebennix           #+#    #+#             */
-/*   Updated: 2024/01/11 14:40:06 by ebennix          ###   ########.fr       */
+/*   Updated: 2024/01/27 16:14:10 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,30 +15,19 @@
 
 #include "ClapTrap.hpp"
 
-class ScavTrap : virtual public ClapTrap {
+class ScavTrap : virtual public ClapTrap
+{
     public:
-        ScavTrap(std::string Name) : ClapTrap(Name, 100, 50, 20) {
-            std::cout << "ScavTrap " << Name << " created." << std::endl;
-            std::cout<<"pussy data ===>  "<< Name << " " << Hit_points << " " << Energy_points << " " << Attack_damage << " " << std::endl;
-        };
-        
-        void attack(const std::string& target) {
-            if (Energy_points > 0) {
-                std::cout << "ScavTrap " << Name << " attacks " << target << ", causing " << Attack_damage << " points of damage!" << std::endl;
-                Energy_points--;
-            } else {
-                std::cout << "ScavTrap " << Name << " has no energy points left to attack." << std::endl;
-            }
-        };
+        ScavTrap( void );
+        ScavTrap(const std::string& Name);
+        ScavTrap(const ScavTrap& source);
 
-        void guardGate() {
-            std::cout << "ScavTrap " << Name << " is now in Gate keeper mode." << std::endl;
-        };
+        ScavTrap& operator=(const ScavTrap& source);
 
-        ~ScavTrap() {
-            std::cout << "ScavTrap " << Name << " is being destroyed!" << std::endl;
-        };
+        void attack(const std::string& target);
+        void guardGate( void );
+
+        ~ScavTrap( void );
 };
-
 
 #endif

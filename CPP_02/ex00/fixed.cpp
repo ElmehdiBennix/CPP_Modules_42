@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 13:58:43 by ebennix           #+#    #+#             */
-/*   Updated: 2024/01/18 11:44:20 by ebennix          ###   ########.fr       */
+/*   Updated: 2024/01/26 05:23:26 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ Fixed::operator=(const Fixed &source)
 {
     if (this != &source)
     {
-        // in the subject they call getrawbits then they change the class value diffrant implementation 
         std::cout<<"Copy assigment operator called."<< std::endl;
         this->Fixed_point = source.Fixed_point;
     }
