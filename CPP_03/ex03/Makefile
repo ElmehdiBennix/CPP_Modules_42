@@ -6,7 +6,7 @@
 #    By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/09 11:52:08 by ebennix           #+#    #+#              #
-#    Updated: 2024/01/27 16:32:34 by ebennix          ###   ########.fr        #
+#    Updated: 2024/01/27 21:30:02 by ebennix          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,13 +16,13 @@ CPP := c++ -std=c++98
 
 CPPFLAGS := -Wall -Wextra -Werror -Wshadow
 
-INC := ClapTrap.hpp FragTrap.hpp ScavTrap.hpp DimondTrap.hpp
+INC := ClapTrap.hpp FragTrap.hpp ScavTrap.hpp DiamondTrap.hpp
 
 FILE := main \
 		ClapTrap \
 		FragTrap \
 		ScavTrap \
-		DimondTrap \
+		DiamondTrap \
 
 SRC := $(FILE:=.cpp)
 

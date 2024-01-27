@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 06:21:56 by ebennix           #+#    #+#             */
-/*   Updated: 2024/01/27 16:28:18 by ebennix          ###   ########.fr       */
+/*   Updated: 2024/01/27 21:19:01 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ FragTrap::FragTrap( void ) : ClapTrap("")
     ClapTrap::Attack_damage = 30;
 }
 
-FragTrap::FragTrap(const std::string& Name) : ClapTrap(Name)
+FragTrap::FragTrap(const std::string& _Name) : ClapTrap(_Name)
 {
     std::cout<<"FragTrap "<< Name << " created." << std::endl;
     ClapTrap::Hit_points = 100;

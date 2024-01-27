@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 23:20:50 by ebennix           #+#    #+#             */
-/*   Updated: 2024/01/27 16:28:28 by ebennix          ###   ########.fr       */
+/*   Updated: 2024/01/27 21:45:40 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ ScavTrap::ScavTrap( void ) : ClapTrap("")
     ClapTrap::Attack_damage = 20;
 }
 
-ScavTrap::ScavTrap(const std::string& Name) : ClapTrap(Name)
+ScavTrap::ScavTrap(const std::string& _Name) : ClapTrap(_Name)
 {
     std::cout << "ScavTrap " << Name << " created." << std::endl;
     ClapTrap::Hit_points = 100;
@@ -67,5 +67,5 @@ ScavTrap::guardGate( void )
 
 ScavTrap::~ScavTrap( void )
 {
-    std::cout << "ScavTrap " << Name << " destroyed!" << std::endl;
+    std::cout << "ScavTrap " << Name << " destroyed." << std::endl;
 }
