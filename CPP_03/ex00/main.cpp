@@ -6,12 +6,13 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 11:52:06 by ebennix           #+#    #+#             */
-/*   Updated: 2024/01/10 21:38:40 by ebennix          ###   ########.fr       */
+/*   Updated: 2024/01/26 10:28:46 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-int main ( void ) {
+int main ( void )
+{
     
-};
+}
