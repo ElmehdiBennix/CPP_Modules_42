@@ -6,14 +6,14 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 13:58:38 by ebennix           #+#    #+#             */
-/*   Updated: 2024/01/18 10:31:25 by ebennix          ###   ########.fr       */
+/*   Updated: 2024/01/26 08:03:15 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-int main( void ) {
-
+int main( void )
+{    
     Fixed       a;
     Fixed const b( 10 );
     Fixed const c( 42.42f );
