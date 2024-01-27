@@ -6,44 +6,51 @@
 #    By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/09 11:52:08 by ebennix           #+#    #+#              #
-#    Updated: 2024/01/11 06:33:28 by ebennix          ###   ########.fr        #
+#    Updated: 2024/01/27 16:32:34 by ebennix          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-EXE := test00
+EXE := Exo_03
 
-CPP := clang++
+CPP := c++ -std=c++98
 
-CPPFLAGS := -Wall -Wextra -Werror
+CPPFLAGS := -Wall -Wextra -Werror -Wshadow
 
-INC := ClapTrap.hpp FragTrap.hpp
+INC := ClapTrap.hpp FragTrap.hpp ScavTrap.hpp DimondTrap.hpp
 
 FILE := main \
 		ClapTrap \
 		FragTrap \
+		ScavTrap \
+		DimondTrap \
 
 SRC := $(FILE:=.cpp)
 
 OBJ := $(SRC:.cpp=.o)
+
+RM := rm -rf
 
 ################################################################################ 
 
 all: $(EXE)
 
 $(EXE): $(OBJ)
-	$(CPP) $(CPPFLAGS) $(OBJ) -o $(EXE)
+	$(CPP) $(OBJ) -o $(EXE)
 
 %.o: %.cpp $(INC)
 	$(CPP) $(CPPFLAGS) -c -o $@ $<
 
 clean:
-	rm -f $(OBJ)
+	$(RM) $(OBJ)
 
 fclean: clean
-	rm -rf $(EXE)
+	$(RM) $(EXE)
 
 re: fclean all
 
+git : fclean
+	sh ../../push.sh
+
 ################################################################################ 
 
-.PHONY: all clean fclean re
+.PHONY: clean fclean re git

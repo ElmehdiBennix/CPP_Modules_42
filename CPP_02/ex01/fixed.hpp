@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 13:58:41 by ebennix           #+#    #+#             */
-/*   Updated: 2024/01/18 11:00:06 by ebennix          ###   ########.fr       */
+/*   Updated: 2024/01/26 07:45:40 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,13 @@ class Fixed
         Fixed(void);
         Fixed(const int int_to_fixed);
         Fixed(const float float_to_fixed);
-        Fixed(const Fixed &source); // copy constractor
+        Fixed(const Fixed &source);
     
-        Fixed& operator=(const Fixed &source); // copy assig operator
+        Fixed& operator=(const Fixed &source);
 
         int getRawBits(void) const;
         void setRawBits(int const raw);
+
         float toFloat(void) const;
         int toInt(void) const;
     
@@ -44,7 +45,6 @@ class Fixed
         static const int Fractional_bits = 8;
 };
 
-// overlaod for the << operator;
 std::ostream& operator<<(std::ostream& os, const Fixed& obj); 
 
 #endif
