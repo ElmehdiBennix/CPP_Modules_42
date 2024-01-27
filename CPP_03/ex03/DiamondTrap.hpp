@@ -6,40 +6,28 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 06:41:15 by ebennix           #+#    #+#             */
-/*   Updated: 2024/01/27 16:29:06 by ebennix          ###   ########.fr       */
+/*   Updated: 2024/01/27 21:43:09 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DIAMONDTRAP_HPP_
-#define DIAMONDTRAP_HPP_
+#ifndef DIAMONDTRAP_HPP__
+#define DIAMONDTRAP_HPP__
 
 #include "ScavTrap.hpp"
 #include "FragTrap.hpp"
 
 class DiamondTrap : public ScavTrap , public FragTrap {
     public:
-        DiamondTrap(std::string _Name) : ClapTrap(_Name + "_clap_name"), ScavTrap(_Name), FragTrap(_Name), Name(_Name)
-        { 
-            FragTrap::Hit_points = 100;
-            ScavTrap::Energy_points = 50;
-            FragTrap::Attack_damage = 30;
-        };
+        DiamondTrap( void );
+        DiamondTrap(const std::string& _Name);
+        DiamondTrap(const DiamondTrap& source);
 
-        void attack(const std::string &target)
-        {
-            ScavTrap::attack(target);
-        };
+        DiamondTrap& operator=(const DiamondTrap& source);
 
-        void whoAmI()
-        {
-            std::cout<< "am DiamondTrap my name is " << this->Name << std::endl;
-            std::cout<< "am ClapTrap my name is " << ClapTrap::Name << std::endl;
-        };
+        using ScavTrap::attack;
+        void whoAmI();
 
-        ~DiamondTrap( void )
-        {
-            std::cout<<"DiamondTrap "<< Name << " is getting destroyed." << std::endl;
-        };
+        ~DiamondTrap( void );
 
     private:
         std::string Name;
