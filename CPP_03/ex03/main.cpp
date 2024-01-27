@@ -6,22 +6,29 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 06:41:28 by ebennix           #+#    #+#             */
-/*   Updated: 2024/01/27 21:44:32 by ebennix          ###   ########.fr       */
+/*   Updated: 2024/01/27 22:22:32 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
 
-int main ( void ) {
-    DiamondTrap one("Test");
-
-    std::cout << "   =======> Testing attack method...\n";
-    one.attack("enemy");
-    std::cout << "   =======> Testing whoAmI method...\n";
-    one.whoAmI();
-    std::cout << "   =======> finished ...\n";
-
-
+int main ( void )
+{    
+    DiamondTrap test_00("MONSTER");
+    
+    std::cout<<std::endl<<"-----------------------------------------------" << std::endl;
+    test_00.attack("HUMAN");
+    std::cout<<"-----------------------------------------------" << std::endl;
+    test_00.beRepaired(5);
+    std::cout<<"-----------------------------------------------" << std::endl;
+    test_00.takeDamage(10);
+    std::cout<<"-----------------------------------------------" << std::endl;
+    test_00.guardGate();
+    std::cout<<"-----------------------------------------------" << std::endl;
+    test_00.highFivesGuys();
+    std::cout<<"-----------------------------------------------" << std::endl;
+    test_00.whoAmI();
+    std::cout<<"-----------------------------------------------" << std::endl << std::endl;
+    
     return 0;
-
 }
