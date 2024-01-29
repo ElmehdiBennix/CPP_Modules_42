@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 20:36:58 by ebennix           #+#    #+#             */
-/*   Updated: 2024/01/16 14:45:49 by ebennix          ###   ########.fr       */
+/*   Updated: 2024/01/29 15:49:42 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,40 +15,40 @@
 
 #include <iostream>
 
-
-/*
-    Virtual destructor:
-    A virtual destructor is used to free up the memory space allocated by 
-    the derived class object or instance while deleting instances of the derived
-    class using a base class pointer object. A base or parent class destructor
-    use the virtual keyword that ensures both base class and the derived class 
-    destructor will be called at run time, but it called the derived class first
-    and then base class to release the space occupied by both destructors.
-
-    Every destructor down gets called no matter what. virtual makes sure it
-    starts at the top instead of the middle.
-
-    Virtual destructors are useful when you might potentially delete an instance 
-    of a derived class through a pointer to base class:
-*/
-
 class Animal {
     public:
-        Animal ( void ) : type("") {
-            std::cout << "Animal constractor called. " << std::endl;
-        };
+        Animal( void ) : type("")
+        {
+            std::cout << "Animal default Constructor called." << std::endl;
+        }
 
-        std::string getType() const {
-            return this->type;
-        };
-        
-        virtual void makeSound() const {
+        Animal(const Animal& source)
+        {
+            std::cout << "Animal copy Constructor called." << std::endl;
+            *this = source;
+        }
+
+        Animal& operator=(const Animal& source)
+        {
+            if (this != &source)
+                this->type = source.type;
+            return (*this);
+        }
+
+        virtual void makeSound( void ) const
+        {
             std::cout << "No Animal type. " << std::endl;
-        };
-        
-        virtual ~Animal ( void ) {
-            std::cout << "Animal distractor called. " << std::endl;
-        };
+        }
+
+        std::string getType( void ) const
+        {
+            return (this->type);
+        }
+
+        virtual ~Animal( void )
+        {
+            std::cout << "Animal destructor called." << std::endl;
+        }
 
     protected:
         std::string type;

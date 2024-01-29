@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 20:41:00 by ebennix           #+#    #+#             */
-/*   Updated: 2024/01/16 14:43:44 by ebennix          ###   ########.fr       */
+/*   Updated: 2024/01/29 15:55:33 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,33 @@
 
 class Dog : public Animal {
     public:
-        Dog( void ) : Animal() {
+        Dog( void ) : Animal()
+        {
             this->type = "Dog";
-            std::cout << "Dog constractor called. " << std::endl;
-
+            std::cout << this->type << " default constractor called. " << std::endl;
         };
 
-        void makeSound() const { // we gotta use override 
+        Dog(const Animal& source)
+        {
+            std::cout << this->type << " copy constractor called. " << std::endl;
+            *this = source;
+        }
+
+        Dog& operator=(const Dog& source)
+        {
+            if (this != &source)
+                this->type = source.type;
+            return (*this);
+        }
+
+        void makeSound( void ) const
+        {
             std::cout << "EY WHAT DA DOG DOING ?" << std::endl;
         };
 
-        ~Dog( void ) {
-            std::cout << "Dog distractor called. " << std::endl;
+        ~Dog( void )
+        {
+            std::cout << this->type << " destructor called." << std::endl;
         };
 };
 
