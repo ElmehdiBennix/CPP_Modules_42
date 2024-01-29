@@ -6,17 +6,17 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 14:56:04 by ebennix           #+#    #+#             */
-/*   Updated: 2024/01/16 15:35:01 by ebennix          ###   ########.fr       */
+/*   Updated: 2024/01/29 18:26:49 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "Dog.hpp"
+#include "Cat.hpp"
+#include "WrongCat.hpp"
 
-//  Animal is an abstract class and cannot be instantiated. Any class that inherits from Animal must provide an implementation for makeSound, otherwise it will also be an abstract class.
-
-int main()
+int main( void )
 {
-    const Animal* j = new Animal();
+    const AAnimal* j = new AAnimal();
     delete j;
 
     return 0;
