@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 15:46:58 by ebennix           #+#    #+#             */
-/*   Updated: 2024/01/18 04:04:02 by ebennix          ###   ########.fr       */
+/*   Updated: 2024/01/29 21:33:35 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,34 @@
 #define IMATERIASOURCE_HPP__
 
 #include "iostream"
+#include "AMateria.hpp"
 
-class IMateriaSource {
+class IMateriaSource
+{
     public:
         virtual AMateria* createMateria(std::string const & type) = 0;
         virtual void learnMateria(AMateria*) = 0;
         virtual ~IMateriaSource() {}
 };
 
-class MateriaSource: public IMateriaSource {
+class MateriaSource: public IMateriaSource
+{
     public:
-        MateriaSource() {
+        MateriaSource() 
+        {
             for (int i = 0; i < 4; i++)
                 inventory[i] = nullptr;
         }
 
-        MateriaSource(MateriaSource const & src) {
+        MateriaSource(MateriaSource const & src)
+        {
             for (int i = 0; i < 4; i++)
                 inventory[i] = nullptr;
             *this = src;
         }
     
-        MateriaSource & operator=(MateriaSource const & rhs) {
+        MateriaSource & operator=(MateriaSource const & rhs)
+        {
             if (this != &rhs) {
                 for (int i = 0; i < 4; i++) {
                     if (inventory[i])
@@ -46,7 +52,8 @@ class MateriaSource: public IMateriaSource {
             return *this;
         }
 
-        void learnMateria(AMateria* m) {
+        void learnMateria(AMateria* m)
+        {
             for (int i = 0; i < 4; i++) {
                 if (!inventory[i]) {
                     inventory[i] = m->clone();
@@ -55,7 +62,8 @@ class MateriaSource: public IMateriaSource {
             }
         }
 
-        AMateria* createMateria(std::string const & type) {
+        AMateria* createMateria(std::string const & type)
+        {
             for (int i = 0; i < 4; i++) {
                 if (inventory[i] && inventory[i]->getType() == type)
                     return inventory[i]->clone();
@@ -63,7 +71,8 @@ class MateriaSource: public IMateriaSource {
             return 0;
         }
 
-        ~MateriaSource() {
+        ~MateriaSource()
+        {
             for (int i = 0; i < 4; i++)
                 if (inventory[i])
                     delete inventory[i];

@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 21:26:14 by ebennix           #+#    #+#             */
-/*   Updated: 2023/12/31 05:59:27 by ebennix          ###   ########.fr       */
+/*   Updated: 2024/01/29 05:12:09 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
     //}
 //}
 
-namespace {
+namespace ss{
     class blud
     {
         public:

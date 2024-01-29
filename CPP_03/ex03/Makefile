@@ -6,7 +6,7 @@
 #    By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/09 11:52:08 by ebennix           #+#    #+#              #
-#    Updated: 2024/01/27 21:30:02 by ebennix          ###   ########.fr        #
+#    Updated: 2024/01/27 22:23:12 by ebennix          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ EXE := Exo_03
 
 CPP := c++ -std=c++98
 
-CPPFLAGS := -Wall -Wextra -Werror -Wshadow
+CPPFLAGS := -Wall -Wextra -Werror
 
 INC := ClapTrap.hpp FragTrap.hpp ScavTrap.hpp DiamondTrap.hpp
 

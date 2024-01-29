@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 23:20:50 by ebennix           #+#    #+#             */
-/*   Updated: 2024/01/27 16:28:03 by ebennix          ###   ########.fr       */
+/*   Updated: 2024/01/27 21:48:11 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,5 +66,5 @@ ScavTrap::guardGate( void )
 
 ScavTrap::~ScavTrap( void )
 {
-    std::cout << "ScavTrap " << Name << "destroyed!" << std::endl;
+    std::cout << "ScavTrap " << Name << " destroyed." << std::endl;
 }

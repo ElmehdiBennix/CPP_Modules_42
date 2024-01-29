@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 20:40:56 by ebennix           #+#    #+#             */
-/*   Updated: 2024/01/29 15:55:35 by ebennix          ###   ########.fr       */
+/*   Updated: 2024/01/29 16:12:44 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,34 +17,14 @@
 
 class Cat : public Animal {
     public:
-        Cat( void ) : Animal()
-        {
-            this->type = "Cat";
-            std::cout << this->type << " default constractor called. " << std::endl;
-        };
-        
-        Cat(const Animal& source)
-        {
-            std::cout << this->type << " copy constractor called. " << std::endl;
-            *this = source;
-        }
+        Cat( void );
+        Cat(const Cat& source);
 
-        Cat& operator=(const Cat& source)
-        {
-            if (this != &source)
-                this->type = source.type;
-            return (*this);
-        }
+        Cat& operator=(const Cat& source);
 
-        void makeSound( void ) const 
-        {
-            std::cout << "MEAAWWWWW ....  " << std::endl;
-        };
+        void makeSound( void ) const;
 
-        ~Cat( void )
-        {
-            std::cout << this->type << " destructor called." << std::endl;
-        };
+        ~Cat( void );
 };
 
 #endif
