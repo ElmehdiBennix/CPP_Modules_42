@@ -17,25 +17,18 @@
 
 class WrongAnimal {
     public:
-       WrongAnimal( void ) : type("") {
-            std::cout << "WrongAnimal constractor called. " << std::endl;
-       };
+        WrongAnimal( void );
+        WrongAnimal(const WrongAnimal& source);
 
-        std::string getType() const {
-            return this->type;
-        };
-        
-        void makeSound() const {
-            std::cout << "No Animal type. " << std::endl;
-        };
+        WrongAnimal& operator=(const WrongAnimal& source);
 
-       ~WrongAnimal( void ) {
-            std::cout << "WrongAnimal distractor called. " << std::endl;
-       };
+        void makeSound( void ) const;
+        std::string getType( void ) const;
+
+        virtual ~WrongAnimal( void );
 
     protected:
         std::string type;
 };
-
 
 #endif

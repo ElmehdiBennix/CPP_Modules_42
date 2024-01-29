@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 06:21:56 by ebennix           #+#    #+#             */
-/*   Updated: 2024/01/27 16:27:53 by ebennix          ###   ########.fr       */
+/*   Updated: 2024/01/27 21:48:03 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,5 +55,5 @@ FragTrap::highFivesGuys(void)
 
 FragTrap::~FragTrap( void )
 {
-    std::cout<<"FragTrap "<< Name << "destroyed." << std::endl;
+    std::cout<<"FragTrap "<< Name << " destroyed." << std::endl;
 }
