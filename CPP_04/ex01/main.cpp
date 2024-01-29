@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 14:56:04 by ebennix           #+#    #+#             */
-/*   Updated: 2024/01/29 18:18:49 by ebennix          ###   ########.fr       */
+/*   Updated: 2024/01/29 18:20:00 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "Cat.hpp"
 #include "WrongCat.hpp"
 
-int main( void )
+int main( void ) // implement the test they said in the subject
 {
     Animal* j = new Dog();
     Animal* k = new Dog(*(Dog*)(j)); // Use copy constructor
