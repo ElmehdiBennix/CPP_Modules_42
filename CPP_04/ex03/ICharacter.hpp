@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   iCharacter.hpp                                     :+:      :+:    :+:   */
+/*   ICharacter.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 15:43:54 by ebennix           #+#    #+#             */
-/*   Updated: 2024/01/18 04:04:00 by ebennix          ###   ########.fr       */
+/*   Updated: 2024/01/29 21:31:44 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 
 #include "iostream"
 
-class ICharacter {
+class ICharacter
+{
     public:
         virtual std::string const & getName() const = 0;
         virtual void equip(AMateria* m) = 0;
@@ -27,57 +28,75 @@ class ICharacter {
 
 class Character : public ICharacter {
     public:
-        Character(std::string const & name): name(name) {
+        Character( void ): name("")
+        {
+            for (int i = 0; i < 4; i++)
+                inventory[i] = nullptr;
+        }
+
+        Character(std::string const &name): name(name)
+        {
             for (int i = 0; i < 4; i++)
                 inventory[i] = nullptr;
         }
     
-        Character(Character const & src): name(src.name) {
-            for (int i = 0; i < 4; i++)
-                inventory[i] = nullptr;
-            *this = src;
+        Character(Character const &source)
+        {
+            *this = source;
         }
     
-        Character & operator=(Character const & rhs) {
-            if (this != &rhs) {
-                for (int i = 0; i < 4; i++) {
+        Character & operator=(Character const &source)
+        {
+            if (this != &source) 
+            {
+                this->name = source.name;
+                for (int i = 0; i < 4; i++) 
+                {
                     if (inventory[i])
                         delete inventory[i];
-                    inventory[i] = rhs.inventory[i] ? rhs.inventory[i]->clone() : 0;
+                    inventory[i] = (source.inventory[i]) ? source.inventory[i]->clone() : nullptr;
                 }
             }
             return *this;
         }
     
-        virtual ~Character() {
-            for (int i = 0; i < 4; i++)
-                if (inventory[i])
-                    delete inventory[i];
-        }
-    
-        virtual std::string const & getName() const {
+        virtual std::string const & getName() const
+        {
             return name;
         }
     
-        virtual void equip(AMateria* m) {
-            for (int i = 0; i < 4; i++) {
-                if (!inventory[i]) {
+        virtual void equip(AMateria* m)
+        {
+            for (int i = 0; i < 4; i++)
+            {
+                if (!inventory[i])
+                {
                     inventory[i] = m;
                     return;
                 }
             }
         }
     
-        virtual void unequip(int idx) {
+        virtual void unequip(int idx)
+        {
             if (idx < 0 || idx >= 4 || !inventory[idx])
                 return;
             inventory[idx] = nullptr;
         }
     
-        virtual void use(int idx, ICharacter& target) {
+        virtual void use(int idx, ICharacter& target)
+        {
             if (idx < 0 || idx >= 4 || !inventory[idx])
                 return;
             inventory[idx]->use(target);
+            inventory[idx] = nullptr;
+        }
+
+        virtual ~Character()
+        {
+            for (int i = 0; i < 4; i++)
+                if (inventory[i])
+                    delete inventory[i];
         }
     
     private:

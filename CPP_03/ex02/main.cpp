@@ -6,12 +6,25 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 11:52:06 by ebennix           #+#    #+#             */
-/*   Updated: 2024/01/11 06:34:03 by ebennix          ###   ########.fr       */
+/*   Updated: 2024/01/27 22:08:49 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 
-int main ( void ) {
-    FragTrap one("robot");
-};
+int main ( void )
+{    
+    FragTrap test_00("MONSTER");
+    
+    std::cout<<std::endl<<"-----------------------------------------------" << std::endl;
+    test_00.attack("HUMAN");
+    std::cout<<"-----------------------------------------------" << std::endl;
+    test_00.beRepaired(5);
+    std::cout<<"-----------------------------------------------" << std::endl;
+    test_00.takeDamage(10);
+    std::cout<<"-----------------------------------------------" << std::endl;
+    test_00.highFivesGuys();
+    std::cout<<"-----------------------------------------------" << std::endl << std::endl;
+    
+    return 0;
+}

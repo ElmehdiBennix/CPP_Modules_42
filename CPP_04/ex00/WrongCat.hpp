@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 21:18:47 by ebennix           #+#    #+#             */
-/*   Updated: 2024/01/16 14:43:07 by ebennix          ###   ########.fr       */
+/*   Updated: 2024/01/29 16:12:31 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,14 @@
 
 class WrongCat : public WrongAnimal {
     public:
-        WrongCat() : WrongAnimal() {
-            type = "WrongCat";
-            std::cout << "WrongCat constractor called. " << std::endl;
-        };
+        WrongCat( void );
+        WrongCat(const WrongCat& source);
 
-        void makeSound() const {
-            std::cout << "Meaw ... " << std::endl;
-        };
+        WrongCat& operator=(const WrongCat& source);
 
-        ~WrongCat() {
-            std::cout << "WrongCat distractor called. " << std::endl;
-        };
+        void makeSound( void ) const;
+
+        ~WrongCat( void );
 };
 
 #endif

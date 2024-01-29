@@ -6,42 +6,51 @@
 #    By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/16 15:35:48 by ebennix           #+#    #+#              #
-#    Updated: 2024/01/18 03:54:52 by ebennix          ###   ########.fr        #
+#    Updated: 2024/01/29 21:34:42 by ebennix          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-EXE := test00
+EXE := Exo_03
 
-CPP := clang++
+CPP := c++ -std=c++98
 
 CPPFLAGS := -Wall -Wextra -Werror
 
-INC := ICharacter.hpp IMateriaSource.hpp AMateria.hpp \
+INC := ICharacter.hpp IMateriaSource.hpp AMateria.hpp Cure.hpp Ice.cpp 
 
 FILE := main \
+		AMateria \
+		Cure \
+		Ice \
+		ICharacter \
 
 SRC := $(FILE:=.cpp)
 
 OBJ := $(SRC:.cpp=.o)
+
+RM := rm -rf
 
 ################################################################################ 
 
 all: $(EXE)
 
 $(EXE): $(OBJ)
-	$(CPP) $(CPPFLAGS) $(OBJ) -o $(EXE)
+	$(CPP) $(OBJ) -o $(EXE)
 
 %.o: %.cpp $(INC)
 	$(CPP) $(CPPFLAGS) -c -o $@ $<
 
 clean:
-	rm -f $(OBJ)
+	$(RM) $(OBJ)
 
 fclean: clean
-	rm -rf $(EXE)
+	$(RM) $(EXE)
 
 re: fclean all
 
+git : fclean
+	sh ../../push.sh
+
 ################################################################################ 
 
-.PHONY: all clean fclean re
+.PHONY: clean fclean re git
