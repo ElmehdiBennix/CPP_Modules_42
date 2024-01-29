@@ -1,35 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/12 20:41:00 by ebennix           #+#    #+#             */
-/*   Updated: 2024/01/29 17:22:24 by ebennix          ###   ########.fr       */
+/*   Created: 2024/01/14 21:18:47 by ebennix           #+#    #+#             */
+/*   Updated: 2024/01/29 16:12:31 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP__
-#define DOG_HPP__
+#ifndef WRONGCAT_HPP__
+#define WRONGCAT_HPP__
 
-#include "Animal.hpp"
-#include "Brain.hpp"
+#include "WrongAnimal.hpp"
 
-class Dog : public Animal {
+class WrongCat : public WrongAnimal {
     public:
-        Dog( void );
-        Dog(const std::string& head_ideas);
-        Dog(const Dog& source);
+        WrongCat( void );
+        WrongCat(const WrongCat& source);
 
-        Dog& operator=(const Dog& source);
+        WrongCat& operator=(const WrongCat& source);
 
         void makeSound( void ) const;
 
-        ~Dog( void );
-
-    private:
-        Brain *head;
+        ~WrongCat( void );
 };
 
 #endif
