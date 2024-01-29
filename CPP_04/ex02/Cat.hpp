@@ -1,34 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal copy.hpp                                    :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/12 20:36:58 by ebennix           #+#    #+#             */
-/*   Updated: 2024/01/29 18:24:17 by ebennix          ###   ########.fr       */
+/*   Created: 2024/01/12 20:40:56 by ebennix           #+#    #+#             */
+/*   Updated: 2024/01/29 18:25:09 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP__
-#define ANIMAL_HPP__
+#ifndef CAT_HPP__
+#define CAT_HPP__
 
-#include <iostream>
+#include "Animal.hpp"
+#include "Brain.hpp"
 
-class AAnimal {
+class Cat : public AAnimal {
     public:
-        AAnimal( void );
-        AAnimal(const AAnimal& source);
+        Cat( void );
+        Cat(const std::string& head_ideas);
+        Cat(const Cat& source);
 
-        AAnimal& operator=(const AAnimal& source);
+        Cat& operator=(const Cat& source);
 
-        virtual void makeSound( void ) const = 0;
-        std::string getType( void ) const;
+        void makeSound( void ) const;
 
-        virtual ~AAnimal( void );
+        ~Cat( void );
 
-    protected:
-        std::string type;
+    private:
+        Brain *head;
 };
 
 #endif

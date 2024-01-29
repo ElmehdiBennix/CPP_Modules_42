@@ -1,34 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal copy.hpp                                    :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/12 20:36:58 by ebennix           #+#    #+#             */
-/*   Updated: 2024/01/29 18:24:17 by ebennix          ###   ########.fr       */
+/*   Created: 2024/01/16 15:12:31 by ebennix           #+#    #+#             */
+/*   Updated: 2024/01/29 17:38:00 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP__
-#define ANIMAL_HPP__
+#ifndef BRAIN_HPP__
+#define BRAIN_HPP__
 
-#include <iostream>
+#include "iostream"
 
-class AAnimal {
+class Brain {
     public:
-        AAnimal( void );
-        AAnimal(const AAnimal& source);
+        Brain( void );
+        Brain(const std::string& _idea);
+        Brain(const Brain& source);
 
-        AAnimal& operator=(const AAnimal& source);
+        Brain& operator=(const Brain& source);
 
-        virtual void makeSound( void ) const = 0;
-        std::string getType( void ) const;
+        ~Brain( void );
 
-        virtual ~AAnimal( void );
-
-    protected:
-        std::string type;
+    private:
+        std::string ideas[100];
 };
 
 #endif
