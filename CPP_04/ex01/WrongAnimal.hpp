@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
+/*   B: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/12 20:36:58 by ebennix           #+#    #+#             */
-/*   Updated: 2024/01/29 17:35:52 by ebennix          ###   ########.fr       */
+/*   Created: 2024/01/14 21:18:38 by ebennix           #+#    #+#             */
+/*   Updated: 2024/01/14 22:35:05 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP__
-#define ANIMAL_HPP__
+#ifndef WRONGANIMAL_HPP__
+#define WRONGANIMAL_HPP__
 
 #include <iostream>
 
-class Animal {
+class WrongAnimal {
     public:
-        Animal( void );
-        Animal(const Animal& source);
+        WrongAnimal( void );
+        WrongAnimal(const WrongAnimal& source);
 
-        Animal& operator=(const Animal& source);
+        WrongAnimal& operator=(const WrongAnimal& source);
 
-        virtual void makeSound( void ) const;
+        void makeSound( void ) const;
         std::string getType( void ) const;
 
-        virtual ~Animal( void );
+        virtual ~WrongAnimal( void );
 
     protected:
         std::string type;

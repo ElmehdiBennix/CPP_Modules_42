@@ -6,22 +6,23 @@
 #    By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/14 20:06:32 by ebennix           #+#    #+#              #
-#    Updated: 2024/01/16 14:47:08 by ebennix          ###   ########.fr        #
+#    Updated: 2024/01/29 16:40:18 by ebennix          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-EXE := test00
+EXE := Exo_01
 
-CPP := clang++
+CPP := c++ -std=c++98
 
 CPPFLAGS := -Wall -Wextra -Werror
 
-INC := Animal.hpp Cat.hpp Dog.hpp WrongAnimal.hpp WrongCat.hpp\
+INC := Animal.hpp Cat.hpp Dog.hpp Brain.hpp WrongAnimal.hpp WrongCat.hpp
 
 FILE := main \
 		Animal \
 		Cat \
 		Dog \
+		Brain \
 		WrongAnimal \
 		WrongCat \
 
@@ -29,24 +30,29 @@ SRC := $(FILE:=.cpp)
 
 OBJ := $(SRC:.cpp=.o)
 
+RM := rm -rf
+
 ################################################################################ 
 
 all: $(EXE)
 
 $(EXE): $(OBJ)
-	$(CPP) $(CPPFLAGS) $(OBJ) -o $(EXE)
+	$(CPP) $(OBJ) -o $(EXE)
 
 %.o: %.cpp $(INC)
 	$(CPP) $(CPPFLAGS) -c -o $@ $<
 
 clean:
-	rm -f $(OBJ)
+	$(RM) $(OBJ)
 
 fclean: clean
-	rm -rf $(EXE)
+	$(RM) $(EXE)
 
 re: fclean all
 
+git : fclean
+	sh ../../push.sh
+
 ################################################################################ 
 
-.PHONY: all clean fclean re
+.PHONY: clean fclean re git
