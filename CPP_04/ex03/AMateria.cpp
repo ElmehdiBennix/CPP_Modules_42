@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 15:38:29 by ebennix           #+#    #+#             */
-/*   Updated: 2024/01/29 19:34:08 by ebennix          ###   ########.fr       */
+/*   Updated: 2024/01/30 13:09:39 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ AMateria::getType( void ) const
 void
 AMateria::use(ICharacter& target)
 {
+    (void) target;
     std::cout << "Unknown Materia." << std::endl;
 }
 

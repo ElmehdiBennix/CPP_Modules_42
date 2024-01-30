@@ -6,7 +6,7 @@
 #    By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/16 15:35:48 by ebennix           #+#    #+#              #
-#    Updated: 2024/01/29 21:34:42 by ebennix          ###   ########.fr        #
+#    Updated: 2024/01/30 12:25:30 by ebennix          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,13 +16,15 @@ CPP := c++ -std=c++98
 
 CPPFLAGS := -Wall -Wextra -Werror
 
-INC := ICharacter.hpp IMateriaSource.hpp AMateria.hpp Cure.hpp Ice.cpp 
+INC := AMateria.hpp ICharacter.hpp Ice.cpp Cure.hpp IMateriaSource.hpp MateriaSource.hpp Character.hpp
 
 FILE := main \
 		AMateria \
-		Cure \
 		Ice \
-		ICharacter \
+		Cure \
+		MateriaSource \
+		Character \
+		
 
 SRC := $(FILE:=.cpp)
 
