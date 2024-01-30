@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 15:40:01 by ebennix           #+#    #+#             */
-/*   Updated: 2024/01/29 19:49:26 by ebennix          ###   ########.fr       */
+/*   Updated: 2024/01/30 12:06:24 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class Ice: public AMateria
 
         Ice& operator=(const Ice& source);
 
-        virtual void use(ICharacter& target);
+        void use(ICharacter& target);
         virtual AMateria* clone() const;
 
         virtual ~Ice();
