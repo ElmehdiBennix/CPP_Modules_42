@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 14:56:04 by ebennix           #+#    #+#             */
-/*   Updated: 2024/01/29 18:20:00 by ebennix          ###   ########.fr       */
+/*   Updated: 2024/01/30 16:35:48 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,22 @@
 #include "Cat.hpp"
 #include "WrongCat.hpp"
 
-int main( void ) // implement the test they said in the subject
+#define MAX 20
+
+int main( void )
 {
-    Animal* j = new Dog();
-    Animal* k = new Dog(*(Dog*)(j)); // Use copy constructor
+    Animal *obj[MAX];
 
-    const Animal* i = new Cat();
+    for (int i = 0; i < MAX; i++)
+    {
+        if (i < (MAX/2))
+            obj[i] = new Dog();
+        else
+            obj[i] = new Cat();        
+    }
 
-    delete i;
-    delete k;
-    delete j;
-
-    system("leaks Exo_01");
+    for (int i = 0; i < MAX; i++)
+        delete obj[i];
 
     return 0;
 }

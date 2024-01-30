@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 15:12:31 by ebennix           #+#    #+#             */
-/*   Updated: 2024/01/29 17:38:00 by ebennix          ###   ########.fr       */
+/*   Updated: 2024/01/30 17:11:31 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 
 #include "iostream"
 
-class Brain {
+class Brain
+{
     public:
         Brain( void );
         Brain(const std::string& _idea);
