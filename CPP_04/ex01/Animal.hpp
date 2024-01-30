@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 20:36:58 by ebennix           #+#    #+#             */
-/*   Updated: 2024/01/29 17:35:52 by ebennix          ###   ########.fr       */
+/*   Updated: 2024/01/30 17:11:34 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 
 #include <iostream>
 
-class Animal {
+class Animal
+{
     public:
         Animal( void );
         Animal(const Animal& source);
