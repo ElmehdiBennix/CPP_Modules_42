@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 21:18:47 by ebennix           #+#    #+#             */
-/*   Updated: 2024/01/29 16:12:31 by ebennix          ###   ########.fr       */
+/*   Updated: 2024/01/30 17:10:37 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 
 #include "WrongAnimal.hpp"
 
-class WrongCat : public WrongAnimal {
+class WrongCat : public WrongAnimal
+{
     public:
         WrongCat( void );
         WrongCat(const WrongCat& source);

@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 20:40:56 by ebennix           #+#    #+#             */
-/*   Updated: 2024/01/29 18:25:09 by ebennix          ###   ########.fr       */
+/*   Updated: 2024/01/30 17:10:59 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 #include "Animal.hpp"
 #include "Brain.hpp"
 
-class Cat : public AAnimal {
+class Cat : public AAnimal
+{
     public:
         Cat( void );
         Cat(const std::string& head_ideas);

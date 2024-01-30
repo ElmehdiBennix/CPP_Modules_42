@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 20:40:58 by ebennix           #+#    #+#             */
-/*   Updated: 2024/01/30 15:38:01 by ebennix          ###   ########.fr       */
+/*   Updated: 2024/01/30 17:41:32 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,9 @@ Dog::operator=(const Dog& source)
     {
 	    std::cout << "Dog Copy assignment operator called." << std::endl;
         this->type = source.type;
-        if (this->head) // test it out
+        if (this->head)
             delete this->head;
-        this->head = new Brain(*source.head); // copy values source.head deep copy
+        this->head = new Brain(*source.head);
     }
     return (*this);
 }

@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 15:38:26 by ebennix           #+#    #+#             */
-/*   Updated: 2024/01/30 12:03:46 by ebennix          ###   ########.fr       */
+/*   Updated: 2024/01/30 16:01:57 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ class AMateria
         AMateria(std::string const & type);
         AMateria(const AMateria& source);
 
+        AMateria&   operator=(const AMateria& source);
         std::string const & getType() const;
         virtual void use(ICharacter& target);
         virtual AMateria* clone() const = 0;
