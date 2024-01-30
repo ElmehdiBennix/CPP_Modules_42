@@ -6,22 +6,15 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 15:35:50 by ebennix           #+#    #+#             */
-/*   Updated: 2024/01/30 13:25:33 by ebennix          ###   ########.fr       */
+/*   Updated: 2024/01/30 16:04:10 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
 #include "MateriaSource.hpp"
 
-void f()
-{
-    system("leaks Exo_03");
-}
-
 int main( void )
 {
-    atexit(f);
-
     IMateriaSource* src = new MateriaSource();
     src->learnMateria(new Ice());
     src->learnMateria(new Cure());
@@ -34,6 +27,9 @@ int main( void )
     ICharacter* bob = new Character("bob");
     me->use(0, *bob);
     me->use(1, *bob);
+    me->use(1, *bob);
+    me->use(1, *bob);
+
 
     delete bob;
     delete me;

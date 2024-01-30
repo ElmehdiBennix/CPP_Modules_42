@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 15:43:54 by ebennix           #+#    #+#             */
-/*   Updated: 2024/01/30 12:21:59 by ebennix          ###   ########.fr       */
+/*   Updated: 2024/01/30 15:49:21 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,7 @@ class ICharacter
         virtual void equip(AMateria* m) = 0;
         virtual void unequip(int idx) = 0;
         virtual void use(int idx, ICharacter& target) = 0;
-    
-        virtual ~ICharacter() {}
+        virtual ~ICharacter() {};
 };
 
 #endif

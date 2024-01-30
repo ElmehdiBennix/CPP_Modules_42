@@ -15,7 +15,8 @@
 
 #include <iostream>
 
-class WrongAnimal {
+class WrongAnimal
+{
     public:
         WrongAnimal( void );
         WrongAnimal(const WrongAnimal& source);
