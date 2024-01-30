@@ -6,16 +6,22 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 15:35:50 by ebennix           #+#    #+#             */
-/*   Updated: 2024/01/18 04:03:03 by ebennix          ###   ########.fr       */
+/*   Updated: 2024/01/30 13:25:33 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AMateria.hpp"
-#include "IMateriaSource.hpp"
-#include "ICharacter.hpp"
+#include "Character.hpp"
+#include "MateriaSource.hpp"
 
-int main()
+void f()
 {
+    system("leaks Exo_03");
+}
+
+int main( void )
+{
+    atexit(f);
+
     IMateriaSource* src = new MateriaSource();
     src->learnMateria(new Ice());
     src->learnMateria(new Cure());
@@ -35,11 +41,3 @@ int main()
 
     return 0;
 }
-// Should output:
-// $> clang++ -W -Wall -Werror *.cpp
-// $> ./a.out | cat -e
-// * shoots an ice bolt at bob *$
-// * heals bob's wounds *$
-// As usual, implement and turn in more tests than the ones given above.
-// You can pass this module without doing exercise 03.
-// 13
