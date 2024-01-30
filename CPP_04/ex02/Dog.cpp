@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 20:40:58 by ebennix           #+#    #+#             */
-/*   Updated: 2024/01/29 18:07:53 by ebennix          ###   ########.fr       */
+/*   Updated: 2024/01/30 17:42:05 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ Dog::Dog( void )
     this->type = "Dog";
     std::cout << this->type << " default constractor called. " << std::endl;
     this->head = new Brain();
-    // protect i guess
 }
 
 Dog::Dog(const std::string& head_ideas)
@@ -25,7 +24,6 @@ Dog::Dog(const std::string& head_ideas)
     this->type = "Dog";
     std::cout << this->type << " default constractor called. " << std::endl;
     this->head = new Brain(head_ideas);
-    // protect i guess
 }
 
 Dog::Dog(const Dog& source)
@@ -41,9 +39,9 @@ Dog::operator=(const Dog& source)
     {
 	    std::cout << "Dog Copy assignment operator called." << std::endl;
         this->type = source.type;
-        if (this->head) // test it out
+        if (this->head)
             delete this->head;
-        this->head = new Brain(*source.head); // copy values source.head deep copy
+        this->head = new Brain(*source.head);
     }
     return (*this);
 }

@@ -6,7 +6,7 @@
 /*   By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 15:38:29 by ebennix           #+#    #+#             */
-/*   Updated: 2024/01/30 13:09:39 by ebennix          ###   ########.fr       */
+/*   Updated: 2024/01/30 16:07:53 by ebennix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,15 @@ AMateria::AMateria(std::string const & type) : Type(type)
 AMateria::AMateria(const AMateria& source)
 {
     std::cout << "AMateria " << this->Type << " copy constractor called." << std::endl;
-    this->Type = source.Type;
+    *this = source;
+}
+
+AMateria&
+AMateria::operator=(const AMateria& source)
+{
+    if (this != &source)
+        this->Type = source.Type;
+    return (*this);    
 }
 
 std::string const & 
