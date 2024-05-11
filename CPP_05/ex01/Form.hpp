@@ -8,10 +8,10 @@ class Form
 {
 
     private :
-        const std::string _name;
-        bool    _signator;
-        const int  _signatorGrade;
-        const int  _executionGrade;
+        const std::string  _name;
+        bool               _signator;
+        const int          _signatorGrade;
+        const int          _executionGrade;
 
     public :
         Form(void);
@@ -19,10 +19,22 @@ class Form
         Form(const Form& source);
         Form& operator=(const Form& source);
 
-        const std::string&  getName(void) const;
-        bool                getSignator(void) const;
-        int                 getSignatorGrade(void) const;
-        int                 getExecutionGrade(void) const;
+        const std::string&  getName(void) const
+        {
+            return _name;
+        };
+        bool                getSignator(void) const
+        {
+            return _signator;
+        };
+        int                 getSignatorGrade(void) const
+        {
+            return _signatorGrade;
+        };
+        int                 getExecutionGrade(void) const
+        {
+            return _executionGrade;
+        };
 
         void beSigned(const Bureaucrat& obj);
         void signForm(const Bureaucrat& obj);
