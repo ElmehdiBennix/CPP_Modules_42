@@ -5,7 +5,7 @@ int main(void)
 {
     try
     {
-       Bureaucrat e("nigga", 0);
+       Bureaucrat e("migo", 0);
        std::cout << e << std::endl;
     }
     catch (Bureaucrat &e)
