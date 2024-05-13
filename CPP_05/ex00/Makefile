@@ -3,18 +3,18 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: root <root@student.42.fr>                  +#+  +:+       +#+         #
+#    By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/04 02:51:55 by root              #+#    #+#              #
-#    Updated: 2024/05/04 03:05:46 by root             ###   ########.fr        #
+#    Updated: 2024/05/11 02:49:11 by ebennix          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-EXE := Exo
+EXE := Exo_00
 
 CPP := c++ -std=c++98
 
-CPPFLAGS := -wall -Wextra -Wshadow
+CPPFLAGS := -Wall -Wextra -Wshadow
 # -werror
 
 HEADERS := Bureaucrat.hpp

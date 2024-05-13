@@ -7,29 +7,30 @@
 #define HIGHEST_GRADE 1
 #define LOWEST_GRADE 150
 
+//std::uncaught_exceptions() == 0 noexcept is a keyword that can be used in cpp unlike throw() which is a part of a function signator
+// The destructor is not being called because when an exception is thrown, the stack unwinds and all local objects in all stack frames are destructed. However, if the exception is thrown in the constructor of an object, the object is not considered fully constructed, so its destructor will not be called.
+
+
 class GradeTooHighException : public std::exception
 {
     private :
         std::string _message;
 
     public :
-        GradeTooHighException(const std::string& message) : _message(message) {};
-        const char* what() const noexcept {
-            return _message.c_str();
-        };
+        GradeTooHighException(const std::string& message);
+        const char* what() const throw();
+         ~GradeTooHighException() throw();
 };
-
-
+ 
 class GradeTooLowException : public std::exception
 {
     private :
         std::string _message;
-    
+
     public :
-        GradeTooLowException(const std::string &message) : _message(message) {};
-        const char* what() const noexcept {
-            return _message.c_str();
-        };
+        GradeTooLowException(const std::string &message);
+        const char* what() const throw();
+         ~GradeTooLowException() throw();
 };
 
 class Bureaucrat
@@ -39,83 +40,24 @@ class Bureaucrat
         int                 _grade;
 
     public:
-        Bureaucrat(void) : _name("default"), _grade(150)
-        {
-            std::cout << "default constractor has been called" << std::endl;
-        };
+        Bureaucrat(void);
+        Bureaucrat(const std::string& name, int grade);
+        Bureaucrat(const Bureaucrat &copy);
 
-        Bureaucrat(const std::string& name, int grade) : _name(name)
-        {
-            std::cout << "not the constractor has been called" << std::endl;
-            if (grade < HIGHEST_GRADE)
-                throw GradeTooHighException("Bureaucrat::GradeTooHighException");
-            else if (grade > LOWEST_GRADE)
-                throw GradeTooLowException("Bureaucrat::GradeTooLowException");
-            this->_grade = grade;
-        };
+        // if we init bureau here and threw excep
+        Bureaucrat& operator=(const Bureaucrat &source);
 
-        Bureaucrat(const Bureaucrat &copy)
-        {
-            *this = copy;
-            std::cout << "copy constractor has been called" << std::endl;
-        };
+        void setGrade(int grade);
 
-            // if we init bureau here and threw excep
-        Bureaucrat& operator=(const Bureaucrat &source) 
-        {
-            if (this != &source)
-            {
-                (std::string)this->_name = source._name;
-                this->_grade = source._grade;
-            }
-            return (*this);
-        }
+        const std::string& getName(void) const ;
+        int getGrade(void) const ;
 
-        const std::string& getName(void) const 
-        {
-            return _name;
-        };
+        int increment(void);
+        int decrement(void);
 
-        int getGrade(void) const 
-        {
-            return _grade;
-        };
-
-        void setGrade(int grade)
-        {
-            if (grade < HIGHEST_GRADE)
-                throw GradeTooHighException("Bureaucrat::GradeTooHighException");
-            else if (grade > LOWEST_GRADE)
-                throw GradeTooLowException("Bureaucrat::GradeTooLowException");
-            this->_grade = grade;
-        };
-
-        int increment(void)
-        {
-            if (_grade == HIGHEST_GRADE)
-                throw GradeTooHighException("Bureaucrat::GradeTooHighException");
-            --_grade;
-            return _grade;
-        };
-
-        int decrement(void)
-        {
-            if (_grade == LOWEST_GRADE)
-                throw GradeTooLowException("Bureaucrat::GradeTooLowException");
-            ++_grade;
-            return _grade;
-        };
-
-        ~Bureaucrat(void)
-        {
-            std::cout << "distractor has benn called" << std::endl;
-        };
+        ~Bureaucrat(void);
 };
 
-std::ostream& operator<<(std::ostream& os, const Bureaucrat& obj)
-{
-    os << obj.getName() << ", bureaucrat grade " << obj.getGrade();
-    return os;
-}
+std::ostream& operator<<(std::ostream& os, const Bureaucrat& obj);
 
 #endif
