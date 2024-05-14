@@ -11,27 +11,7 @@
 // The destructor is not being called because when an exception is thrown, the stack unwinds and all local objects in all stack frames are destructed. However, if the exception is thrown in the constructor of an object, the object is not considered fully constructed, so its destructor will not be called.
 
 
-class GradeTooHighException : public std::exception
-{
-    private :
-        std::string _message;
-
-    public :
-        GradeTooHighException(const std::string& message);
-        const char* what() const throw();
-         ~GradeTooHighException() throw();
-};
  
-class GradeTooLowException : public std::exception
-{
-    private :
-        std::string _message;
-
-    public :
-        GradeTooLowException(const std::string &message);
-        const char* what() const throw();
-         ~GradeTooLowException() throw();
-};
 
 class Bureaucrat
 {
@@ -54,6 +34,18 @@ class Bureaucrat
 
         int increment(void);
         int decrement(void);
+
+        class GradeTooHighException : public std::exception
+        {
+            public :
+                const char* what() const throw();
+        };
+
+        class GradeTooLowException : public std::exception
+        {
+            public :
+                const char* what() const throw();
+        };
 
         ~Bureaucrat(void);
 };
