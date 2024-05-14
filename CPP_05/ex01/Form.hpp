@@ -10,37 +10,56 @@ class Form
     private :
         const std::string  _name;
         bool               _signator;
-        const int          _signatorGrade;
-        const int          _executionGrade;
+        const int          _signatorGrade; // constant grade required to sign it
+        const int          _executionGrade; // constant grade required to execute it.
 
     public :
-        Form(void);
-        Form(const std::string& name);
-        Form(const Form& source);
-        Form& operator=(const Form& source);
+        Form(void) : _name("NAN"), _signator(false), _signatorGrade(), _executionGrade() {
+            std::cout << "default constractor called" << std::endl;
+        };
 
-        const std::string&  getName(void) const
-        {
+        Form(const std::string& name) : _name("NAN"), _signator(false), _signatorGrade(), _executionGrade() {
+            std::cout << "not so default constractor called" << std::endl;
+        };
+
+        // test this out after
+        Form(const Form& source) : _name(source._name), _signator(source._signator), _signatorGrade(source._signatorGrade), _executionGrade(source._executionGrade) {
+            std::cout << "copy constractor called" << std::endl;
+        };
+
+        Form& operator=(const Form& source) {
+            Form tmp(source);
+            return tmp;
+        };
+
+        const std::string&  getName(void) const throw() {
             return _name;
         };
-        bool                getSignator(void) const
-        {
+
+        bool    getSignator(void) const throw() {
             return _signator;
         };
-        int                 getSignatorGrade(void) const
-        {
+
+        int     getSignatorGrade(void) const throw() {
             return _signatorGrade;
         };
-        int                 getExecutionGrade(void) const
-        {
+
+        int     getExecutionGrade(void) const throw() {
             return _executionGrade;
         };
 
-        void beSigned(const Bureaucrat& obj);
-        void signForm(const Bureaucrat& obj);
+        void beSigned(const Bureaucrat& obj) {
+            if (obj.getGrade >= _signatorGrade)
+                _signator = 
+        };
 
+        void signForm(const Bureaucrat& obj) {
 
-        ~Form(void);
+        };
+
+        ~Form(void) {
+
+        };
 };
         // void signForm(const Bureaucrat& obj);
 
