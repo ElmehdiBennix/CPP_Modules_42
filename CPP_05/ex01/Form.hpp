@@ -6,7 +6,6 @@
 
 class Form 
 {
-
     private :
         const std::string  _name;
         bool               _signator;
@@ -14,23 +13,27 @@ class Form
         const int          _executionGrade; // constant grade required to execute it.
 
     public :
-        Form(void) : _name("NAN"), _signator(false), _signatorGrade(), _executionGrade() {
-            std::cout << "default constractor called" << std::endl;
+        Form(void) : _name("DEF"), _signator(false), _signatorGrade(0), _executionGrade(0) {
+            std::cout << "Default constractor called." << std::endl;
         };
 
-        Form(const std::string& name) : _name("NAN"), _signator(false), _signatorGrade(), _executionGrade() {
-            std::cout << "not so default constractor called" << std::endl;
+        Form(const std::string& name, const int signatorGrade, const int executionGrade) : _name(name), _signator(false), _signatorGrade(signatorGrade), _executionGrade(executionGrade) {
+            std::cout << "Constractor called for Form" << std::endl;
         };
 
         // test this out after
         Form(const Form& source) : _name(source._name), _signator(source._signator), _signatorGrade(source._signatorGrade), _executionGrade(source._executionGrade) {
-            std::cout << "copy constractor called" << std::endl;
+            std::cout << "Copy constractor called." << std::endl;
         };
 
+        //#####################################################################
+//test this out
         Form& operator=(const Form& source) {
             Form tmp(source);
             return tmp;
         };
+
+        //#####################################################################
 
         const std::string&  getName(void) const throw() {
             return _name;
@@ -48,26 +51,42 @@ class Form
             return _executionGrade;
         };
 
+        //#####################################################################
+
         void beSigned(const Bureaucrat& obj) {
-            if (obj.getGrade >= _signatorGrade)
-                _signator = 
+            if (obj.getGrade() <= _signatorGrade)
+                _signator = true;
+            throw (GradeTooLowException());
         };
 
-        void signForm(const Bureaucrat& obj) {
+        //#####################################################################
 
+        class GradeTooHighException : public std::exception {
+            public :
+                const char* what() const throw() {
+                    return ("Form Grade is too low");
+                };
         };
 
-        ~Form(void) {
+        class GradeTooLowException : public std::exception {
+            public :
+              const char* what() const throw() {
+                    return ("Form Grade is too low");
+                };
+        };
 
+        //#####################################################################
+
+        ~Form(void) throw() {
+            std::cout << "Destractor called for form." << std::endl;
         };
 };
         // void signForm(const Bureaucrat& obj);
 
-std::ostream& operator<<(std::ostream& os, const Form& ob)
+std::ostream& operator<<(std::ostream& os, const Form& obj)
 {
-    os << "tmp" ;
+    os << obj.getName() << " Form : \nGrade to be signed = " << obj.getSignatorGrade() << "\nGrade to be executed = " << obj.getExecutionGrade() << "\nSignator status : " << ((obj.getSignator()) ? "True" : "False");
     return os;
 }
-
 
 #endif
