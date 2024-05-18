@@ -3,17 +3,17 @@
 
 #include "AForm.hpp"
 
-class PresidentialPardonFrom : public AForm {
-    private :
+// class PresidentialPardonFrom : public AForm {
+//     private :
 
-    public :
-        PresidentialPardonFrom(void);
-        PresidentialPardonFrom();
-        PresidentialPardonFrom();
+//     public :
+//         PresidentialPardonFrom(void);
+//         PresidentialPardonFrom();
+//         PresidentialPardonFrom();
 
 
 
-        ~PresidentialPardonFrom();
-};
+//         ~PresidentialPardonFrom();
+// };
 
 #endif

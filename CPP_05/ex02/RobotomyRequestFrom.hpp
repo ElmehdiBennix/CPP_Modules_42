@@ -3,17 +3,17 @@
 
 #include "AForm.hpp"
 
-class RobotomyRequestForm : public AForm {
-    private :
+// class RobotomyRequestForm : public AForm {
+//     private :
 
-    public :
-        RobotomyRequestForm(void);
-        RobotomyRequestForm();
-        RobotomyRequestForm();
+//     public :
+//         RobotomyRequestForm(void);
+//         RobotomyRequestForm();
+//         RobotomyRequestForm();
 
 
 
-        ~RobotomyRequestForm();
-};
+//         ~RobotomyRequestForm();
+// };
 
 #endif
