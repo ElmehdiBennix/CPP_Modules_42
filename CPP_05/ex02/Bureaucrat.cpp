@@ -1,27 +1,28 @@
 #include "Bureaucrat.hpp"
+#include "AForm.hpp"
 
 //#####################
 
 const char* Bureaucrat::GradeTooHighException::what() const throw() {
-    return ("Bureaucrat Grade is too high");
+    return ("Bureaucrat Grade is too High.");
 };
 
 //#####################
 
 const char* Bureaucrat::GradeTooLowException::what() const throw() {
-    return ("Bureaucrat Grade is too low");
+    return ("Bureaucrat Grade is too Low.");
 };
 
 //#####################
 
 Bureaucrat::Bureaucrat(void) : _name("default"), _grade(150)
 {
-    std::cout << "default constractor has been called" << std::endl;
+    std::cout << "Default constractor called for Bureaucrat." << std::endl;
 };
 
 Bureaucrat::Bureaucrat(const std::string& name, int grade) : _name(name)
 {
-    std::cout << "not the constractor has been called" << std::endl;
+    std::cout << "Constractor called for Bureaucrat." << std::endl;
     if (grade < HIGHEST_GRADE)
         throw (GradeTooHighException());
     else if (grade > LOWEST_GRADE)
@@ -32,7 +33,7 @@ Bureaucrat::Bureaucrat(const std::string& name, int grade) : _name(name)
 Bureaucrat::Bureaucrat(const Bureaucrat &copy)
 {
     *this = copy;
-    std::cout << "copy constractor has been called" << std::endl;
+    std::cout << "Copy constractor for Bureaucrat." << std::endl;
 };
 
 // if we init bureau here and threw excep
@@ -81,15 +82,27 @@ int Bureaucrat::decrement(void)
     return _grade;
 };
 
-Bureaucrat::~Bureaucrat(void)
+void Bureaucrat::signForm(AForm& obj)
 {
-    std::cout << "distractor has benn called" << std::endl;
+    try
+    {
+        obj.beSigned(*this);
+    }
+    catch (const GradeTooLowException& e)
+    {
+        std::cout << _name << " couldn’t sign " << obj.getName() << " because " << e.what() << std::endl;
+    }
+    std::cout << _name << " signed " << obj.getName() << std::endl;
+};
+
+Bureaucrat::~Bureaucrat(void) throw() 
+{
+    std::cout << "Distractor called for Bureaucrat." << std::endl;
 };
 
 //#####################
 
-std::ostream& operator<<(std::ostream& os, const Bureaucrat& obj)
-{
+std::ostream& operator<<(std::ostream& os, const Bureaucrat& obj) {
     os << obj.getName() << ", bureaucrat grade " << obj.getGrade();
     return os;
 };
