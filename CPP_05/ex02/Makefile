@@ -6,7 +6,7 @@
 #    By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/15 16:49:22 by ebennix           #+#    #+#              #
-#    Updated: 2024/05/15 16:49:40 by ebennix          ###   ########.fr        #
+#    Updated: 2024/05/17 20:36:54 by ebennix          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,9 +17,15 @@ CPP := c++ -std=c++98
 CPPFLAGS := -Wall -Wextra -Wshadow
 # -werror
 
-HEADERS := 
+HEADERS := 	AForm.hpp \
+			Bureaucrat.hpp \
+			PresidentialPardonForm.hpp \
+ 			RobotomyRequestFrom.hpp	   \
+ 			ShrubberyCreationForm.hpp  \
 
-FILES := main.cpp
+FILES := main.cpp \
+		 AForm.cpp \
+		 Bureaucrat.cpp \
 
 OBJ := $(FILES:.cpp=.o)
 
