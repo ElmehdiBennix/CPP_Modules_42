@@ -1,5 +1,5 @@
-// #include "PresidentialPardonForm.hpp"
-// #include "RobotomyRequestFrom.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "Bureaucrat.hpp"
 
@@ -9,5 +9,5 @@ int main(void)
 
     Bureaucrat xx;
 
-    dzeb.exec(xx);
+    dzeb.execute(xx);
 }
