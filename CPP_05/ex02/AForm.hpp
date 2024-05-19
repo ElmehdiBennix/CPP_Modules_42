@@ -53,7 +53,7 @@ class AForm
 
         //#####################################################################
 
-        virtual ~AForm(void) throw();
+        virtual ~AForm(void);
 };
         // void signForm(const Bureaucrat& obj);
 

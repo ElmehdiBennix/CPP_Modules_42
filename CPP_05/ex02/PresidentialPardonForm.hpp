@@ -3,30 +3,17 @@
 
 #include "AForm.hpp"
 
+class Bureaucrat;
+
 class PresidentialPardonFrom : public AForm {
     public :
-        PresidentialPardonFrom(void) : AForm("DEF", 25, 5) {
-            std::cout << "Default constractor called for PresidentialPardonFrom." << std::endl;
-        };
+        PresidentialPardonFrom(void);
+        PresidentialPardonFrom(const std::string &name);
+        // PresidentialPardonFrom(const PresidentialPardonFrom& source);
 
-        PresidentialPardonFrom(const std::string &name) : AForm(name, 25, 5) {
-            std::cout << "Constractor called for PresidentialPardonFrom." << std::endl;
-        };
+        void execute(const Bureaucrat& executor) const ;
 
-        // PresidentialPardonFrom(const PresidentialPardonFrom& source) : AForm("DEF", 25, 5) {
-        //     std::cout << "copy constractor has been called." << std::endl;
-        // };
-
-        void execute(const Bureaucrat& executor) const {
-            if (this->getSignator() && executor.getGrade() <= this->getExecutionGrade())
-            {
-                std::cout << executor.getName() << " has been pardoned by Zaphod Beeblebrox." << std::endl;
-                return ;
-            }
-            throw(GradeTooLowException());
-        };
-
-        ~PresidentialPardonFrom(void) {};
+        ~PresidentialPardonFrom(void);
 };
 
 #endif

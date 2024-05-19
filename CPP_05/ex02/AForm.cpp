@@ -44,7 +44,10 @@ int     AForm::getExecutionGrade(void) const throw() {
 
 void AForm::beSigned(Bureaucrat& obj) {
     if (obj.getGrade() <= _signatorGrade)
+    {
         _signator = true;
+        return;
+    }
     throw (GradeTooLowException());
 };
 
@@ -60,7 +63,7 @@ const char* AForm::GradeTooLowException::what() const throw() {
 
 //#####################################################################
 
-AForm::~AForm(void) throw() {
+AForm::~AForm(void) {
     std::cout << "Destractor called for AForm." << std::endl;
 };
 

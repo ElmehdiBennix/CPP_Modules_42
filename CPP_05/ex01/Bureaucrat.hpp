@@ -37,14 +37,13 @@ class Bureaucrat
             try
             {
                 obj.beSigned(*this);
+                std::cout << _name << " signed " << obj.getName() << std::endl;
             }
             catch (const GradeTooLowException& e)
             {
                 std::cout << _name << " couldn’t sign " << obj.getName() << " because " << e.what() << std::endl;
             }
-            std::cout << _name << " signed " << obj.getName() << std::endl;
         };
-
 
         class GradeTooHighException : public std::exception
         {
