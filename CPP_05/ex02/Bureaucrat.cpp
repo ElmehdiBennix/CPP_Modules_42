@@ -95,6 +95,11 @@ void Bureaucrat::signForm(AForm& obj)
     std::cout << _name << " signed " << obj.getName() << std::endl;
 };
 
+void Bureaucrat::executeForm(const AForm& form)
+{
+    
+}
+
 Bureaucrat::~Bureaucrat(void) throw() 
 {
     std::cout << "Distractor called for Bureaucrat." << std::endl;
