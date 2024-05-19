@@ -55,7 +55,10 @@ class Form
 
         void beSigned(const Bureaucrat& obj) {
             if (obj.getGrade() <= _signatorGrade)
+            {
                 _signator = true;
+                return;
+            }
             throw (GradeTooLowException());
         };
 
