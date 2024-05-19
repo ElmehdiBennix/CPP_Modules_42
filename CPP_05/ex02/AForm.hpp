@@ -26,7 +26,7 @@ class AForm
 
         //#####################################################################
 
-        const std::string&  getName(void) const throw();
+        const   std::string&    getName(void) const throw();
         bool    getSignator(void) const throw();
         int     getSignatorGrade(void) const throw();
         int     getExecutionGrade(void) const throw();
@@ -37,7 +37,7 @@ class AForm
 
         //#####################################################################
 
-        virtual void exec(const Bureaucrat& target) = 0;
+        virtual void execute(const Bureaucrat& executor) const = 0;
 
         //#####################################################################
 
@@ -53,7 +53,7 @@ class AForm
 
         //#####################################################################
 
-        ~AForm(void) throw();
+        virtual ~AForm(void) throw();
 };
         // void signForm(const Bureaucrat& obj);
 
