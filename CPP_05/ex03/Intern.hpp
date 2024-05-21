@@ -7,17 +7,11 @@
 
 class Intern {
     public:
-        Intern();
-        Intern();
-        Intern();
+        Intern(void);
 
-        void makeForm(const std::string& name, const std::string& target) {
-            
-        };
+        AForm *makeForm(const std::string& name, const std::string& target);
 
-
-        ~Intern();
-
+        ~Intern(void);
 };
 
 #endif
