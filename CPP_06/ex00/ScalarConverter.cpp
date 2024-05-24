@@ -5,15 +5,17 @@ void ScalarConverter::convert(const std::string& literal) throw()
     if (isInt(literal))
     {
         // check for overflow
-
+        std::cout << "int up" << std::endl;
     }
     else if (isFloat(literal))
     {
         // check for overflow
+        std::cout << "flaot up" << std::endl;
     }
     else if (isDouble(literal))
     {
         // check for overflow
+        std::cout << "double up" << std::endl;
     }
     else
         std::cerr << "Error: Unrecognized Format." << std::endl;
@@ -45,12 +47,12 @@ bool ScalarConverter::isInt(const std::string &type) throw()
 
     if (type[i] == '-' || type[i] == '+')
         i++;
-    for (i; i < type.length(); i++)
+    for (; i < type.length(); i++)
     {
         if (!std::isdigit(type[i]))
             return false;
     }
-    return true;
+    return (i > 1);
 };
 
 bool ScalarConverter::isFloat(const std::string &type) throw()
@@ -63,14 +65,17 @@ bool ScalarConverter::isFloat(const std::string &type) throw()
 
     if (type[i] == '-' || type[i] == '+')
         i++;
-    for (i; i < type.length() - 1; i++)
+    for (; i < type.length() - 1; i++)
     {
         if (type[i] == '.')
+        {
             dot++;
-        else if (!std::isdigit(type[i]))
+            i++;
+        }
+        if (!type[i] || !std::isdigit(type[i]))
             return false;
     }
-    return (type[i] == 'f' && dot == 1);
+    return (i > 1 && type[i] == 'f' && dot == 1);
 };
 
 bool ScalarConverter::isDouble(const std::string &type) throw()
@@ -83,14 +88,18 @@ bool ScalarConverter::isDouble(const std::string &type) throw()
 
     if (type[i] == '-' || type[i] == '+')
         i++;
-    for (i; i < type.length(); i++)
+
+    for (; i < type.length(); i++)
     {
         if (type[i] == '.')
+        {
             dot++;
-        else if (!std::isdigit(type[i]))
+            i++;
+        }
+        if (!type[i] || !std::isdigit(type[i]))
             return false;
     }
-    return (dot == 1);
+    return (i > 1 && dot == 1);
 };
 
 // void ScalarConverter::convertFromChar(char c) throw()
@@ -100,15 +109,15 @@ bool ScalarConverter::isDouble(const std::string &type) throw()
 
 void ScalarConverter::convertFromInt(int i) throw()
 {
-
+    (void)i;
 };
 
 void ScalarConverter::convertFromFloat(float f) throw()
 {
-
+    (void)f;
 };
 
 void ScalarConverter::convertFromDouble(double d) throw()
 {
-
+    (void)d;
 };
