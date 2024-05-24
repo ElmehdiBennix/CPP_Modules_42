@@ -7,7 +7,7 @@
 
 class Intern {
     public:
-        Intern(void);
+        explicit Intern(void);
 
         AForm *makeForm(const std::string& name, const std::string& target);
 
