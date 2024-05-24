@@ -3,23 +3,23 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: root <root@student.42.fr>                  +#+  +:+       +#+         #
+#    By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/04 02:51:55 by root              #+#    #+#              #
-#    Updated: 2024/05/04 02:57:36 by root             ###   ########.fr        #
+#    Updated: 2024/05/21 05:29:25 by ebennix          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-EXE := Exo
+EXE := Exo_00
 
 CPP := c++ -std=c++98
 
 CPPFLAGS := -wall -Wextra -Wshadow
 # -werror
 
-HEADERS := 
+HEADERS := ScalarConverter.hpp
 
-FILES := main.cpp
+FILES := main.cpp ScalarConverter.cpp
 
 OBJ := $(FILES:.cpp=.o)
 
