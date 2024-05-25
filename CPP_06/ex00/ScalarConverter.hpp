@@ -2,6 +2,8 @@
 #define SCALARCONVERTER_HPP__
 
 #include <iostream>
+#include <limits>
+#include <iomanip> 
 
 class ScalarConverter {
     private:
@@ -15,9 +17,9 @@ class ScalarConverter {
         static bool isDouble(const std::string &type) throw();
 
         // static void convertFromChar(char c) throw();
-        static void convertFromInt(int i) throw();
-        static void convertFromFloat(float f) throw();
-        static void convertFromDouble(double d) throw();
+        static void convertFromInt(const std::string &type) throw();
+        static void convertFromFloat(const std::string &type) throw();
+        static void convertFromDouble(const std::string &type) throw();
 
         ~ScalarConverter(void);
 

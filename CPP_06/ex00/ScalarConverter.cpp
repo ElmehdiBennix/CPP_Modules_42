@@ -4,18 +4,18 @@ void ScalarConverter::convert(const std::string& literal) throw()
 {
     if (isInt(literal))
     {
-        // check for overflow
-        std::cout << "int up" << std::endl;
+        std::cout << "int up:" << std::endl;
+        convertFromInt(literal);
     }
     else if (isFloat(literal))
     {
-        // check for overflow
-        std::cout << "flaot up" << std::endl;
+        std::cout << "flaot up:" << std::endl;
+        convertFromFloat(literal);
     }
     else if (isDouble(literal))
     {
-        // check for overflow
-        std::cout << "double up" << std::endl;
+        std::cout << "double up:" << std::endl;
+        convertFromDouble(literal);
     }
     else
         std::cerr << "Error: Unrecognized Format." << std::endl;
@@ -102,22 +102,50 @@ bool ScalarConverter::isDouble(const std::string &type) throw()
     return (i > 1 && dot == 1);
 };
 
-// void ScalarConverter::convertFromChar(char c) throw()
-// {
-
-// };
-
-void ScalarConverter::convertFromInt(int i) throw()
+void ScalarConverter::convertFromInt(const std::string& literal) throw()
 {
-    (void)i;
+    long num = 0;
+
+    if (literal.length() > 11 || (num = std::atol(literal.c_str())) > INT_MAX || num < INT_MIN )
+    {
+        std::cerr << "Error: Convertion failure overflow." << std::endl;
+        return;
+    }
+
+    if (num >= 32 && num <= 126)
+        std::cout << "char: \'" << static_cast<char>(num) << "\'" << std::endl;
+    else
+        std::cout << "char: " << "Non displayable" << std::endl;
+
+    std::cout << "int: " << static_cast<int>(num) << std::endl;
+    std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(num) << "f" << std::endl;
+    std::cout << "double: " << static_cast<double>(num) << std::endl;
 };
 
-void ScalarConverter::convertFromFloat(float f) throw()
+void ScalarConverter::convertFromFloat(const std::string& literal) throw()
 {
-    (void)f;
+    float x = std::atof(literal.c_str());
+
+    if (x >= 32 && x <= 126)
+        std::cout << "char: \'" << static_cast<char>(x) << "\'" << std::endl;
+    else
+        std::cout << "char: " << "Non displayable" << std::endl;
+
+    std::cout << "int: " << static_cast<int>(x) << std::endl;
+    std::cout << "float: " << std::fixed << std::setprecision(1) << x << "f" << std::endl;
+    std::cout << "double: " << static_cast<double>(x) << std::endl;
 };
 
-void ScalarConverter::convertFromDouble(double d) throw()
+void ScalarConverter::convertFromDouble(const std::string& literal) throw()
 {
-    (void)d;
+    double x = std::atof(literal.c_str());
+
+    if (x >= 32 && x <= 126)
+        std::cout << "char: \'" << static_cast<char>(x) << "\'" << std::endl;
+    else
+        std::cout << "char: " << "Non displayable" << std::endl;
+
+    std::cout << "int: " << static_cast<int>(x) << std::endl;
+    std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(x) << "f" << std::endl;
+    std::cout << "double: " << x << std::endl;
 };
