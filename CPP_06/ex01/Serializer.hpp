@@ -4,20 +4,21 @@
 #include <iostream>
 #include <cstdint>
 
-typedef data {
-    int example;
+typedef struct data {
+    unsigned long raw;
 } Data;
 
 class Serializer
 {
     private:
         Serializer(void);
-        Serializer(Serializer& obj);
+        Serializer(Serializer& source);
+        Serializer& operator=(Serializer& source);
         ~Serializer(void);
 
     public:
-        static uintptr_t serialize(Data* ptr);
-        static Data* Deserialize(uintptr_t ptr);
-}
+        static std::uintptr_t serialize(Data* ptr);
+        static Data*          Deserialize(std::uintptr_t ptr);
+};
 
 #endif
