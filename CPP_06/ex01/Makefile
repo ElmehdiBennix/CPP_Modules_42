@@ -3,23 +3,23 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+         #
+#    By: root <root@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/25 21:13:24 by ebennix           #+#    #+#              #
-#    Updated: 2024/05/25 21:13:32 by ebennix          ###   ########.fr        #
+#    Updated: 2024/06/06 01:38:04 by root             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 EXE := Exo_01
 
-CPP := c++ -std=c++98
+CPP := c++
 
 CPPFLAGS := -Wall -Wextra -Wshadow
 # -werror
 
-HEADERS := 
+HEADERS := Serializer.hpp
 
-FILES := main.cpp
+FILES := main.cpp Serializer.cpp
 
 OBJ := $(FILES:.cpp=.o)
 
