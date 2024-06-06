@@ -16,15 +16,13 @@ Serializer::~Serializer(void)
 
 uintptr_t Serializer::serialize(Data* ptr)
 {
-    // std::uintptr_t ret = 12;
+    std::uintptr_t ret = reinterpret_cast<std::uintptr_t>(ptr);
 
-    // int *ptr = ret;
-
-    // ret = 
+    return ret;
 };
 
 Data* Serializer::Deserialize(uintptr_t ptr)
 {
-        
+    return (reinterpret_cast<Data *>(ptr));
 };
 
