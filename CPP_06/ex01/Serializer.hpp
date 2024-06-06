@@ -5,7 +5,7 @@
 #include <cstdint>
 
 typedef struct data {
-    unsigned long raw;
+    unsigned long xxx;
 } Data;
 
 class Serializer

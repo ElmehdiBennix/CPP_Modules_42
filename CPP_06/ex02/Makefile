@@ -1,11 +1,11 @@
-EXE := Exo
+EXE := Exo_02
 
 CPP := c++ -std=c++98
 
-CPPFLAGS := -wall -Wextra -Wshadow
+CPPFLAGS := -Wall -Wextra -Wshadow
 # -werror
 
-HEADERS := 
+HEADERS := Base.hpp A.hpp B.hpp C.hpp
 
 FILES := main.cpp
 
