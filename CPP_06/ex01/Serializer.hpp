@@ -5,7 +5,8 @@
 #include <cstdint>
 
 typedef struct data {
-    unsigned long xxx;
+    unsigned long raw1;
+    std::string   raw2;
 } Data;
 
 class Serializer
