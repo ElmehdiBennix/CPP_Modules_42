@@ -8,7 +8,9 @@ class C : public Base{
         /* data */
         // C(/* args */);
     public:
-        virtual ~C(void);
+        virtual ~C(void) {
+            std::cout << "C Gone." << std::endl;
+        };
 };
 
 #endif

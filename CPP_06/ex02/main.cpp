@@ -9,8 +9,8 @@ Base *generate(void)
 
     switch (type)
     {
-        case BASE_CLASS:
-            return (new Base);
+        // case BASE_CLASS:
+        //     return (new Base);
         case A_CLASS:
             return (new A);
         case B_CLASS:
@@ -22,20 +22,26 @@ Base *generate(void)
 
 void identify(Base* p)
 {
-    std::cout << "Base class type..." << std::endl;
-    std::cout << "A class type..." << std::endl;
-    std::cout << "B class type..." << std::endl;
-    std::cout << "C class type..." << std::endl;
+    if (dynamic_cast<A *>(p))
+        std::cout << "A class type..." << std::endl;
+    else if (dynamic_cast<B *>(p))
+        std::cout << "B class type..." << std::endl;
+    else if (dynamic_cast<C *>(p))
+        std::cout << "C class type..." << std::endl;
+    else
+        std::cout << "unknown type..." << std::endl;
 }
 
 void identify(Base& p)
 {
-
+    (void) p;
 }
 
 int main(void)
 {
     Base *seed = generate();
-    // identify();
-    // identify();
+    identify(seed);
+    identify(*seed);
+    delete seed;
+    return 0;
 }
