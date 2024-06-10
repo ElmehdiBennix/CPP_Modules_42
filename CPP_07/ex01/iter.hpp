@@ -3,9 +3,15 @@
 
 #include <iostream>
 
-template<typename T, void (*f)() >
-void iter(T* addr, size_t len, f func){
+template <typename T, typename F>
+void iter(T* addr, size_t len, F func) {
+    for (size_t i = 0; i < len; i++)
+        func(addr[i])
+}
 
+template <typename T>
+void print(const T& type) {
+    std::cout << type << std::endl;
 }
 
 #endif
