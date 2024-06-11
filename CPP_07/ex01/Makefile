@@ -2,10 +2,10 @@ EXE := Exo
 
 CPP := c++ -std=c++98
 
-CPPFLAGS := -wall -Wextra -Wshadow
+CPPFLAGS := -Wall -Wextra -Wshadow
 # -werror
 
-HEADERS := 
+HEADERS := iter.hpp
 
 FILES := main.cpp
 
@@ -30,7 +30,7 @@ fclean: clean
 re: fclean all
 
 git : fclean
-	sh ../../push.sh
+	sh ../../push
 
 ################################################################################ 
 
