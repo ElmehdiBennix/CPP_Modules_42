@@ -2,10 +2,10 @@ EXE := Exo
 
 CPP := c++ -std=c++98
 
-CPPFLAGS := -wall -Wextra -Wshadow
+CPPFLAGS := -Wall -Wextra -Wshadow
 # -werror
 
-HEADERS := 
+HEADERS := Array.hpp Array.tpp
 
 FILES := main.cpp
 
@@ -29,8 +29,8 @@ fclean: clean
 
 re: fclean all
 
-git : fclean
-	sh ../../push.sh
+git :
+	sh ../../push
 
 ################################################################################ 
 
