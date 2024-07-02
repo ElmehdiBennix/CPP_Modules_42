@@ -14,10 +14,10 @@ EXE := Exo
 
 CPP := c++ -std=c++98
 
-CPPFLAGS := -wall -Wextra -Wshadow
+CPPFLAGS := -Wall -Wextra -Wshadow
 # -werror
 
-HEADERS := 
+HEADERS := easyfind.hpp easyfind.tpp
 
 FILES := main.cpp
 
@@ -41,7 +41,7 @@ fclean: clean
 
 re: fclean all
 
-git : fclean
+git : fcleanb
 	sh ../../push.sh
 
 ################################################################################ 

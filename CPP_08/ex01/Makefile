@@ -2,12 +2,12 @@ EXE := Exo
 
 CPP := c++ -std=c++98
 
-CPPFLAGS := -wall -Wextra -Wshadow
+CPPFLAGS := -Wall -Wextra -Wshadow
 # -werror
 
-HEADERS := 
+HEADERS := Span.hpp
 
-FILES := main.cpp
+FILES := main.cpp Span.cpp
 
 OBJ := $(FILES:.cpp=.o)
 
