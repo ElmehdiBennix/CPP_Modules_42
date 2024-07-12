@@ -5,7 +5,7 @@ CPP := c++ -std=c++98
 CPPFLAGS := -Wall -Wextra -Wshadow
 # -werror
 
-HEADERS := 
+HEADERS := MutantStack.hpp MutanatStack.tpp
 
 FILES := main.cpp
 
@@ -30,7 +30,7 @@ fclean: clean
 re: fclean all
 
 git : fclean
-	sh ../../push.sh
+	sh ../../push
 
 ################################################################################ 
 
