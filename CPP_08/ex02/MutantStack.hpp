@@ -17,7 +17,9 @@ class MutantStack : public std::stack<T, seq> {
         MutantStack(void) : std::stack<T,seq>() {};
         MutantStack(const MutantStack &source) : std::stack<T,seq>(source) {};
 
-        // operator = 
+        MutantStack& operator=(const MutantStack& source) {
+            
+        };
 
         iterator begin(void) {
             return this->c.begin();
