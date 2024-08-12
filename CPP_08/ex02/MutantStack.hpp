@@ -1,4 +1,4 @@
-#if !(defined MUTANTSTACK_HPP__)
+#if !defined(MUTANTSTACK_HPP__)
 #define MUTANTSTACK_HPP__
 
 #include <iostream>

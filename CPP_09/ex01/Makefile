@@ -1,13 +1,14 @@
-EXE := Exo
+
+EXE := btc
 
 CPP := c++ -std=c++98
 
-CPPFLAGS := -wall -Wextra -Wshadow
+CPPFLAGS := -g -Wall -Wextra -Wshadow -fsanitize=address
 # -werror
 
-HEADERS := 
+HEADER := bitcoinExchange.hpp
 
-FILES := main.cpp
+FILES := main.cpp	bitcoinExchange.cpp
 
 OBJ := $(FILES:.cpp=.o)
 
@@ -18,7 +19,7 @@ all: $(EXE)
 $(EXE): $(OBJ)
 	$(CPP) $(OBJ) -o $(EXE)
 
-%.o: %.cpp $(HEADERS)
+%.o: %.cpp $(HEADER)
 	$(CPP) $(CPPFLAGS) -c -o $@ $<
 
 clean:

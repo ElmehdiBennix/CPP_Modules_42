@@ -1,38 +1,33 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: root <root@student.42.fr>                  +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/05/04 02:51:55 by root              #+#    #+#              #
-#    Updated: 2024/05/04 02:57:36 by root             ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
 
-EXE := Exo
+EXE := btc
 
-CPP := c++ -std=c++98
+################################################################################
 
-CPPFLAGS := -wall -Wextra -Wshadow
+CXX := c++ -std=c++98
+
+CXXFLAGS := -g -Wall -Wextra -Wshadow -fsanitize=address
 # -werror
 
-HEADERS := 
+HEADER := BitcoinExchange.hpp
 
-FILES := main.cpp
+FILES := main.cpp	BitcoinExchange.cpp
 
 OBJ := $(FILES:.cpp=.o)
+
+# PATH := ./cpp_09/data.csv
+
+# CXXFLAGS += -DDATA_FILE=\"$(PATH)\"
 
 ################################################################################
 
 all: $(EXE)
 
 $(EXE): $(OBJ)
-	$(CPP) $(OBJ) -o $(EXE)
+	$(CXX) $(CXXFLAGS) $(OBJ) -o $(EXE)
 
-%.o: %.cpp $(HEADERS)
-	$(CPP) $(CPPFLAGS) -c -o $@ $<
-
+%.o: %.cpp $(HEADER)
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+ 
 clean:
 	rm -rf $(OBJ)
 
