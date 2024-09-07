@@ -10,8 +10,7 @@ int main(int ac, char **av)
         data.exchange(av[1]);
     }
     catch (std::exception &e) {
-        CERR(e.what());
-        return 2;
+        return (CERR(e.what()), 2);
     }
 
     return 0;

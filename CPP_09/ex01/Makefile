@@ -1,5 +1,5 @@
 
-EXE := btc
+EXE := RPN
 
 CPP := c++ -std=c++98
 
@@ -20,7 +20,7 @@ $(EXE): $(OBJ)
 	$(CPP) $(OBJ) -o $(EXE)
 
 %.o: %.cpp $(HEADER)
-	$(CPP) $(CPPFLAGS) -c -o $@ $<
+	$(CPP) $(CPPFLAGS) -c -o $@ $<ff
 
 clean:
 	rm -rf $(OBJ)
@@ -33,6 +33,6 @@ re: fclean all
 git : fclean
 	sh ../../push.sh
 
-################################################################################ 
+################################################################################
 
 .PHONY: clean fclean re git
