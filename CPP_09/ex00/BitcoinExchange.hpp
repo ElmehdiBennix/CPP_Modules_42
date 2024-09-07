@@ -6,6 +6,7 @@
 #include <fstream>
 #include <limits>
 #include <map>
+#include <cstdlib>
 
 #define RESET "\033[0m"
 #define RED "\033[31m"
@@ -14,32 +15,33 @@
 #define BLUE "\033[34m"
 
 #ifndef DATA_FILE
-#define DATA_FILE "./cpp_09/data.csv"
+#define DATA_FILE "./cpp_09/test.csv"
+// #define DATA_FILE "./cpp_09/data.csv"
 #endif // !DATAFILE
 
 typedef enum Errors {
-    SUCCESS,
-    BADINPUT,
-    BADFORMAT,
-    OVERLIMIT,
-    NEGATIVE,
+    SUCCESS   = 0,
+    BADINPUT  = -1,
+    OVERLIMIT = -2,
+    NEGATIVE  = -3,
 } Errors;
 
 #define COUT(out) std::cout << GREEN << out << RESET << std::endl
 #define CWAR(out) std::cout << YELLOW << out << RESET << std::endl
 #define CERR(out) std::cerr << RED << out << RESET << std::endl
 
-class Bitcoin 
+class Bitcoin
 {
     private:
-        typedef std::map<std::string, float> dataPoint;
+        typedef std::map<int, float> dataPoint;
         dataPoint       dataBase;
 
     private:
+        int     parseDate(const std::string &date) const;
+        float   parseValue(const std::string &value, float min, float max) const;
+
         bool    parseCsv(std::ifstream &dataFile);
-        bool    parseDate(const std::string &date);
-        float   parseValue(const std::string &date);
-        // bool readFile(std::ifstream& file, dataPoint &savePoint);
+        void    executeExchange(std::ifstream &inputFile) const;
 
     public:
         Bitcoin(void);
