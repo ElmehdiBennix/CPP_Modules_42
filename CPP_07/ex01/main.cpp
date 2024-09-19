@@ -35,7 +35,7 @@ int main(void)
     iter(str , size, print<std::string>);
     iter(str , size, appand<std::string &>);
     std::cout << " |   ";
-    iter(str , size, print<std::string>);
+    iter(str , size, print<std::string &>);
     std::cout << " |\n" << std::endl;
 
 }
