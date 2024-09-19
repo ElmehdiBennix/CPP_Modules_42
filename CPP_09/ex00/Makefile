@@ -10,7 +10,8 @@ CXXFLAGS := -g -Wall -Wextra -Wshadow -fsanitize=address
 
 HEADER := BitcoinExchange.hpp
 
-FILES := main.cpp	BitcoinExchange.cpp
+FILES  := main.cpp	\
+		  BitcoinExchange.cpp
 
 OBJ := $(FILES:.cpp=.o)
 

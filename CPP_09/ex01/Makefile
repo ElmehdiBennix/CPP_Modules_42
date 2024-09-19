@@ -1,14 +1,17 @@
 
 EXE := RPN
 
-CPP := c++ -std=c++98
+################################################################################
 
-CPPFLAGS := -g -Wall -Wextra -Wshadow -fsanitize=address
+CXX := c++ -std=c++98
+
+CXXFLAGS := -g -Wall -Wextra -Wshadow -fsanitize=address
 # -werror
 
-HEADER := bitcoinExchange.hpp
+HEADER := RPN.hpp
 
-FILES := main.cpp	bitcoinExchange.cpp
+FILES  := main.cpp \
+		  RPN.cpp
 
 OBJ := $(FILES:.cpp=.o)
 
@@ -17,10 +20,10 @@ OBJ := $(FILES:.cpp=.o)
 all: $(EXE)
 
 $(EXE): $(OBJ)
-	$(CPP) $(OBJ) -o $(EXE)
+	$(CXX) $(CXXFLAGS) $(OBJ) -o $(EXE)
 
 %.o: %.cpp $(HEADER)
-	$(CPP) $(CPPFLAGS) -c -o $@ $<ff
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
 	rm -rf $(OBJ)
