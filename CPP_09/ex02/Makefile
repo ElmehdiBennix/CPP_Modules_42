@@ -1,14 +1,17 @@
 
-EXE := btc
+EXE :=
 
-CPP := c++ -std=c++98
+################################################################################
 
-CPPFLAGS := -g -Wall -Wextra -Wshadow -fsanitize=address
+CXX := c++ -std=c++98
+
+CXXFLAGS := -g -Wall -Wextra -Wshadow -fsanitize=address
 # -werror
 
-HEADER := bitcoinExchange.hpp
+HEADER := .hpp
 
-FILES := main.cpp	bitcoinExchange.cpp
+FILES  := main.cpp	\
+		  .cpp
 
 OBJ := $(FILES:.cpp=.o)
 
@@ -17,10 +20,10 @@ OBJ := $(FILES:.cpp=.o)
 all: $(EXE)
 
 $(EXE): $(OBJ)
-	$(CPP) $(OBJ) -o $(EXE)
+	$(CXX) $(CXXFLAGS) $(OBJ) -o $(EXE)
 
 %.o: %.cpp $(HEADER)
-	$(CPP) $(CPPFLAGS) -c -o $@ $<
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
 	rm -rf $(OBJ)
@@ -33,6 +36,6 @@ re: fclean all
 git : fclean
 	sh ../../push.sh
 
-################################################################################ 
+################################################################################
 
 .PHONY: clean fclean re git

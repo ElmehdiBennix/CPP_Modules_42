@@ -19,21 +19,22 @@
 // #define DATA_FILE "./cpp_09/data.csv"
 #endif // !DATAFILE
 
-typedef enum Errors {
+enum Errors {
     SUCCESS   = 0,
     BADINPUT  = -1,
     OVERLIMIT = -2,
     NEGATIVE  = -3,
-} Errors;
+};
 
 #define COUT(out) std::cout << GREEN << out << RESET << std::endl
 #define CWAR(out) std::cout << YELLOW << out << RESET << std::endl
 #define CERR(out) std::cerr << RED << out << RESET << std::endl
 
+typedef std::map<int, float> dataPoint;
+
 class Bitcoin
 {
     private:
-        typedef std::map<int, float> dataPoint;
         dataPoint       dataBase;
 
     private:
@@ -53,5 +54,13 @@ class Bitcoin
 
         ~Bitcoin(void);
 };
+
+template<typename T, typename Y>
+std::ostream& operator<<(const std::ostream& os, const std::map<T, Y>& dataBase)
+{
+    for(std::map<T, Y>::const_iterator it = dataBase.begin(); it != dataBase.end() ;++it)
+        os << "key: " << it->first << " | value: " << it->second << std::endl;
+    return os;
+}
 
 #endif

@@ -1,28 +1,13 @@
 #include "Serializer.hpp"
 
-Serializer::Serializer(void)
-{};
-
-Serializer::Serializer(Serializer& source)
-{};
-
-Serializer& Serializer::operator=(Serializer& source)
-{};
-
-Serializer::~Serializer(void)
-{};
-
-
-
-uintptr_t Serializer::serialize(Data* ptr)
+uintptr_t
+Serializer::serialize(Data* ptr)
 {
-    std::uintptr_t ret = reinterpret_cast<std::uintptr_t>(ptr);
-
-    return ret;
+    return(reinterpret_cast<uintptr_t>(ptr));
 };
 
-Data* Serializer::Deserialize(uintptr_t ptr)
+Data*
+Serializer::deserialize(uintptr_t raw)
 {
-    return (reinterpret_cast<Data *>(ptr));
+    return (reinterpret_cast<Data *>(raw));
 };
-

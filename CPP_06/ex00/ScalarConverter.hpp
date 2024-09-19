@@ -4,12 +4,15 @@
 #include <iostream>
 #include <sstream>
 #include <cmath>
+#include <iomanip>
+#include <limits>
 
-class ScalarConverter {
+class ScalarConverter
+{
     private:
         ScalarConverter(void);
         ScalarConverter(const ScalarConverter& source);
-        void operator=(const ScalarConverter& source);
+        ScalarConverter& operator=(const ScalarConverter& source);
         ~ScalarConverter(void);
 
     public:

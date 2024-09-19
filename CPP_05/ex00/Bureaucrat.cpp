@@ -16,12 +16,10 @@ const char* Bureaucrat::GradeTooLowException::what() const throw() {
 
 Bureaucrat::Bureaucrat(void) : _name("default"), _grade(150)
 {
-    std::cout << "default constractor has been called" << std::endl;
 };
 
 Bureaucrat::Bureaucrat(const std::string& name, int grade) : _name(name)
 {
-    std::cout << "not the constractor has been called" << std::endl;
     if (grade < HIGHEST_GRADE)
         throw (GradeTooHighException());
     else if (grade > LOWEST_GRADE)
@@ -32,11 +30,9 @@ Bureaucrat::Bureaucrat(const std::string& name, int grade) : _name(name)
 Bureaucrat::Bureaucrat(const Bureaucrat &copy)
 {
     *this = copy;
-    std::cout << "copy constractor has been called" << std::endl;
 };
 
-// if we init bureau here and threw excep
-Bureaucrat& Bureaucrat::operator=(const Bureaucrat &source) 
+Bureaucrat& Bureaucrat::operator=(const Bureaucrat &source)
 {
     if (this != &source)
     {
@@ -46,12 +42,12 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat &source)
     return (*this);
 }
 
-const std::string& Bureaucrat::getName(void) const 
+const std::string& Bureaucrat::getName(void) const
 {
     return _name;
 };
 
-int Bureaucrat::getGrade(void) const 
+int Bureaucrat::getGrade(void) const
 {
     return _grade;
 };
@@ -83,13 +79,12 @@ int Bureaucrat::decrement(void)
 
 Bureaucrat::~Bureaucrat(void)
 {
-    std::cout << "distractor has benn called" << std::endl;
 };
 
 //#####################
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& obj)
 {
-    os << obj.getName() << ", bureaucrat grade " << obj.getGrade();
+    os << obj.getName() << ", bureaucrat grade " << obj.getGrade() << ".";
     return os;
 };
