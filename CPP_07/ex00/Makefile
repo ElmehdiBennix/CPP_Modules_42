@@ -1,24 +1,10 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: root <root@student.42.fr>                  +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/05/04 02:51:55 by root              #+#    #+#              #
-#    Updated: 2024/05/04 02:57:36 by root             ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
 
-EXE := Exo_00
+EXE := template
 
 CPP := c++ -std=c++98
-
-CPPFLAGS := -Wall -Wextra -Wshadow
-# -werror
+CPPFLAGS := -Wall -Wextra -Werror -Wshadow
 
 HEADERS := whatever.hpp
-
 FILES := main.cpp
 
 OBJ := $(FILES:.cpp=.o)
@@ -41,9 +27,6 @@ fclean: clean
 
 re: fclean all
 
-git :
-	sh ../../push
+################################################################################
 
-################################################################################ 
-
-.PHONY: clean fclean re git
+.PHONY: clean fclean re

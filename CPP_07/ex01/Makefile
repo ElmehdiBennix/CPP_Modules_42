@@ -1,12 +1,10 @@
-EXE := Exo
+
+EXE := Iter
 
 CPP := c++ -std=c++98
-
-CPPFLAGS := -Wall -Wextra -Wshadow
-# -werror
+CPPFLAGS := -Wall -Wextra -Werror -Wshadow
 
 HEADERS := iter.hpp
-
 FILES := main.cpp
 
 OBJ := $(FILES:.cpp=.o)
@@ -29,9 +27,6 @@ fclean: clean
 
 re: fclean all
 
-git :
-	sh ../../push
+################################################################################
 
-################################################################################ 
-
-.PHONY: clean fclean re git
+.PHONY: clean fclean re

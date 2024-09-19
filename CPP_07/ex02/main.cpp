@@ -24,21 +24,21 @@ int main(void)
     Array<int> table(6);
     // Array<std::string> strTable(table);
 
-    char c[6] = {'s','t','r','i','n','g'};
+    // char c[6] = {'s','t','r','i','n','g'};
     int x[6] = {1,2,3,4,5,6};
     std::string str[6] = {"s","t","r","i","n","g"};
 
     try {
         std::cout << "Array size = " << table.size() << std::endl;
 
-        for (size_t i = 0; i < table.size() ; i++)        
+        for (size_t i = 0; i < table.size() ; i++)
             std::cout << " | " << table[i];
         std::cout << " |" << std::endl;
 
-        for (size_t i = 0; i < table.size() ; i++)        
+        for (size_t i = 0; i < table.size() ; i++)
             table[i] = x[i];
 
-        for (size_t i = 0; i < table.size() ; i++)        
+        for (size_t i = 0; i < table.size() ; i++)
             std::cout << " | " << table[i];
         std::cout << " |" << std::endl;
     }
