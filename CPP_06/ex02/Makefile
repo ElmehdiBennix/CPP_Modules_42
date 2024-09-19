@@ -1,12 +1,10 @@
-EXE := Exo_02
+
+EXE := Identify
 
 CPP := c++ -std=c++98
+CPPFLAGS := -Wall -Wextra -Wshadow -Werror
 
-CPPFLAGS := -Wall -Wextra -Wshadow
-# -werror
-
-HEADERS := Base.hpp A.hpp B.hpp C.hpp
-
+HEADERS := Seeds.hpp
 FILES := main.cpp
 
 OBJ := $(FILES:.cpp=.o)
@@ -32,6 +30,6 @@ re: fclean all
 git : fclean
 	sh ../../push.sh
 
-################################################################################ 
+################################################################################
 
 .PHONY: clean fclean re git
