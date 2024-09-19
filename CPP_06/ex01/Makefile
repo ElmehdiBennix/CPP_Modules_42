@@ -27,9 +27,6 @@ fclean: clean
 
 re: fclean all
 
-git :
-	sh ../../push
-
 ################################################################################
 
-.PHONY: clean fclean re git
+.PHONY: clean fclean re

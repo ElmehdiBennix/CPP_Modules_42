@@ -1,13 +1,11 @@
-EXE := Exo
+
+EXE := Array
 
 CPP := c++ -std=c++98
+CPPFLAGS := -Wall -Wextra -Werror -Wshadow
 
-CPPFLAGS := -Wall -Wextra -Wshadow
-# -werror
-
-HEADERS := Array.hpp Array.tpp
-
-FILES := main.cpp
+HEADERS := Array.hpp
+FILES := main.cpp  Array.cpp
 
 OBJ := $(FILES:.cpp=.o)
 
@@ -29,9 +27,6 @@ fclean: clean
 
 re: fclean all
 
-git :
-	sh ../../push
+################################################################################
 
-################################################################################ 
-
-.PHONY: clean fclean re git
+.PHONY: clean fclean re
