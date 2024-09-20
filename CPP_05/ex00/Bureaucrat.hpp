@@ -7,9 +7,6 @@
 #define HIGHEST_GRADE 1
 #define LOWEST_GRADE 150
 
-//std::uncaught_exceptions() == 0 noexcept is a keyword that can be used in cpp unlike throw() which is a part of a function signator
-// The destructor is not being called because when an exception is thrown, the stack unwinds and all local objects in all stack frames are destructed. However, if the exception is thrown in the constructor of an object, the object is not considered fully constructed, so its destructor will not be called.
-
 class Bureaucrat
 {
     private:
@@ -19,14 +16,12 @@ class Bureaucrat
     public:
         Bureaucrat(void);
         Bureaucrat(const std::string& name, int grade);
-        Bureaucrat(const Bureaucrat &copy);
+        Bureaucrat(const Bureaucrat &source);
 
         Bureaucrat& operator=(const Bureaucrat &source);
 
-        void setGrade(int grade);
-
-        const std::string& getName(void) const ;
-        int                getGrade(void) const ;
+        const std::string&  getName(void) const;
+        int                 getGrade(void) const;
 
         int increment(void);
         int decrement(void);

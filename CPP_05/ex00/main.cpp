@@ -5,18 +5,22 @@ int main(void)
 {
     try
     {
-       Bureaucrat e("migo", 0);
-       std::cout << e << std::endl;
+        Bureaucrat a("FIRST", 150);
+        Bureaucrat b("SECOND", 1);
+        for (int i = 0; i < 149; i++)
+        {
+            a.increment();
+            std::cout << a << std::endl;
+        }
+        for (int i = 0; i < 149; i++)
+        {
+            b.decrement();
+            std::cout << b << std::endl;
+        }
     }
-    catch (Bureaucrat &e)
+    catch (std::exception &e)
     {
-        std::cout << "execption 1 " << std::endl;
-        std::cout << e << " bruhhhhh" << std::endl;
+        std::cout << "===> Exception caught :" << e.what() << std::endl;
     }
-    catch (std::exception & e)
-    {
-        std::cout << "execption 2 " << std::endl;
-        std::cout << e.what() << std::endl;
-    }
-    std::cout << "end" << std::endl;
+    std::cout << "End..." << std::endl;
 }

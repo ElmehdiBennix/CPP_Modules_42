@@ -10,12 +10,11 @@
 #                                                                              #
 # **************************************************************************** #
 
-EXE := Exo_00
+EXE := Ex_00
 
 CPP := c++ -std=c++98
 
-CPPFLAGS := -Wall -Wextra -Wshadow
-# -werror
+CPPFLAGS := -Wall -Wextra -Werror -Wshadow
 
 HEADERS := Bureaucrat.hpp
 
@@ -44,6 +43,6 @@ re: fclean all
 git : fclean
 	sh ../../push.sh
 
-################################################################################ 
+################################################################################
 
 .PHONY: clean fclean re git
