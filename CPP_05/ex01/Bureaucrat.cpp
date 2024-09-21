@@ -23,10 +23,7 @@ Bureaucrat&
 Bureaucrat::operator=(const Bureaucrat &source)
 {
     if (this != &source)
-    {
-        (std::string)this->_name = source._name;
         this->_grade = source._grade;
-    }
     return (*this);
 }
 
@@ -67,14 +64,14 @@ Bureaucrat::signForm(Form& obj)
         obj.beSigned(*this);
         std::cout << _name << " signed " << obj.getName() << std::endl;
     }
-    catch (const GradeTooLowException& e) {
-        std::cout << _name << " couldn’t sign " << obj.getName() << " because " << e.what() << std::endl;
+    catch (const std::exception& e) {
+        std::cout << _name << " couldn't sign " << obj.getName() << " because " << e.what() << std::endl;
     }
 };
 
 Bureaucrat::~Bureaucrat(void)
 {
-    std::cout << "distractor has been called for " << _name << std::endl;
+    std::cout << "destructor has been called for " << _name << std::endl;
 };
 
 

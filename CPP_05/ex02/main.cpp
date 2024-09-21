@@ -5,9 +5,5 @@
 
 int main(void)
 {
-    ShrubberyCreationForm dzeb("nibba");
 
-    Bureaucrat xx;
-
-    dzeb.execute(xx);
 }

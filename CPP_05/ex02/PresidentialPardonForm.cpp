@@ -1,19 +1,32 @@
 #include "PresidentialPardonForm.hpp"
 #include "Bureaucrat.hpp"
 
-PresidentialPardonFrom::PresidentialPardonFrom(void) : AForm("DEF", 25, 5) {
-    std::cout << "Default constractor called for PresidentialPardonFrom." << std::endl;
+#define GRADE 25
+#define EXEC 5
+
+PresidentialPardonForm::PresidentialPardonForm(void) : AForm("DEF", GRADE, EXEC)
+{
 };
 
-PresidentialPardonFrom::PresidentialPardonFrom(const std::string &name) : AForm(name, 25, 5) {
-    std::cout << "Constractor called for PresidentialPardonFrom." << std::endl;
+PresidentialPardonForm::PresidentialPardonForm(const std::string &name) : AForm(name, GRADE, EXEC)
+{
 };
 
-// PresidentialPardonForm::PresidentialPardonFrom(const PresidentialPardonFrom& source) : AForm("DEF", 25, 5) {
-//     std::cout << "copy constractor has been called." << std::endl;
-// };
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& source) : AForm(source.getName(), GRADE, EXEC)
+{
+};
 
-void PresidentialPardonFrom::execute(const Bureaucrat& executor) const {
+PresidentialPardonForm&
+PresidentialPardonForm::operator=(const PresidentialPardonForm& source)
+{
+    if (this != &source)
+        *this = source;
+    return (*this);
+};
+
+void
+PresidentialPardonForm::execute(const Bureaucrat& executor) const
+{
     if (this->getSignator() && executor.getGrade() <= this->getExecutionGrade())
     {
         std::cout << executor.getName() << " has been pardoned by Zaphod Beeblebrox." << std::endl;
@@ -22,4 +35,6 @@ void PresidentialPardonFrom::execute(const Bureaucrat& executor) const {
     throw(GradeTooLowException());
 };
 
-PresidentialPardonFrom::~PresidentialPardonFrom(void) {};
+PresidentialPardonForm::~PresidentialPardonForm(void)
+{
+};
