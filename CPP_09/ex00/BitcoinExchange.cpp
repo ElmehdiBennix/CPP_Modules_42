@@ -62,12 +62,13 @@ Bitcoin::parseDate(const std::string &date) const
     if ((month == 4 || month == 6 || month == 9 || month == 11) && day > 30)
         return BADINPUT;
 
-    // if (month == 2) {
-    //     bool isLeapYear = (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
-    //     if (day > 29 || (day == 29 && !isLeapYear)) {
-    //         return BADINPUT;
-    //     }
-    // }
+    if (month == 2)
+    {
+        bool isLeapYear = (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
+
+        if (day > 29 || (day == 29 && !isLeapYear))
+            return BADINPUT;
+    }
 
     std::string val(date);
     val.erase(val.find_first_of('-'), 1);

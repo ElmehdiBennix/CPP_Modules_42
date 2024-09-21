@@ -17,7 +17,7 @@
 class RPN
 {
     private:
-
+        
 
     public:
         RPN(void);
@@ -26,7 +26,7 @@ class RPN
 
         RPN& operator=(const RPN& source);
 
-        // void    
+        // void
 
         ~RPN();
 };
