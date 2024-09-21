@@ -1,11 +1,11 @@
-
 EXE := Serialization
 
 CPP := c++ -std=c++98
 CPPFLAGS := -Wall -Wextra -Werror -Wshadow
 
 HEADERS := Serializer.hpp
-FILES := main.cpp Serializer.cpp
+FILES := main.cpp \
+		 Serializer.cpp
 
 OBJ := $(FILES:.cpp=.o)
 

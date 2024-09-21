@@ -12,7 +12,9 @@ class ScalarConverter
     private:
         ScalarConverter(void);
         ScalarConverter(const ScalarConverter& source);
+
         ScalarConverter& operator=(const ScalarConverter& source);
+
         ~ScalarConverter(void);
 
     public:

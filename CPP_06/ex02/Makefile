@@ -1,4 +1,3 @@
-
 EXE := Identify
 
 CPP := c++ -std=c++98

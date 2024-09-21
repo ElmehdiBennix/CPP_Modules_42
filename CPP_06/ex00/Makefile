@@ -1,11 +1,12 @@
-
 EXE := convert
 
 CPP := c++ -std=c++98
 CPPFLAGS := -Wall -Wextra -Werror -Wshadow
 
 HEADERS := ScalarConverter.hpp
-FILES := main.cpp ScalarConverter.cpp
+
+FILES := main.cpp \
+		 ScalarConverter.cpp
 
 OBJ := $(FILES:.cpp=.o)
 

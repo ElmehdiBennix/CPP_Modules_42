@@ -1,4 +1,4 @@
-EXE := Ex_00
+EXE := Exo_00
 
 CPP := c++ -std=c++98
 CPPFLAGS := -Wall -Wextra -Werror -Wshadow
