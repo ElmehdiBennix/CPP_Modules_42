@@ -1,25 +1,22 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/05/15 16:49:51 by ebennix           #+#    #+#              #
-#    Updated: 2024/05/15 16:50:05 by ebennix          ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
 EXE := Exo_03
 
 CPP := c++ -std=c++98
+CPPFLAGS := -Wall -Wextra -Werror -Wshadow
 
-CPPFLAGS := -Wall -Wextra -Wshadow
-# -werror
+HEADERS := 	AForm.hpp \
+			Bureaucrat.hpp \
+			PresidentialPardonForm.hpp \
+ 			RobotomyRequestForm.hpp	   \
+ 			ShrubberyCreationForm.hpp  \
+		 	Intern.hpp
 
-HEADERS := 
-
-FILES := main.cpp
+FILES := main.cpp \
+		 AForm.cpp \
+		 Bureaucrat.cpp \
+		 RobotomyRequestForm.cpp \
+		 ShrubberyCreationForm.cpp \
+		 PresidentialPardonForm.cpp  \
+		 Intern.cpp
 
 OBJ := $(FILES:.cpp=.o)
 
@@ -41,9 +38,6 @@ fclean: clean
 
 re: fclean all
 
-git : fclean
-	sh ../../push.sh
+################################################################################
 
-################################################################################ 
-
-.PHONY: clean fclean re git
+.PHONY: clean fclean re

@@ -4,7 +4,8 @@ CPP := c++ -std=c++98
 CPPFLAGS := -Wall -Wextra -Werror -Wshadow
 
 HEADERS := Bureaucrat.hpp
-FILES := main.cpp	Bureaucrat.cpp
+FILES := main.cpp \
+		 Bureaucrat.cpp
 
 OBJ := $(FILES:.cpp=.o)
 
@@ -26,9 +27,6 @@ fclean: clean
 
 re: fclean all
 
-git : fclean
-	sh ../../push.sh
-
 ################################################################################
 
-.PHONY: clean fclean re git
+.PHONY: clean fclean re
