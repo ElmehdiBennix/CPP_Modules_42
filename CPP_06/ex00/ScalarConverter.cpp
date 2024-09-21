@@ -1,5 +1,24 @@
 #include "ScalarConverter.hpp"
 
+ScalarConverter::ScalarConverter(void)
+{
+};
+
+ScalarConverter::ScalarConverter(const ScalarConverter& source)
+{
+};
+
+
+ScalarConverter&
+ScalarConverter::operator=(const ScalarConverter& source)
+{
+};
+
+ScalarConverter::~ScalarConverter(void)
+{
+};
+
+
 static bool pseudo(const std::string& type) throw()
 {
     if (type == "-inff" || type == "+inff" || type == "nanf")
