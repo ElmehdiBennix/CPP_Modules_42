@@ -5,11 +5,10 @@ EXE := PmergeMe
 
 CPP := c++
 #  -std=c++98
-CPPFLAGS := -g -Wall -Wextra -Wshadow -fsanitize=address
-# -werror
+CPPFLAGS := -Wall -Wextra -Wshadow
+# -Werror
 
 HEADER := PmergeMe.hpp
-
 FILES  := main.cpp	\
 		  PmergeMe.cpp
 

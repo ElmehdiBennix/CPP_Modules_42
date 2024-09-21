@@ -29,8 +29,6 @@ RPN::calculatePostFix(const std::string& expression)
 
     while(istream >> token)
     {
-        std::cout << token << std::endl;
-
         if (token.size() == 1 && token[0] >= 48 && token[0] <= 57)
             numbers.push(token[0] - '0');
         else if (token.size() == 1 && TOKENS(token[0]))
@@ -68,8 +66,8 @@ RPN::calculatePostFix(const std::string& expression)
             throw (std::runtime_error("Error: bad input."));
     }
 
-    if (numbers.size() == 1)
-        COUT(numbers.top());
-    else
+    if (numbers.size() != 1)
         throw (std::runtime_error("Error: missing operation."));
+
+    COUT(numbers.top());
 };
