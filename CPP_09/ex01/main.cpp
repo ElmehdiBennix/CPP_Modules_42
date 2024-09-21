@@ -7,10 +7,9 @@ int main(int ac, char **av)
             throw std::invalid_argument("Error: Usage ./RPN \"<inverted Polish mathematical expression>\".");
 
         RPN::calculatePostFix(av[1]);
+        return 0;
     }
     catch (std::exception &e) {
         return (CERR(e.what()), 1);
     }
-
-    return 0;
 }
