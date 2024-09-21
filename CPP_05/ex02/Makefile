@@ -1,7 +1,7 @@
 EXE := Exo_02
 
 CPP := c++ -std=c++98
-CPPFLAGS := -Wall -Wextra -Wshadow -Werror
+CPPFLAGS := -Wall -Wextra -Werror -Wshadow
 
 HEADERS := 	AForm.hpp \
 			Bureaucrat.hpp \
@@ -36,9 +36,6 @@ fclean: clean
 
 re: fclean all
 
-git : fclean
-	sh ../../push.sh
-
 ################################################################################
 
-.PHONY: clean fclean re git
+.PHONY: clean fclean re
