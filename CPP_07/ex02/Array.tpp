@@ -1,3 +1,5 @@
+#include <iostream>
+
 template <typename T>
 Array<T>::Array(void) : elements(NULL), len(0)
 {
