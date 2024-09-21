@@ -4,7 +4,8 @@ CPP := c++ -std=c++98
 CPPFLAGS := -Wall -Wextra -Wshadow -Werror
 
 HEADERS := Seeds.hpp
-FILES := main.cpp
+FILES := main.cpp \
+		 Seeds.cpp
 
 OBJ := $(FILES:.cpp=.o)
 

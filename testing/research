@@ -134,26 +134,22 @@ Complexity: Floating-point arithmetic is more complex to implement and understan
 
 
 
-
-
-
-
-virtual function in the base class means it can be overwritten by another signature 
-we can add overide in the dirrived class to signify that it should overide the virtual function in base 
+virtual function in the base class means it can be overwritten by another signature
+we can add overide in the dirrived class to signify that it should overide the virtual function in base
 
 /*
     Virtual destructor:
-    A virtual destructor is used to free up the memory space allocated by 
+    A virtual destructor is used to free up the memory space allocated by
     the derived class object or instance while deleting instances of the derived
     class using a base class pointer object. A base or parent class destructor
-    use the virtual keyword that ensures both base class and the derived class 
+    use the virtual keyword that ensures both base class and the derived class
     destructor will be called at run time, but it called the derived class first
     and then base class to release the space occupied by both destructors.
 
     Every destructor down gets called no matter what. virtual makes sure it
     starts at the top instead of the middle.
 
-    Virtual destructors are useful when you might potentially delete an instance 
+    Virtual destructors are useful when you might potentially delete an instance
     of a derived class through a pointer to base class:
 */
 
@@ -163,7 +159,7 @@ we can add overide in the dirrived class to signify that it should overide the v
         in a derived class. It is declared using the virtual keyword.
     - It is used to tell the compiler to perform dynamic linkage or late binding
         on the function.
-    - There is a necessity to use the single pointer to refer to all the objects of 
+    - There is a necessity to use the single pointer to refer to all the objects of
         the different classes. So, we create the pointer to the base class that refers
         to all the derived objects. But, when base class pointer contains the address of
         the derived class object, always executes the base class function. This issue
@@ -171,10 +167,10 @@ we can add overide in the dirrived class to signify that it should overide the v
     - A 'virtual' is a keyword preceding the normal declaration of a function.
     - When the function is made virtual, C++ determines which function is to be invoked
         at the runtime based on the type of the object pointed by the base class pointer.
-    
+
 */
 
-/* virtual means the the linkage will be dynamic not static 
+/* virtual means the the linkage will be dynamic not static
     Explaination:
     At the beginning, we had a statis relution of the function calls, It means that
     during the compilation, (the compiler) we already will know which function to call.
@@ -188,8 +184,8 @@ we can add overide in the dirrived class to signify that it should overide the v
     Thanks to the virtual, the resulotion of the function call wil be dynamic. and it will be
     decided at runtime.
 
-    When we call the member function, during the execution becauese it's a function with 
-    a dynamic link, it will look for the actual type of the object. It will walk 
+    When we call the member function, during the execution becauese it's a function with
+    a dynamic link, it will look for the actual type of the object. It will walk
     through the inheritance tree to find the actual type.
 
     A virtual member function is called a method.
@@ -202,7 +198,7 @@ Rules of Virtual Function:
     - They are accessed through object pointers.
     - They can be a friend of another class.
     - A virtual function must be defined in the base class, even though it is not used.
-    - The prototypes of a virtual function of the base class and all the derived classes 
+    - The prototypes of a virtual function of the base class and all the derived classes
         must be identical. If the two functions with the same name but different prototypes,
         C++ will consider them as the overloaded functions.
     - We cannot have a virtual constructor, but we can have a virtual destructor

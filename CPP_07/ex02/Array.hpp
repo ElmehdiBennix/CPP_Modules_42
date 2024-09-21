@@ -11,50 +11,18 @@ class Array
         size_t  len;
 
     public:
-        Array(void) : elements(NULL), len(0)
-        {
-        };
+        Array(void);
+        Array(unsigned int n);
+        Array(const Array &source);
 
-        Array(unsigned int n) {
-            this->elements = new T[n]();
-            this->len = n;
-        };
+        Array&  operator=(const Array& source);
+        T&      operator[](size_t index);
 
-        Array(Array &source)
-        {
-            *this = source;
-        };
+        size_t  size(void) const;
 
-        Array& operator=(Array& source)
-        {
-            if (this != &source)
-            {
-                this->len = source.len;                         // from whome it comes that template  ?
-                (this->len == 0) ? this->elements = NULL : this->elements = new T[this->len]() ;
-                for (size_t i = 0 ; i < this->len; i++)
-                    this->elements[i] = source.elements[i];
-            }
-            return *this;
-        };
-
-        T& operator[](size_t index)
-        {
-            // std::cout << "operator [] called." << std::endl;
-            if (index < len)
-                return this->elements[index];
-            throw (std::out_of_range("what da sigma"));
-        };
-
-        size_t size(void) const
-        {
-            // std::cout << "\'size\'membre called." << std::endl;
-            return this->len;
-        };
-
-        ~Array(void)
-        {
-            delete[] elements;
-        };
+        ~Array(void);
 };
+
+#include "Array.tpp"
 
 #endif
