@@ -4,7 +4,6 @@ CPP := c++ -std=c++98
 CPPFLAGS := -Wall -Wextra -Werror -Wshadow
 
 HEADERS := ScalarConverter.hpp
-
 FILES := main.cpp \
 		 ScalarConverter.cpp
 

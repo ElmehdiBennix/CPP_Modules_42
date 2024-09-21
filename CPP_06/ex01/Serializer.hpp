@@ -21,7 +21,7 @@ class Serializer
         ~Serializer(void);
 
     public:
-        static  std::uintptr_t serialize(Data* ptr);
+        static  uintptr_t      serialize(Data* ptr);
         static  Data*          deserialize(uintptr_t raw);
 };
 
