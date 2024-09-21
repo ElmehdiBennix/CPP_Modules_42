@@ -1,3 +1,6 @@
 {
-    "C_Cpp.default.compilerPath": "/usr/bin/c++"
+    "C_Cpp.default.compilerPath": "/usr/bin/c++",
+    "files.associations": {
+        "array": "cpp"
+    }
 }

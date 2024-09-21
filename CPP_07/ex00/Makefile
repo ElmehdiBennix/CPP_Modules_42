@@ -1,6 +1,8 @@
 
 EXE := template
 
+################################################################################
+
 CPP := c++ -std=c++98
 CPPFLAGS := -Wall -Wextra -Werror -Wshadow
 
