@@ -8,21 +8,40 @@ int main(void)
 {
     try
     {
-        Bureaucrat a("test", 1);
+        Intern someRandomIntern;
+        AForm *rrf;
 
-        ShrubberyCreationForm la("ShrubberyCreationForm");
-        RobotomyRequestForm lb("RobotomyRequestForm");
-        PresidentialPardonForm lc("PresidentialPardonForm");
+        std::cout << "<====================>" << std::endl;
+        rrf = someRandomIntern.makeForm("presidential pardon", "first");
+        if (rrf)
+        {
+            std::cout << *rrf << std::endl;
+            delete rrf;
+        }
 
-        std::cout << "<========================= sign =========================>" << std::endl;
-        a.signForm(la);
-        a.signForm(lb);
-        a.signForm(lc);
+        std::cout << "<====================>" << std::endl;
+        rrf = someRandomIntern.makeForm("robotomy request", "second");
+        if (rrf)
+        {
+            std::cout << *rrf << std::endl;
+            delete rrf;
+        }
 
-        std::cout << "<========================= execute =========================>" << std::endl;
-        a.executeForm(la);
-        a.executeForm(lb);
-        a.executeForm(lc);
+        std::cout << "<====================>" << std::endl;
+        rrf = someRandomIntern.makeForm("shrubbery creation", "third");
+        if (rrf)
+        {
+            std::cout << *rrf << std::endl;
+            delete rrf;
+        }
+
+        std::cout << "<====================>" << std::endl;
+        rrf = someRandomIntern.makeForm("non existant", "third");
+        if (rrf)
+        {
+            std::cout << *rrf << std::endl;
+            delete rrf;
+        }
 
     }
     catch (const std::exception &e)
