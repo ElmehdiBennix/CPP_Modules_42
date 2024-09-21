@@ -25,13 +25,11 @@ class RPN
     private:
         RPN(void);
         RPN(const RPN& source);
-
-        RPN& operator=(const RPN& source);
-
+        RPN&    operator=(const RPN& source);
         ~RPN(void);
 
     public:
-        static void calculatePostFix(const std::string& expression);
+        static  void    calculatePostFix(const std::string& expression);
 };
 
 #endif
