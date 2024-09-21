@@ -4,8 +4,8 @@ EXE := Array
 CPP := c++ -std=c++98
 CPPFLAGS := -Wall -Wextra -Werror -Wshadow
 
-HEADERS := Array.hpp
-FILES := main.cpp  Array.cpp
+HEADERS := Array.hpp Array.tpp
+FILES := main.cpp
 
 OBJ := $(FILES:.cpp=.o)
 
