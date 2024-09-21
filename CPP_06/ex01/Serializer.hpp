@@ -15,7 +15,9 @@ class Serializer
     private:
         Serializer(void);
         Serializer(const Serializer& source);
+
         Serializer& operator=(Serializer& source);
+
         ~Serializer(void);
 
     public:
