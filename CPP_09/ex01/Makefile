@@ -3,10 +3,8 @@ EXE := RPN
 
 ################################################################################
 
-CPP := c++
-# -std=c++98
-CPPFLAGS := -Wall -Wextra -Wshadow
-# -Werror
+CPP := c++ -std=c++98
+CPPFLAGS := -Wall -Wextra -Werror -Wshadow
 
 HEADER := RPN.hpp
 FILES  := main.cpp \
