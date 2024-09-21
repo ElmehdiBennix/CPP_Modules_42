@@ -30,12 +30,13 @@ enum Errors {
 #define CWAR(out) std::cout << YELLOW << out << RESET << std::endl
 #define CERR(out) std::cerr << RED << out << RESET << std::endl
 
+
 typedef std::map<int, float> dataPoint;
 
 class Bitcoin
 {
     private:
-        dataPoint       dataBase;
+        dataPoint                    dataBase;
 
     private:
         int     parseDate(const std::string &date) const;

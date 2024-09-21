@@ -1,12 +1,13 @@
-EXE := Exo
+
+EXE := abomination
+
+################################################################################
 
 CPP := c++ -std=c++98
-
 CPPFLAGS := -Wall -Wextra -Wshadow
 # -werror
 
 HEADERS := MutantStack.hpp MutanatStack.tpp
-
 FILES := main.cpp
 
 OBJ := $(FILES:.cpp=.o)
@@ -29,9 +30,6 @@ fclean: clean
 
 re: fclean all
 
-git : fclean
-	sh ../../push
+################################################################################
 
-################################################################################ 
-
-.PHONY: clean fclean re git
+.PHONY: clean fclean re

@@ -3,13 +3,12 @@ EXE := RPN
 
 ################################################################################
 
-CXX := c++ -std=c++98
-
-CXXFLAGS := -g -Wall -Wextra -Wshadow -fsanitize=address
-# -werror
+CPP := c++
+# -std=c++98
+CPPFLAGS := -Wall -Wextra -Wshadow
+# -Werror
 
 HEADER := RPN.hpp
-
 FILES  := main.cpp \
 		  RPN.cpp
 
@@ -20,10 +19,10 @@ OBJ := $(FILES:.cpp=.o)
 all: $(EXE)
 
 $(EXE): $(OBJ)
-	$(CXX) $(CXXFLAGS) $(OBJ) -o $(EXE)
+	$(CPP) $(OBJ) -o $(EXE)
 
-%.o: %.cpp $(HEADER)
-	$(CXX) $(CXXFLAGS) -c $< -o $@
+%.o: %.cpp $(HEADERS)
+	$(CPP) $(CPPFLAGS) -c -o $@ $<
 
 clean:
 	rm -rf $(OBJ)
@@ -33,9 +32,6 @@ fclean: clean
 
 re: fclean all
 
-git : fclean
-	sh ../../push.sh
-
 ################################################################################
 
-.PHONY: clean fclean re git
+.PHONY: clean fclean re
