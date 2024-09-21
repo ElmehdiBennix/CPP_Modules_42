@@ -1,23 +1,9 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: ebennix <ebennix@student.42.fr>            +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/05/04 02:51:55 by root              #+#    #+#              #
-#    Updated: 2024/05/11 02:49:11 by ebennix          ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
 EXE := Ex_00
 
 CPP := c++ -std=c++98
-
 CPPFLAGS := -Wall -Wextra -Werror -Wshadow
 
 HEADERS := Bureaucrat.hpp
-
 FILES := main.cpp	Bureaucrat.cpp
 
 OBJ := $(FILES:.cpp=.o)

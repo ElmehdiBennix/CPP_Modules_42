@@ -3,17 +3,18 @@
 
 #include "AForm.hpp"
 
-class Bureaucrat;
-
-class PresidentialPardonFrom : public AForm {
+class PresidentialPardonForm : public AForm
+{
     public :
-        PresidentialPardonFrom(void);
-        PresidentialPardonFrom(const std::string &name);
-        // PresidentialPardonFrom(const PresidentialPardonFrom& source);
+        PresidentialPardonForm(void);
+        PresidentialPardonForm(const std::string &name);
+        PresidentialPardonForm(const PresidentialPardonForm& source);
 
-        void execute(const Bureaucrat& executor) const ;
+        PresidentialPardonForm& operator=(const PresidentialPardonForm& source);
 
-        ~PresidentialPardonFrom(void);
+        void                    execute(const Bureaucrat& executor) const ;
+
+        ~PresidentialPardonForm(void);
 };
 
 #endif

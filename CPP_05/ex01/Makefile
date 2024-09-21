@@ -2,11 +2,9 @@
 EXE := Ex_01
 
 CPP := c++ -std=c++98
-
 CPPFLAGS := -Wall -Wextra -Werror -Wshadow
 
 HEADERS := Bureaucrat.hpp Form.hpp
-
 FILES := main.cpp Bureaucrat.cpp Form.cpp
 
 OBJ := $(FILES:.cpp=.o)

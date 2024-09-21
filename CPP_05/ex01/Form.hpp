@@ -18,12 +18,13 @@ class Form
         Form(const std::string& name, const int signatorGrade, const int executionGrade);
         Form(const Form& source);
 
-        Form&   operator=(const Form& source);
+        Form&               operator=(const Form& source);
 
         const std::string&  getName(void) const throw();
         bool                getSignator(void) const throw();
         int                 getSignatorGrade(void) const throw();
         int                 getExecutionGrade(void) const throw();
+
         void                beSigned(const Bureaucrat& obj);
 
         class GradeTooHighException : public std::exception {

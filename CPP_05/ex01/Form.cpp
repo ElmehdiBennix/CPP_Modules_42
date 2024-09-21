@@ -17,10 +17,12 @@ Form::Form(const Form& source) : _name(source._name), _signator(source._signator
 {
 };
 
-Form&   Form::operator=(const Form& source)
+Form&
+Form::operator=(const Form& source)
 {
-    Form tmp(source);
-    return tmp;
+    if (this != &source)
+        _signator = source._signator;
+    return (*this);
 };
 
 const std::string&
@@ -60,7 +62,7 @@ Form::beSigned(const Bureaucrat& obj)
 
 Form::~Form(void)
 {
-    std::cout << "Destractor called for form " << _name << std::endl;
+    std::cout << "destructor has been called for form " << _name << std::endl;
 };
 
 
@@ -79,6 +81,9 @@ Form::GradeTooLowException::what() const throw()
 
 std::ostream& operator<<(std::ostream& os, const Form& obj)
 {
-    os << obj.getName() << " Form : " << std::endl << "Grade to be signed = " << obj.getSignatorGrade() << "\nGrade to be executed = " << obj.getExecutionGrade() << std::endl << "Signator status : " << ((obj.getSignator()) ? "True" : "False");
+    os << obj.getName() << " Form : " << std::endl \
+        << "Grade to be signed = " << obj.getSignatorGrade() << std::endl \
+        << "Grade to be executed = " << obj.getExecutionGrade() << std::endl \
+        << "Signator status : " << ((obj.getSignator()) ? "True" : "False");
     return os;
 };
