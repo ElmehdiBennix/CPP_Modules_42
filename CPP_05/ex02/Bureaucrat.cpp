@@ -75,7 +75,7 @@ Bureaucrat::executeForm(const AForm& form)
     try
     {
         form.execute(*this);
-        std::cout << _name << "executed " << form.getName() << "." << std::endl;
+        std::cout << _name << " executed " << form.getName() << "." << std::endl;
     }
     catch (const std::exception& e)
     {
@@ -86,7 +86,6 @@ Bureaucrat::executeForm(const AForm& form)
 
 Bureaucrat::~Bureaucrat(void)
 {
-    std::cout << "destructor has been called for " << _name << std::endl;
 };
 
 

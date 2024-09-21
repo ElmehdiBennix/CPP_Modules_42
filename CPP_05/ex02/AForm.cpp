@@ -62,7 +62,6 @@ AForm::beSigned(const Bureaucrat& obj)
 
 AForm::~AForm(void)
 {
-    std::cout << "destructor has been called for Aform " << _name << std::endl;
 };
 
 
