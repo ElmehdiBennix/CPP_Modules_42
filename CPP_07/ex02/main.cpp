@@ -28,8 +28,7 @@ int main(void)
             std::cout << " | " << table[i];
         std::cout << " |" << std::endl;
     }
-    catch (const std::exception& e)
-    {
+    catch (const std::exception& e) {
         std::cout << e.what() << std::endl;
     }
 
