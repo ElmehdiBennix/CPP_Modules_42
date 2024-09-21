@@ -1,8 +1,8 @@
 #ifndef SHRUBBERYCREATIONFORM_HPP__
 #define SHRUBBERYCREATIONFORM_HPP__
 
-#include "AForm.hpp"
 #include <fstream>
+#include "AForm.hpp"
 
 #define ASCII_TREE "\
                                               .         ;  \n\
@@ -31,13 +31,16 @@
                                .%@@@@%::;\n\
                                ;%@@@@%::;."
 
-class ShrubberyCreationForm : public AForm {
+class ShrubberyCreationForm : public AForm
+{
     public :
         ShrubberyCreationForm(void);
         ShrubberyCreationForm(const std::string &name);
-        // ShrubberyCreationForm(const ShrubberyCreationForm& source);
+        ShrubberyCreationForm(const ShrubberyCreationForm& source);
 
-        void execute(const Bureaucrat& executor) const;
+        ShrubberyCreationForm&  operator=(const ShrubberyCreationForm& source);
+
+        void                    execute(const Bureaucrat& executor) const;
 
         ~ShrubberyCreationForm(void);
 };
