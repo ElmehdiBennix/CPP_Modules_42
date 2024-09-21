@@ -19,7 +19,7 @@ AForm* Intern::makeForm(const std::string& name, const std::string& target) {
         {
             case 0:
                 std::cout << "Inetern creates " << name << std::endl;
-                return new PresidentialPardonFrom(target);
+                return new PresidentialPardonForm(target);
             case 1:
                 std::cout << "Inetern creates " << name << std::endl;
                 return new RobotomyRequestForm(target);
