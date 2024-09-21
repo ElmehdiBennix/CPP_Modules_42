@@ -2,6 +2,12 @@
 #ifndef BUREAUCRAT_HPP__
 #define BUREAUCRAT_HPP__
 
+#define RESET "\033[0m"
+#define RED "\033[31m"
+#define GREEN "\033[32m"
+#define YELLOW "\033[33m"
+#define BLUE "\033[34m"
+
 #include <iostream>
 
 #define HIGHEST_GRADE 1
@@ -20,15 +26,15 @@ class Bureaucrat
         Bureaucrat(const std::string& name, int grade);
         Bureaucrat(const Bureaucrat &source);
 
-        Bureaucrat& operator=(const Bureaucrat &source);
+        Bureaucrat&         operator=(const Bureaucrat &source);
 
         const std::string&  getName(void) const ;
         int                 getGrade(void) const ;
 
-        int increment(void);
-        int decrement(void);
+        int                 increment(void);
+        int                 decrement(void);
 
-        void    signForm(Form& obj);
+        void                signForm(Form& obj);
 
         class GradeTooHighException : public std::exception
         {

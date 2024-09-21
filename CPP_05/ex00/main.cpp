@@ -18,7 +18,7 @@ int main(void)
             std::cout << b << std::endl;
         }
     }
-    catch (std::exception &e)
+    catch (const std::exception &e)
     {
         std::cout << "===> Exception caught :" << e.what() << std::endl;
     }
