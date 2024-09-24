@@ -24,6 +24,8 @@ Array<T>::operator=(const Array& source)
 {
     if (this != &source)
     {
+        if (!source.elements)
+            delete[] source.elements;
         this->len = source.len;
         (this->len == 0) ? this->elements = NULL : this->elements = new T[this->len]() ;
         for (size_t i = 0 ; i < this->len; i++)
