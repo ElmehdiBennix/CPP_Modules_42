@@ -8,8 +8,8 @@ Array<T>::Array(void) : elements(NULL), len(0)
 template <typename T>
 Array<T>::Array(unsigned int n)
 {
-    this->elements = new T[n]();
     this->len = n;
+    (this->len == 0) ? this->elements = NULL : this->elements = new T[this->len]() ;
 };
 
 template <typename T>
