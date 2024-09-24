@@ -7,7 +7,7 @@ int main(int ac, char **av)
         if (ac == 1)
             throw std::invalid_argument("Error: Usage ./PmergeMe \"<sequence>\".");
 
-
+        // PmergeMe::
         return 0;
     }
     catch (const std::exception &e) {
