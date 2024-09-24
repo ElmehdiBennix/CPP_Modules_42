@@ -13,7 +13,7 @@ void iter(T* addr, size_t len, void (*func)(T))
 template <typename T>
 void print(T type)
 {
-    std::cout << " | " << type;
+    std::cout << type << std::endl;
 }
 
 #endif
