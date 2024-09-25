@@ -6,6 +6,8 @@
 template <typename T>
 void iter(T* addr, size_t len, void (*func)(T))
 {
+    if (!addr || !func)
+        return;
     for (size_t i = 0; i < len; i++)
         func(addr[i]);
 }

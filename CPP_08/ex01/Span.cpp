@@ -27,18 +27,18 @@ Span::operator=(const Span &source)
     return (*this);
 };
 
+std::vector<int>*
+Span::getvec(void)
+{
+    return &numbers;
+};
+
 void
 Span::addNumber(int num)
 {
     if (numbers.size() >= size)
         throw (std::out_of_range("vector is full."));
     numbers.push_back(num);
-};
-
-std::vector<int>*
-Span::getvec(void)
-{
-    return &numbers;
 };
 
 int
