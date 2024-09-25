@@ -24,7 +24,7 @@ class Span
         void    addNumber(it begin, it end)
         {
             if (std::distance(begin, end) + numbers.size() >= size)
-                throw (std::out_of_range("vector is full."));
+                throw (std::out_of_range("cant add number to vector."));
             numbers.insert(numbers.end(), begin, end);
         };
 

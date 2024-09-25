@@ -1,8 +1,7 @@
 #include "Span.hpp"
 
-Span::Span(void) : size(1)
+Span::Span(void) : size(0)
 {
-    numbers.reserve(1);
 };
 
 Span::Span(unsigned int N) : size(N)
@@ -20,9 +19,9 @@ Span::operator=(const Span &source)
 {
     if (this != &source)
     {
+        size = source.size;
         numbers.resize(source.size);
         std::copy(source.numbers.begin(), source.numbers.end(), this->numbers.begin());
-        size = source.size;
     }
     return (*this);
 };
@@ -37,7 +36,7 @@ void
 Span::addNumber(int num)
 {
     if (numbers.size() >= size)
-        throw (std::out_of_range("vector is full."));
+        throw (std::out_of_range("cant add number to vector."));
     numbers.push_back(num);
 };
 
