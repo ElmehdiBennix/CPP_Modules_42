@@ -1,25 +1,28 @@
 #include "easyfind.hpp"
-#include <vector>
 
 int main(void)
 {
-    int arr[] = {0, 1, 2, 3, 4, 5};
-    std::vector<int> x(arr, arr + sizeof(arr) / sizeof(arr[0]));
+    std::vector<int> numbers;
+
+    numbers.push_back(0);
+    numbers.push_back(1);
+    numbers.push_back(2);
+    numbers.push_back(3);
+    numbers.push_back(4);
+    numbers.push_back(5);
 
     try
     {
-        std::vector<int>::iterator it = easyfind(x, 10);
-        std::cout << "found a number : " << *it << std::endl;
+        std::cout << "number => " << *easyfind(numbers, 2) << std::endl;
+        std::cout << "number => " << *easyfind(numbers, 0) << std::endl;
+        std::cout << "number => " << *easyfind(numbers, 1) << std::endl;
+        std::cout << "number => " << *easyfind(numbers, 5) << std::endl;
+        std::cout << "number => " << *easyfind(numbers, 10) << std::endl;
 
     }
-    catch(const std::exception &e)
-    {
-        std::cout << e.what() << std::endl;
+    catch (const std::exception &e) {
+        std::cerr << e.what() << std::endl;
     }
 
-    // for (std::vector<int>::iterator it = x.begin() ; )
-    // std::vector<int>::iterator it = x.begin() ;
-    // std::cout << *(++it) << std::endl;
-
-
-}
+    return 0;
+};
