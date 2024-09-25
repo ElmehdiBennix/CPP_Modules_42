@@ -8,8 +8,8 @@
 class Span
 {
     private:
-        std::vector<int> numbers;
-        std::size_t size;
+        std::vector<int>    numbers;
+        unsigned int        size;
 
     public:
         Span(void);

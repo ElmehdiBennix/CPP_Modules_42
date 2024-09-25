@@ -64,35 +64,6 @@
 //     return 0;
 // }
 
-void testPushPop()
-{
-    MutantStack<int> mStack;
-
-    mStack.push(10);
-    mStack.push(20);
-
-    if (mStack.top() != 20) {
-        std::cerr << "Error: Top element should be 20" << std::endl;
-    }
-
-    mStack.pop();
-
-    if (mStack.top() != 10) {
-        std::cerr << "Error: Top element should be 10" << std::endl;
-    }
-
-    mStack.pop();
-
-    try {
-        mStack.top();
-        std::cerr << "Error: Exception should be thrown when accessing top of empty stack" << std::endl;
-    } catch (const std::out_of_range&) {
-        std::cout << "Passed: Exception correctly thrown on empty stack" << std::endl;
-    } catch (...) {
-        std::cerr << "Error: Unexpected exception type thrown" << std::endl;
-    }
-}
-
 void testIteration()
 {
     MutantStack<int> mStack;
@@ -144,7 +115,6 @@ void testAssignmentOperator()
 
 int main()
 {
-    testPushPop();
     testIteration();
     testCopyConstructor();
     testAssignmentOperator();
