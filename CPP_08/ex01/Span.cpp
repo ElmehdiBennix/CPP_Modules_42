@@ -26,10 +26,10 @@ Span::operator=(const Span &source)
     return (*this);
 };
 
-std::vector<int>*
-Span::getvec(void)
+const std::vector<int>&
+Span::getvec(void) const
 {
-    return &numbers;
+    return numbers;
 };
 
 void
@@ -49,7 +49,7 @@ Span::shortestSpan(void) const
     std::vector<int> sorted_vec(numbers);
     std::sort(sorted_vec.begin(), sorted_vec.end());
 
-    int span = 2147483647;
+    int span = std::numeric_limits<int>::max();
 
     for (std::vector<int>::const_iterator it = sorted_vec.begin() + 1; it != sorted_vec.end(); ++it) {
         int tmp = *it - *(it - 1);
