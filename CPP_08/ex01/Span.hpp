@@ -23,12 +23,12 @@ class Span
         template <typename it>
         void    addNumber(it begin, it end)
         {
-            if (std::distance(begin, end) + numbers.size() >= size)
+            if (std::distance(begin, end) + numbers.size() > size)
                 throw (std::out_of_range("cant add number to vector."));
             numbers.insert(numbers.end(), begin, end);
         };
 
-        std::vector<int>* getvec(void);
+        const std::vector<int>& getvec(void) const;
 
         int     shortestSpan(void) const;
         int     longestSpan(void) const;
