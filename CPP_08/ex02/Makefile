@@ -4,10 +4,9 @@ EXE := abomination
 ################################################################################
 
 CPP := c++ -std=c++98
-CPPFLAGS := -Wall -Wextra -Wshadow
-# -werror
+CPPFLAGS := -Wall -Wextra -Werror -Wshadow
 
-HEADERS := MutantStack.hpp MutanatStack.tpp
+HEADERS := MutantStack.hpp
 FILES := main.cpp
 
 OBJ := $(FILES:.cpp=.o)

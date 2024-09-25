@@ -4,10 +4,9 @@ EXE := EasyFind
 ################################################################################
 
 CPP := c++ -std=c++98
-CPPFLAGS := -Wall -Wextra -Wshadow
-# -werror
+CPPFLAGS := -Wall -Wextra -Werror -Wshadow
 
-HEADERS := easyfind.hpp easyfind.tpp
+HEADERS := easyfind.hpp
 FILES := main.cpp
 
 OBJ := $(FILES:.cpp=.o)
