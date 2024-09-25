@@ -4,8 +4,7 @@ EXE := Span
 ################################################################################
 
 CPP := c++ -std=c++98
-CPPFLAGS := -Wall -Wextra -Wshadow
-# -werror
+CPPFLAGS := -Wall -Wextra -Werror -Wshadow
 
 HEADERS := Span.hpp
 FILES := main.cpp Span.cpp

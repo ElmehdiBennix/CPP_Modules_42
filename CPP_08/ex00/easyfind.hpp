@@ -2,16 +2,16 @@
 #define EASYFIND_HPP__
 
 #include <iostream>
+#include <algorithm>
+#include <vector>
 
-template<typename T>
-typename T::iterator easyfind(T& container, int i)
+template <typename T>
+typename T::iterator easyfind(T& container, int target)
 {
-    for (typename T::iterator it = container.begin(); it != container.end() ; it++)
-    {
-        if (*it == i)
-            return it;
-    }
-    throw std::out_of_range("no occurance is found");
-}
+    typename T::iterator it = std::find(container.begin(), container.end(), target);
+    if (it == container.end())
+        throw std::out_of_range("no occurance found.");
+    return (it);
+};
 
 #endif
