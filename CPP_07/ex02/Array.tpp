@@ -1,4 +1,4 @@
-#include <iostream>
+#include "Array.hpp"
 
 template <typename T>
 Array<T>::Array(void) : elements(NULL), len(0)
@@ -24,7 +24,7 @@ Array<T>::operator=(const Array& source)
 {
     if (this != &source)
     {
-        if (elements != NULL)
+        if (!elements)
             delete[] elements;
         this->len = source.len;
         (this->len == 0) ? this->elements = NULL : this->elements = new T[this->len]() ;
