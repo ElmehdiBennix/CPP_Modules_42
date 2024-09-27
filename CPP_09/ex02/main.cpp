@@ -1,5 +1,28 @@
 #include "PmergeMe.hpp"
 
+static  int getToken(char *arg)
+{
+    int                 number;
+    std::stringstream   oss(arg);
+
+    for (size_t i = 0; arg[i]; i++)
+    {
+        if (!std::isdigit(arg[i]))
+            throw std::invalid_argument("Error: invalid token.");
+    }
+
+    if (!(oss >> number))
+        throw std::invalid_argument("Error: invalid conversion to int.");
+
+    return (number);
+};
+
+static void  executionLog(size_t size, const std::string& type , double time)
+{
+    std::cout << std::fixed << "Time to process a range of "
+              << size << " elements with " << type << "  :  " << time << " us" << std::endl;
+}
+
 int main(int ac, char **av)
 {
     try
@@ -7,25 +30,38 @@ int main(int ac, char **av)
         if (ac < 2)
             throw std::invalid_argument("Error: Usage ./PmergeMe \"<numbers>\".");
 
-        PmergeMe<std::vector< std::pair<int, int> >, std::vector<int> > vector(av);
-        std::cout << "<========================================>" << std::endl;
-        vector.print();
-        std::cout << "<========================================>" << std::endl;
-        vector.fordJohnsonAlgorithm();
-        // vector.print();
+        std::vector<int>  numbers;
 
-        // std::vector<int> x;
-        // x.erase()
+        for (size_t i = 1; av[i]; i++)
+            numbers.push_back(getToken(av[i]));
 
-        // std::pair<int , int> x;
-        // x.swap();
+        for (size_t i = 0; i < numbers.size(); i++)
+        {
+            for (size_t j = i + 1; j < numbers.size(); j++)
+            {
+                if (numbers[i] == numbers[j])
+                    throw std::invalid_argument("Error: invalid duplicates numbers.");
+            }
+        }
 
-        // std::deque<int> x;
-        // x.insert()
+        clock_t ExecTime[2];
 
+        COUT("BEFORE : " << RESET << numbers);
 
-        // PmergeMe<std::deque< std::pair<int, int>>, std::deque<int> > deque(ac, av);
+        PmergeMeVector sortV(numbers);
+        PmergeMeDeque sortD(numbers);
 
+        sortV.fordJohnsonAlgorithm();
+        ExecTime[0] = clock() - sortV.getStart();
+        sortV.isSorted(false);
+
+        sortD.fordJohnsonAlgorithm();
+        ExecTime[1] = clock() - sortD.getStart();
+        sortD.isSorted(false);
+
+        COUT("AFTER  : " << RESET << sortV.getMainChain());
+        executionLog(numbers.size(), "std::vector<int>", ExecTime[0]);
+        executionLog(numbers.size(), "std::deque<int>", ExecTime[1]);
     }
     catch (const std::exception &e) {
         return (CERR(e.what()), 1);
