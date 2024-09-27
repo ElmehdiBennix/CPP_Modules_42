@@ -20,7 +20,7 @@ static  int getToken(char *arg)
 static void  executionLog(size_t size, const std::string& type , double time)
 {
     std::cout << std::fixed << "Time to process a range of "
-              << size << " elements with " << type << "  :  " << time << " us" << std::endl;
+              << size << " elements with " << type << " : " << time << " us" << std::endl;
 }
 
 int main(int ac, char **av)
@@ -44,7 +44,7 @@ int main(int ac, char **av)
             }
         }
 
-        clock_t ExecTime[2];
+        double ExecTime[2];
 
         COUT("BEFORE : " << RESET << numbers);
 
@@ -52,16 +52,16 @@ int main(int ac, char **av)
         PmergeMeDeque sortD(numbers);
 
         sortV.fordJohnsonAlgorithm();
-        ExecTime[0] = clock() - sortV.getStart();
+        ExecTime[0] = (double)(clock() - sortV.getStart()) / CLOCKS_PER_SEC;
         sortV.isSorted(false);
 
         sortD.fordJohnsonAlgorithm();
-        ExecTime[1] = clock() - sortD.getStart();
+        ExecTime[1] = (double)(clock() - sortD.getStart()) / CLOCKS_PER_SEC;
         sortD.isSorted(false);
 
         COUT("AFTER  : " << RESET << sortV.getMainChain());
         executionLog(numbers.size(), "std::vector<int>", ExecTime[0]);
-        executionLog(numbers.size(), "std::deque<int>", ExecTime[1]);
+        executionLog(numbers.size(), "std::deque<int> ", ExecTime[1]);
     }
     catch (const std::exception &e) {
         return (CERR(e.what()), 1);

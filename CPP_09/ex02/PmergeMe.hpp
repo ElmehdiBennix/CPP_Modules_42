@@ -37,7 +37,7 @@ class PmergeMeVector
         void insertUsingBinarySearch(std::vector<int>& sortedlist, int element);
 
     public:
-        PmergeMeVector(std::vector<int> &numbers);
+        PmergeMeVector(std::vector<int> numbers);
 
         const std::vector<int>& getMainChain() const;
         clock_t                 getStart() const;
@@ -68,7 +68,7 @@ class PmergeMeDeque
         void insertUsingBinarySearch(std::deque<int>& sortedlist, int element);
 
     public:
-        PmergeMeDeque(std::vector<int> &numbers);
+        PmergeMeDeque(std::vector<int> numbers);
 
         const std::deque<int>&  getMainChain() const;
         clock_t                 getStart() const;
