@@ -4,7 +4,7 @@ PmergeMeVector::PmergeMeVector(void)
 {
 };
 
-PmergeMeVector::PmergeMeVector(std::vector<int> &numbers) : struggler(-1) , sorted(false), start(0)
+PmergeMeVector::PmergeMeVector(std::vector<int> numbers) : struggler(-1) , sorted(false), start(0)
 {
     if (numbers.size() % 2 != 0)
     {
@@ -89,10 +89,8 @@ PmergeMeVector::fordJohnsonAlgorithm()
 
     // Insertion using binary search and Jacobsthal strategy
     for (size_t i = 0; i < pendchain.size(); i++)
-    {
         insertUsingBinarySearch(mainChain, pendchain[i]);
-        pendchain.erase(pendchain.begin() + i);
-    }
+    pendchain.clear();
 };
 
 bool
@@ -123,7 +121,7 @@ PmergeMeDeque::PmergeMeDeque(void)
 {
 };
 
-PmergeMeDeque::PmergeMeDeque(std::vector<int> &numbers) : struggler(-1) , sorted(false), start(0)
+PmergeMeDeque::PmergeMeDeque(std::vector<int> numbers) : struggler(-1) , sorted(false), start(0)
 {
     if (numbers.size() % 2 != 0)
     {
@@ -212,6 +210,7 @@ PmergeMeDeque::fordJohnsonAlgorithm()
         insertUsingBinarySearch(mainChain, pendchain[i]);
         pendchain.erase(pendchain.begin() + i);
     }
+    pendchain.clear();
 };
 
 bool
@@ -235,5 +234,3 @@ PmergeMeDeque::isSorted(bool print)
 PmergeMeDeque::~PmergeMeDeque(void)
 {
 };
-
-
