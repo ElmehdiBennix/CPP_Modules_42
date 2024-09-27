@@ -19,8 +19,8 @@
 // #define DATA_FILE "./cpp_09/data.csv"
 #endif // !DATAFILE
 
-enum Errors {
-    SUCCESS   = 0,
+enum Errors
+{
     BADINPUT  = -1,
     OVERLIMIT = -2,
     NEGATIVE  = -3,
