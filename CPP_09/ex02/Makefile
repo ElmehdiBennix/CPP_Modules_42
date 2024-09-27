@@ -8,6 +8,7 @@ CPPFLAGS := -Wall -Wextra -Wshadow
 # -Werror
 
 HEADER := PmergeMe.hpp
+
 FILES  := main.cpp	\
 		  PmergeMe.cpp
 
