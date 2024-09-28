@@ -72,8 +72,6 @@ class PmergeMeDeque
 };
 
 
-// std::vector<size_t>     calculateJacobSthal(size_t n);
-
 template <typename T>
 std::ostream&   operator<<(std::ostream&    os, const  std::vector<T>& type)
 {

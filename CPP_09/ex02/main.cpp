@@ -60,12 +60,9 @@ int main(int ac, char **av)
         COUT("AFTER  : " << RESET << sortV.getMainChain());
         executionLog(numbers.size(), "std::vector<int>", ExecTime[0]);
         executionLog(numbers.size(), "std::deque<int> ", ExecTime[1]);
-        sortV.isSorted();
-        sortD.isSorted();
+        // sortV.isSorted();
+        // sortD.isSorted();
 
-        // std::cout << "======================================" << std::endl;
-
-        // CWAR(calculateJacobSthal(20));
     }
     catch (const std::exception &e) {
         return (CERR(e.what()), 1);
