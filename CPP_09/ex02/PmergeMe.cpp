@@ -53,17 +53,14 @@ PmergeMeVector::fordJohnsonAlgorithm()
 {
     start = clock();
 
-    // swap pairs all small elements must go to the right side
     for (size_t i = 0; i < container.size(); i++)
     {
         if (container[i].first < container[i].second)
             std::swap(container[i].first, container[i].second);
     }
 
-    // sorting the main chain pairs
     std::sort(container.begin(), container.end());
 
-    // now we can separate the pairs to main and pend chains
     for (size_t i = 0; i < container.size(); i++)
     {
         mainChain.push_back(container[i].first);
@@ -72,10 +69,10 @@ PmergeMeVector::fordJohnsonAlgorithm()
     if (struggler != -1)
         pendchain.push_back(struggler);
 
+
     if (pendchain.empty())
         return;
 
-    // pushing first element in the pend to the main chain
     mainChain.insert(mainChain.begin(), *pendchain.begin());
     pendchain.erase(pendchain.begin());
 
@@ -160,17 +157,14 @@ PmergeMeDeque::fordJohnsonAlgorithm()
 {
     start = clock();
 
-    // swap pairs all small elements must go to the right side
     for (size_t i = 0; i < container.size(); i++)
     {
         if (container[i].first < container[i].second)
             std::swap(container[i].first, container[i].second);
     }
 
-    // sorting the main chain pairs
     std::sort(container.begin(), container.end());
 
-    // now we can separate the pairs to main and pend chains
     for (size_t i = 0; i < container.size(); i++)
     {
         mainChain.push_back(container[i].first);
@@ -182,7 +176,6 @@ PmergeMeDeque::fordJohnsonAlgorithm()
     if (pendchain.empty())
         return;
 
-    // pushing first element in the pend to the main chain
     mainChain.insert(mainChain.begin(), *pendchain.begin());
     pendchain.erase(pendchain.begin());
 
@@ -211,27 +204,3 @@ PmergeMeDeque::isSorted(void) const
 PmergeMeDeque::~PmergeMeDeque(void)
 {
 };
-
-
-// std::vector<size_t>     calculateJacobSthal(size_t n)
-// {
-//     std::vector<size_t> jacobsthalSeq;
-
-//     // Base cases
-//     jacobsthalSeq.push_back(0); // if pair else comment else uncomment
-//     if (n == 0)
-//         return (jacobsthalSeq);
-
-//     jacobsthalSeq.push_back(1);
-//     if (n == 1)
-//         return (jacobsthalSeq);
-
-//     // Generate the sequence up to n
-//     for (size_t i = 2; i < n; i++)
-//     {
-//         size_t nextJacobsthal = jacobsthalSeq[i - 1] + 2 * jacobsthalSeq[i - 2];
-//         jacobsthalSeq.push_back(nextJacobsthal);
-//     }
-//     // jacobsthalSeq.erase(jacobsthalSeq.begin());
-//     return (jacobsthalSeq);
-// };
