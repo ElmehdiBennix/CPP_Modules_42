@@ -169,7 +169,7 @@ Bitcoin::executeExchange(std::ifstream &inputFile) const
             else
             {
                 std::map<int, float>::const_iterator it = dataBase.upper_bound(date);
-                --it;
+                if (i != 1) --it;
                 COUT(lvalue << " => " << rate << " = " << rate * it->second);
             }
         }
