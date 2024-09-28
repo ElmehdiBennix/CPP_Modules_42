@@ -15,7 +15,7 @@
 #define BLUE "\033[34m"
 
 #ifndef DATA_FILE
-#define DATA_FILE "./cpp_09/test.csv"
+#define DATA_FILE "./cpp_09/data.csv"
 // #define DATA_FILE "./cpp_09/data.csv"
 #endif // !DATAFILE
 
@@ -57,9 +57,9 @@ class Bitcoin
 };
 
 template<typename T, typename Y>
-std::ostream& operator<<(const std::ostream& os, const std::map<T, Y>& dataBase)
+std::ostream&   operator<<(std::ostream& os, const std::map<T, Y>& dataBase)
 {
-    for(std::map<T, Y>::const_iterator it = dataBase.begin(); it != dataBase.end() ;++it)
+    for(typename std::map<T, Y>::const_iterator it = dataBase.begin(); it != dataBase.end() ;++it)
         os << "key: " << it->first << " | value: " << it->second << std::endl;
     return os;
 }

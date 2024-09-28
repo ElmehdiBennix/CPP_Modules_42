@@ -6,14 +6,11 @@ EXE := btc
 CPP := c++ -std=c++98
 CPPFLAGS := -Wall -Wextra -Werror -Wshadow
 
-HEADER := BitcoinExchange.hpp
+HEADERS := BitcoinExchange.hpp
 FILES  := main.cpp	\
 		  BitcoinExchange.cpp
 
 OBJ := $(FILES:.cpp=.o)
-
-# PATH := ./cpp_09/data.csv
-# CPPFLAGS += -DDATA_FILE=\"$(PATH)\"
 
 ################################################################################
 

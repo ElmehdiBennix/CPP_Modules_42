@@ -161,7 +161,7 @@ Bitcoin::executeExchange(std::ifstream &inputFile) const
             {
                 if (date == BADINPUT || rate == BADINPUT)
                     CERR("Error: bad input => " << line);
-                else if (date == OVERLIMIT)
+                else if (rate == OVERLIMIT)
                     CERR("Error: too large a number.");
                 else
                     CERR("Error: not a positive number.");
@@ -170,7 +170,7 @@ Bitcoin::executeExchange(std::ifstream &inputFile) const
             {
                 std::map<int, float>::const_iterator it = dataBase.upper_bound(date);
                 --it;
-                COUT(lvalue << " => " << rvalue << " = " << rate * it->second);
+                COUT(lvalue << " => " << rate << " = " << rate * it->second);
             }
         }
     }
