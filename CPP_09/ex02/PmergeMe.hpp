@@ -24,8 +24,6 @@ class PmergeMeVector
         std::vector<int>                   mainChain;
         std::vector<int>                   pendchain;
         int                                struggler;
-
-        bool                               sorted;
         clock_t                            start;
 
     private:
@@ -34,8 +32,6 @@ class PmergeMeVector
 
         PmergeMeVector&       operator=(const PmergeMeVector& source);
 
-        void insertUsingBinarySearch(std::vector<int>& sortedlist, int element);
-
     public:
         PmergeMeVector(std::vector<int> numbers);
 
@@ -43,7 +39,7 @@ class PmergeMeVector
         clock_t                 getStart() const;
 
         void    fordJohnsonAlgorithm();
-        bool    isSorted(bool print);
+        void    isSorted(void) const;
 
         ~PmergeMeVector(void);
 };
@@ -55,17 +51,13 @@ class PmergeMeDeque
         std::deque<int>                   mainChain;
         std::deque<int>                   pendchain;
         int                               struggler;
-
-        bool                               sorted;
-        clock_t                            start;
+        clock_t                           start;
 
     private:
         PmergeMeDeque(void);
         PmergeMeDeque(const PmergeMeDeque& source);
 
         PmergeMeDeque&       operator=(const PmergeMeDeque& source);
-
-        void insertUsingBinarySearch(std::deque<int>& sortedlist, int element);
 
     public:
         PmergeMeDeque(std::vector<int> numbers);
@@ -74,10 +66,13 @@ class PmergeMeDeque
         clock_t                 getStart() const;
 
         void    fordJohnsonAlgorithm();
-        bool    isSorted(bool print);
+        void    isSorted(void) const;
 
         ~PmergeMeDeque(void);
 };
+
+
+// std::vector<size_t>     calculateJacobSthal(size_t n);
 
 template <typename T>
 std::ostream&   operator<<(std::ostream&    os, const  std::vector<T>& type)

@@ -4,7 +4,7 @@ PmergeMeVector::PmergeMeVector(void)
 {
 };
 
-PmergeMeVector::PmergeMeVector(std::vector<int> numbers) : struggler(-1) , sorted(false), start(0)
+PmergeMeVector::PmergeMeVector(std::vector<int> numbers) : struggler(-1),start(0)
 {
     if (numbers.size() % 2 != 0)
     {
@@ -30,7 +30,6 @@ PmergeMeVector::operator=(const PmergeMeVector& source)
         this->mainChain = source.mainChain;
         this->pendchain = source.pendchain;
         this->pendchain = source.pendchain;
-        this->sorted = source.sorted;
         this->start = source.start;
     }
     return (*this);
@@ -48,16 +47,6 @@ PmergeMeVector::getMainChain() const
 {
     return mainChain;
 }
-
-void
-PmergeMeVector::insertUsingBinarySearch(std::vector<int>& sortedlist, int element)
-{
-    // Use std::lower_bound to find the insertion point
-    std::vector<int>::iterator it = std::lower_bound(sortedlist.begin(), sortedlist.end(), element);
-
-    // Insert the element at the correct position
-    sortedlist.insert(it, element);
-};
 
 void
 PmergeMeVector::fordJohnsonAlgorithm()
@@ -83,32 +72,33 @@ PmergeMeVector::fordJohnsonAlgorithm()
     if (struggler != -1)
         pendchain.push_back(struggler);
 
+    if (pendchain.empty())
+        return;
+
     // pushing first element in the pend to the main chain
     mainChain.insert(mainChain.begin(), *pendchain.begin());
     pendchain.erase(pendchain.begin());
 
-    // Insertion using binary search and Jacobsthal strategy
     for (size_t i = 0; i < pendchain.size(); i++)
-        insertUsingBinarySearch(mainChain, pendchain[i]);
+    {
+        std::vector<int>::iterator it = std::lower_bound(mainChain.begin(), mainChain.end(), pendchain[i]);
+        mainChain.insert(it, pendchain[i]);
+    }
     pendchain.clear();
 };
 
-bool
-PmergeMeVector::isSorted(bool print)
+void
+PmergeMeVector::isSorted(void) const
 {
-    for (size_t i = 0; i < mainChain.size() - 1; i++)
+    for (size_t i = 1; i < mainChain.size(); ++i)
     {
-        if (mainChain[i] > mainChain[i + 1])
+        if (mainChain[i - 1] > mainChain[i])
         {
-            if (print == true)
-                std::cout << RED << "ERROR" << std::endl;
-            return false;
+            std::cout << RED << "ERROR" << std::endl;
+            return;
         }
     }
-    sorted = true;
-    if (print == true)
-            std::cout << GREEN << "PASSED" << std::endl;
-    return true;
+    std::cout << GREEN << "PASSED" << std::endl;
 };
 
 PmergeMeVector::~PmergeMeVector(void)
@@ -121,7 +111,7 @@ PmergeMeDeque::PmergeMeDeque(void)
 {
 };
 
-PmergeMeDeque::PmergeMeDeque(std::vector<int> numbers) : struggler(-1) , sorted(false), start(0)
+PmergeMeDeque::PmergeMeDeque(std::vector<int> numbers) : struggler(-1) , start(0)
 {
     if (numbers.size() % 2 != 0)
     {
@@ -147,7 +137,6 @@ PmergeMeDeque::operator=(const PmergeMeDeque& source)
         this->mainChain = source.mainChain;
         this->pendchain = source.pendchain;
         this->pendchain = source.pendchain;
-        this->sorted = source.sorted;
         this->start = source.start;
     }
     return (*this);
@@ -165,16 +154,6 @@ PmergeMeDeque::getMainChain() const
 {
     return mainChain;
 }
-
-void
-PmergeMeDeque::insertUsingBinarySearch(std::deque<int>& sortedlist, int element)
-{
-    // Use std::lower_bound to find the insertion point
-    std::deque<int>::iterator it = std::lower_bound(sortedlist.begin(), sortedlist.end(), element);
-
-    // Insert the element at the correct position
-    sortedlist.insert(it, element);
-};
 
 void
 PmergeMeDeque::fordJohnsonAlgorithm()
@@ -200,37 +179,59 @@ PmergeMeDeque::fordJohnsonAlgorithm()
     if (struggler != -1)
         pendchain.push_back(struggler);
 
+    if (pendchain.empty())
+        return;
+
     // pushing first element in the pend to the main chain
     mainChain.insert(mainChain.begin(), *pendchain.begin());
     pendchain.erase(pendchain.begin());
 
-    // Insertion using binary search and Jacobsthal strategy
     for (size_t i = 0; i < pendchain.size(); i++)
     {
-        insertUsingBinarySearch(mainChain, pendchain[i]);
-        pendchain.erase(pendchain.begin() + i);
+        std::deque<int>::iterator it = std::lower_bound(mainChain.begin(), mainChain.end(), pendchain[i]);
+        mainChain.insert(it, pendchain[i]);
     }
     pendchain.clear();
 };
 
-bool
-PmergeMeDeque::isSorted(bool print)
+void
+PmergeMeDeque::isSorted(void) const
 {
-    for (size_t i = 0; i < mainChain.size() - 1; i++)
+    for (size_t i = 1; i < mainChain.size(); ++i)
     {
-        if (mainChain[i] > mainChain[i + 1])
+        if (mainChain[i - 1] > mainChain[i])
         {
-            if (print == true)
-                std::cout << RED << "ERROR" << std::endl;
-            return false;
+            std::cout << RED << "ERROR" << std::endl;
+            return;
         }
     }
-    sorted = true;
-    if (print == true)
-            std::cout << GREEN << "PASSED" << std::endl;
-    return true;
+    std::cout << GREEN << "PASSED" << std::endl;
 };
 
 PmergeMeDeque::~PmergeMeDeque(void)
 {
 };
+
+
+// std::vector<size_t>     calculateJacobSthal(size_t n)
+// {
+//     std::vector<size_t> jacobsthalSeq;
+
+//     // Base cases
+//     jacobsthalSeq.push_back(0); // if pair else comment else uncomment
+//     if (n == 0)
+//         return (jacobsthalSeq);
+
+//     jacobsthalSeq.push_back(1);
+//     if (n == 1)
+//         return (jacobsthalSeq);
+
+//     // Generate the sequence up to n
+//     for (size_t i = 2; i < n; i++)
+//     {
+//         size_t nextJacobsthal = jacobsthalSeq[i - 1] + 2 * jacobsthalSeq[i - 2];
+//         jacobsthalSeq.push_back(nextJacobsthal);
+//     }
+//     // jacobsthalSeq.erase(jacobsthalSeq.begin());
+//     return (jacobsthalSeq);
+// };
