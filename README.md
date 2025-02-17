@@ -16,6 +16,7 @@ Welcome to a comprehensive guide on C++98 fundamentals and Object-Oriented Progr
     - [Classes and Objects](#classes-and-objects)
     - [Constructors and Destructors](#constructors-and-destructors)
     - [Member Functions](#member-functions)
+    - [Understanding Virtual Tables (vtables)](#understanding-virtual-tables-vtables)
   - [Advanced OOP Concepts](#advanced-oop-concepts)
     - [Inheritance](#inheritance)
     - [Polymorphism](#polymorphism)
@@ -388,6 +389,70 @@ public:
     }
 };
 ```
+
+### Understanding Virtual Tables (vtables)
+
+When a class contains virtual functions, the compiler creates a special hidden mechanism called a virtual table (vtable) to enable runtime polymorphism. Here's how it works:
+
+The Vtable Mechanism:
+- Every class with virtual functions gets its own vtable - essentially an array of function pointers
+- Each object of that class receives a hidden pointer (__vptr) that points to its class's vtable
+- The vtable contains addresses of the most-derived virtual function implementations
+
+For our Shape and Circle example above, the compiler secretly transforms the code to something like this:
+
+```cpp
+// What the compiler actually creates behind the scenes:
+
+// Vtable for Shape
+struct Shape_Vtable {
+    double (*area)(const Shape*);        // Points to Shape::area
+    double (*perimeter)(const Shape*);   // Points to pure virtual handler
+    void (*destructor)(Shape*);          // Points to Shape::~Shape
+};
+
+// Vtable for Circle
+struct Circle_Vtable {
+    double (*area)(const Circle*);       // Points to Circle::area
+    double (*perimeter)(const Circle*);  // Points to Circle::perimeter
+    void (*destructor)(Circle*);         // Points to Shape::~Shape
+};
+
+class Shape {
+private:
+    Shape_Vtable* __vptr;  // Hidden pointer to vtable
+public:
+    Shape() {
+        __vptr = &Shape_vtable;  // Initialize vtable pointer
+    }
+    // ... rest of the class
+};
+
+class Circle : public Shape {
+private:
+    Circle_Vtable* __vptr;  // Hidden pointer to Circle's vtable
+    double radius;
+public:
+    Circle(double r) : radius(r) {
+        __vptr = &Circle_vtable;  // Point to Circle's vtable
+    }
+    // ... rest of the class
+};
+```
+When you call a virtual function:
+
+```cpp
+Shape* ptr = new Circle(5.0);
+double a = ptr->area();  // Virtual function call
+```
+
+The following happens:
+
+- The program looks at ptr's __vptr to find its vtable
+- It looks up the function pointer for 'area' in the vtable
+- It calls the function through that pointer
+
+This mechanism allows C++ to choose the correct function implementation at runtime, enabling polymorphic behavior. While this adds a small overhead (two memory indirections), it provides the powerful ability to override behavior in derived classes.
 
 ## Advanced OOP Concepts
 
