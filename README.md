@@ -1,255 +1,1406 @@
 # CPP_Modules_42
-C++ modules designed to help you understand the specifities of the language when compared to C. Time to dive into Object Oriented Programming!
+
+Welcome to a comprehensive guide on C++98 fundamentals and Object-Oriented Programming. This repository contains modules designed to help you understand the core concepts of C++ and its distinctions from C programming.
+
+## Table of Contents
 
 - [CPP\_Modules\_42](#cpp_modules_42)
-  - [Introduction to C++98 - Concepts \& OOP](#introduction-to-c98---concepts--oop)
-  - [Namespaces](#namespaces)
-  - [Classes and Objects](#classes-and-objects)
-  - [Overloading](#overloading)
-  - [Memory Management](#memory-management)
-  - [Exception Handling:](#exception-handling)
-  - [Object-Oriented Programming (OOP) Concepts](#object-oriented-programming-oop-concepts)
-    - [Encapsulation](#encapsulation)
+  - [Table of Contents](#table-of-contents)
+  - [Introduction to C++98](#introduction-to-c98)
+  - [Core Language Features](#core-language-features)
+    - [Namespaces](#namespaces)
+    - [Input/Output Streams](#inputoutput-streams)
+    - [References vs Pointers](#references-vs-pointers)
+    - [Type Casting](#type-casting)
+  - [Object-Oriented Programming](#object-oriented-programming)
+    - [Classes and Objects](#classes-and-objects)
+    - [Constructors and Destructors](#constructors-and-destructors)
+    - [Member Functions](#member-functions)
+  - [Advanced OOP Concepts](#advanced-oop-concepts)
     - [Inheritance](#inheritance)
     - [Polymorphism](#polymorphism)
+    - [Encapsulation](#encapsulation)
     - [Abstraction](#abstraction)
-  - [Template Programming](#template-programming)
-  - [STL (Standard Template Library)](#stl-standard-template-library)
-  - [Best Practices in C++98](#best-practices-in-c98)
-  - [C++98 and the Future](#c98-and-the-future)
-  - [Conclusion](#conclusion)
+    - [Memory Management](#memory-management)
+    - [Exception Handling](#exception-handling)
+  - [Templates and Generic Programming](#templates-and-generic-programming)
+    - [Function Templates](#function-templates)
+    - [Class Templates](#class-templates)
+    - [Template Specialization](#template-specialization)
+    - [Best Practices](#best-practices)
+    - [Practical Example](#practical-example)
+  - [Standard Template Library (STL)](#standard-template-library-stl)
+    - [Containers](#containers)
+    - [Algorithms](#algorithms)
+    - [Iterators](#iterators)
+  - [Best Practices](#best-practices-1)
+  - [Contributing](#contributing)
 
----
+## Introduction to C++98
 
-## Introduction to C++98 - Concepts & OOP
+C++98 represents the first standardized version of C++, ratified in 1998. Created by Bjarne Stroustrup, it extends C by adding object-oriented features while maintaining backward compatibility. This standard forms the foundation of modern C++ programming and remains relevant for understanding core language concepts.
 
-C++98 is a version of the C++ programming language that was standardized in 1998. It was created by **Bjarne Stroustrup**, a Danish computer scientist, and laid the foundation for modern C++ development by introducing several key concepts such as classes, objects, and memory management, all within a relatively simpler framework compared to later versions of the language, for more information, visit the [Wikipedia page on C++](https://en.wikipedia.org/wiki/C%2B%2B).
+Key features introduced in C++98:
+- Object-oriented programming support
+- Template programming
+- Standard Template Library (STL)
+- Exception handling
+- Reference types
+- Overloading
 
-## Namespaces
-C++ introduces namespaces to avoid name conflicts by grouping classes, functions, and variables into named scopes.
+## Core Language Features
 
-## Classes and Objects
+### Namespaces
 
-In C++98, classes are blueprints for creating objects (instances). A class defines attributes (variables) and behaviors (methods) that the objects will have. Additionally, C++98 supports **constructors** and **destructors** to initialize and clean up objects.
+Namespaces solve the problem of name collisions in large software projects. Think of them as last names for code elements - just as multiple people can share a first name but be distinguished by their last names, different pieces of code can share names but be distinguished by their namespaces.
 
-**Constructor**: A constructor is a special member function that is called automatically when an object of the class is created. It initializes the object (default).
-**Destructor**: A destructor is a special member function called when an object is destroyed or goes out of scope. It is used to release resources or perform cleanup tasks.
+Namespaces serve several important purposes:
+1. **Logical Grouping**: Related code elements can be grouped together under a meaningful name
+2. **Avoiding Conflicts**: Different libraries can use the same names without interfering with each other
+3. **Code Organization**: Large projects become more manageable when code is organized into namespaces
 
-
-## Overloading
-static poly
-Function Overloading: C++ allows multiple functions with the same name but different parameters (different signature).
-
-Operator Overloading: C++ allows operators to be redefined for user-defined types, allowing objects to be manipulated in a more intuitive way.
-
-## Memory Management
-
-In C++98, dynamic memory allocation and deallocation are managed using the `new` and `delete` operators. These operators allow for memory to be allocated on the heap during runtime and deallocated when no longer needed.
+When you write:
 
 ```cpp
-int* ptr = new int(10);  // Allocates memory and initializes it to 10
-std::cout << *ptr << std::endl;  // Output: 10
-delete ptr // Deallocate the memory address
+namespace Mathematics {
+    double add(double a, double b) { return a + b; }
+}
+
+// Usage
+double sum = Mathematics::add(3.14, 2.71);
 ```
 
-Example for arrays:
+You're creating a named scope where names won't conflict with similar names in other namespaces. This becomes crucial in large projects where multiple teams might create functions with similar names for different purposes.
+
+### Input/Output Streams
+
+C++98 revolutionized input/output operations through streams, providing a type-safe and extensible way to handle I/O operations. Unlike C's printf and scanf, C++ streams:
+
+1. **Are Type-Safe**: The compiler checks that the types match, preventing many common errors
+2. **Are Extensible**: You can define I/O operations for your own types
+3. **Handle Memory Automatically**: No need to specify buffer sizes or format strings
+4. **Support Chaining**: Operations can be combined using the << and >> operators
+
+The stream system is built around several key classes:
+- `istream`: Handles input operations
+- `ostream`: Handles output operations
+- `iostream`: Combines input and output capabilities
+- `fstream`: Provides file I/O operations
 
 ```cpp
-int* arr = new int[5];  // Allocates an array of 5 integers
-delete[] arr;  // Deallocates memory for the array
+#include <iostream>
+
+std::string name;
+std::cout << "Enter your name: ";
+std::cin >> name;
+std::cout << "Hello, " << name << "!" << std::endl;
 ```
 
-## Exception Handling:
-C++ supports exception handling through try, catch, and throw to manage runtime errors in a more structured way.
+### References vs Pointers
 
-## Object-Oriented Programming (OOP) Concepts
-### Encapsulation
+References represent one of C++'s most important improvements over C. While pointers and references might seem similar, they serve different purposes and have distinct characteristics:
 
-Encapsulation is a key concept in Object-Oriented Programming (OOP), where data (variables) and methods (functions) are bundled together inside a class. It restricts direct access to some of the object's components, exposing only necessary parts of the class via a public interface.
+References are:
+1. **Always Valid**: Must be initialized when declared
+2. **Cannot be Null**: Always refer to some object
+3. **Cannot be Reassigned**: Once bound, always refer to the same object
+4. **More Intuitive Syntax**: Use normal object syntax (dot notation)
 
-$ Key Features:
-- **Data Hiding**: Internal data is protected from direct access and can only be modified via public methods (getters and setters).
-- **Public Interface**: Public methods provide a controlled way to interact with the object.
-- **Private Implementation**: Class details and data are hidden from outside interference.
+Pointers are:
+1. **Can be Null**: Might not point to any valid object
+2. **Can be Reassigned**: Can point to different objects
+3. **Require Explicit Dereferencing**: Use -> or * operator
+4. **Support Pointer Arithmetic**: Can perform address calculations
 
-$ Offers
-- **Data Protection**: Ensures controlled access to internal data.
-- **Maintainability**: Changes to internal implementation don’t affect external code.
-- **Error Prevention**: Ensures that only valid operations are performed.
+Choose references when:
+- You know the reference will always be valid
+- You want to prevent null values
+- You're passing parameters that you don't want to modify
+- You want cleaner, more intuitive syntax
 
-$ Example:
+Choose pointers when:
+- You need to represent "no object" (null)
+- You need to change what is being pointed to
+- You need pointer arithmetic
+- You're working with arrays or dynamic memory
+
 
 ```cpp
-class Account {
+void modifyValue(int& value) {    // Using reference
+    value *= 2;
+}
+
+void modifyPointer(int* value) {  // Using pointer
+    if (value) {                  // Requires null check
+        *value *= 2;
+    }
+}
+```
+
+### Type Casting
+
+C++98 introduced a new casting system to make type conversions more explicit and safer. Unlike C-style casts, C++ provides four distinct casting operators, each with specific purposes:
+
+Casting operators:
+- `static_cast<>`: General-purpose casting
+- `dynamic_cast<>`: Safe downcasting of polymorphic objects
+- `const_cast<>`: Casting away const/volatile
+- `reinterpret_cast<>`: Low-level reinterpreting of bit patterns
+
+1. **static_cast**
+   - Used for straightforward type conversions
+   - Performs compile-time checking
+   - Cannot remove const or volatile qualifiers
+   - Example: Converting between numeric types or up/down class hierarchy
+
+2. **dynamic_cast**
+   - Used for safe downcasting in inheritance hierarchies
+   - Performs runtime type checking
+   - Returns null (for pointers) or throws exception (for references) if cast fails
+   - Requires RTTI (Run-Time Type Information)
+
+3. **const_cast**
+   - Used to remove or add const/volatile qualifiers
+   - Should be used sparingly as it can break const correctness
+   - Primarily used when dealing with legacy APIs
+
+4. **reinterpret_cast**
+   - Used for low-level reinterpretation of bit patterns
+   - Most dangerous cast - use with extreme caution
+   - Typically used for system-level programming
+
+```cpp
+double pi = 3.14159;
+int rounded = static_cast<int>(pi);  // Explicit conversion
+```
+
+## Object-Oriented Programming
+
+### Classes and Objects
+
+Classes are the cornerstone of object-oriented programming in C++. A class combines:
+
+1. **Data Members** (Attributes):
+   - Variables that store the object's state
+   - Can be of any type, including other classes
+   - Usually private to maintain encapsulation
+
+2. **Member Functions** (Methods):
+   - Functions that define the object's behavior
+   - Can access and modify the object's data members
+   - Define the interface for interacting with objects
+
+3. **Access Control**:
+   - private: Only accessible within the class
+   - protected: Accessible within the class and its derivatives
+   - public: Accessible from anywhere
+
+Classes provide several key benefits:
+- **Encapsulation**: Combining data and behavior
+- **Information Hiding**: Protecting internal details
+- **Abstraction**: Presenting a simplified interface
+- **Reusability**: Creating reusable components
+
+```cpp
+class BankAccount {
+private:
+    double balance;
+    std::string accountHolder;
+
+public:
+    BankAccount(const std::string& holder, double initial = 0.0)
+        : balance(initial), accountHolder(holder) {}
+
+    void deposit(double amount) {
+        if (amount > 0) {
+            balance += amount;
+        }
+    }
+
+    bool withdraw(double amount) {
+        if (amount > 0 && balance >= amount) {
+            balance -= amount;
+            return true;
+        }
+        return false;
+    }
+};
+```
+
+### Constructors and Destructors
+
+Constructors and destructors manage an object's lifecycle, ensuring proper initialization and cleanup:
+
+Proper resource management through constructors and destructors is crucial in C++98:
+
+**Constructors**:
+1. **Default Constructor**: Creates object with default values
+2. **Parameterized Constructor**: Creates object with specified values
+3. **Copy Constructor**: Creates object as copy of another
+4. **Assignment Operator**: Copies one object to another
+
+**Constructors handle**:
+- Memory allocation
+- Member initialization
+- Resource acquisition
+- Setting initial state
+
+**Destructors handle**:
+- Clean up resources
+- Release memory
+- Close files or connections
+- Ensure no resource leaks
+
+```cpp
+class ResourceManager {
+private:
+    int* data;
+
+public:
+    // Constructor
+    ResourceManager() : data(new int[100]) {
+        // Initialize resource
+    }
+
+    // Copy constructor
+    ResourceManager(const ResourceManager& other) : data(new int[100]) {
+        // Deep copy data from other
+    }
+
+    // Destructor
+    ~ResourceManager() {
+        delete[] data;  // Clean up resource
+    }
+};
+```
+
+### Member Functions
+
+Member functions define the behavior of a class and come in several varieties, each serving a specific purpose in object-oriented design. Understanding these different types of member functions is crucial for effective C++ programming.
+
+**Regular Member Functions**
+These are the most common type of member functions. They can access and modify the object's state and represent the object's behaviors.
+
+```cpp
+class Counter {
+private:
+    int count;
+
+public:
+    // Regular member function
+    void increment() {
+        count++;  // Can access and modify class members
+    }
+
+    // Regular member function with parameters
+    void add(int value) {
+        count += value;
+    }
+};
+```
+
+**Const Member Functions**
+Const member functions guarantee they won't modify the object's state. This is crucial for:
+- Documenting which operations are safe
+- Allowing functions to work with const objects
+- Preventing accidental modifications
+
+```cpp
+class BankAccount {
 private:
     double balance;
 
 public:
-    Account(double initialBalance) {
-        balance = (initialBalance > 0) ? initialBalance : 0;
-    }
-
-    void deposit(double amount) {
-        if (amount > 0) balance += amount;
-    }
-
-    void withdraw(double amount) {
-        if (amount > 0 && balance >= amount) balance -= amount;
-    }
-
+    // Const member function - promises not to modify the object
     double getBalance() const {
-        return balance;
+        return balance;  // Only reads, doesn't modify
+    }
+
+    // Non-const function - can modify the object
+    void deposit(double amount) {
+        balance += amount;  // Modifies the object's state
     }
 };
 ```
 
-### Inheritance
-
-Inheritance allows a class (derived class) to inherit attributes and methods from another class (base class). This promotes code reuse and creates a hierarchical relationship between classes.
-
-$ Example:
+**Static Member Functions**
+Static member functions belong to the class itself rather than any specific instance. They:
+- Can't access non-static members
+- Don't have a 'this' pointer
+- Can be called without creating an object
+- Are shared by all instances of the class
 
 ```cpp
-class Vehicle {
+class MathOperations {
+private:
+    static int operationCount;  // Shared by all instances
+
 public:
-    void move() {
-        std::cout << "Vehicle is moving." << std::endl;
+    // Static member function
+    static int square(int x) {
+        operationCount++;  // Can access static members
+        return x * x;
+    }
+
+    // Static function to get operation count
+    static int getOperationCount() {
+        return operationCount;
     }
 };
 
-class Car : public Vehicle {  // Car inherits from Vehicle
-public:
-    void honk() {
-        std::cout << "Car is honking!" << std::endl;
-    }
-};
-```
-    Base Class: Vehicle defines common behaviors (e.g., move()).
-    Derived Class: Car inherits the move() method from Vehicle and adds its own method honk().
-
-A derived class can inherit and extend the functionality of a base class, reducing redundancy and promoting reuse.
-
-C++ allows classes to inherit from more than one base class, though it can lead to complexities like the "diamond problem.
-
-### Polymorphism
- dynamic
-Polymorphism allows a derived class to provide its own implementation of a method that is already defined in its base class. This enables objects of different types to be treated as objects of a common base type, with the appropriate method being called based on the actual object type at runtime.
-
-$ Example:
-
-```cpp
-class Animal {
-public:
-    virtual void sound() {  // Virtual function allows overriding in derived classes
-        std::cout << "Some animal sound." << std::endl;
-    }
-};
-
-class Dog : public Animal {
-public:
-    void sound() override {  // Override base class method
-        std::cout << "Woof!" << std::endl;
-    }
-};
+// Don't forget to define static members
+int MathOperations::operationCount = 0;
 ```
 
-Base Class: Animal defines a method sound() that can be overridden.
-Derived Class: Dog overrides the sound() method to provide its own implementation.
-
-Using virtual allows the method in the base class to be overridden by the derived class, achieving runtime polymorphism. When you call sound() on an object of type Animal, the correct method is called based on the actual object type (Dog in this case), not the declared type (Animal).
-
-Example of Runtime Polymorphism:
-```
-Animal* animal = new Dog();
-animal->sound();  // Output: Woof!
-```
-
-Polymorphism enables flexibility, allowing you to write more generic and reusable code.
-
-### Abstraction
-
-Abstraction is the concept of hiding complex implementation details and exposing only the essential features of an object. In C++, abstraction is achieved using abstract classes and pure virtual functions. An abstract class cannot be instantiated directly and is used as a base for derived classes.
-
-$ Example:
+**Virtual Functions**
+Virtual functions enable runtime polymorphism, allowing derived classes to override base class behavior. They form the foundation of dynamic behavior in C++.
 
 ```cpp
 class Shape {
 public:
-    virtual void draw() = 0;  // Pure virtual function (makes Shape an abstract class)
+    // Virtual function - can be overridden by derived classes
+    virtual double area() const {
+        return 0.0;  // Default implementation
+    }
+
+    // Pure virtual function - must be overridden
+    virtual double perimeter() const = 0;
+
+    // Virtual destructor - essential for proper cleanup
+    virtual ~Shape() {}
 };
 
 class Circle : public Shape {
+private:
+    double radius;
+
 public:
-    void draw() override {  // Implementing the pure virtual function
-        std::cout << "Drawing a circle." << std::endl;
+    Circle(double r) : radius(r) {}
+
+    // Override of virtual function
+    double area() const override {
+        return 3.14159 * radius * radius;
+    }
+
+    // Implementation of pure virtual function
+    double perimeter() const override {
+        return 2 * 3.14159 * radius;
     }
 };
 ```
 
-Abstract Class: Shape contains a pure virtual function draw(), making it an abstract class. This class cannot be instantiated.
-Pure Virtual Function: A pure virtual function is declared using = 0. It forces derived classes to implement this method.
-Concrete Class: Circle implements the draw() method and can be instantiated.
+## Advanced OOP Concepts
 
-Abstraction allows you to define common interfaces for different derived classes, ensuring that each class implements the necessary functionality, while hiding the complexity of the implementation from the user.
+### Inheritance
 
-## Template Programming
- C++ allows the use of templates, which enable the writing of generic code. This feature allows functions and classes to operate with any data type.
+Inheritance is a fundamental mechanism in C++ that allows you to create new classes based on existing ones. It enables:
+- Code reuse
+- Establishment of class hierarchies
+- Implementation of "is-a" relationships
+- Extension of existing functionality
 
-## STL (Standard Template Library)
-Although the full functionality of STL was standardized in C++98, the core components like containers (e.g., vector, list, map), iterators, and algorithms were introduced.
+There are three types of inheritance in C++:
+1. **Public Inheritance**: Most common, represents "is-a" relationship
+2. **Protected Inheritance**: Rare, used for implementation inheritance
+3. **Private Inheritance**: Represents "implemented-in-terms-of" relationship
 
-## Best Practices in C++98
+```cpp
+// Base class
+class Animal {
+protected:  // Accessible by derived classes
+    std::string name;
+    int age;
 
-1. **Use Proper Encapsulation**
-   - Always hide implementation details by keeping data members private and providing public getter/setter functions. This ensures that the data is accessed and modified in a controlled manner.
+public:
+    Animal(const std::string& n, int a) : name(n), age(a) {}
 
-2. **Minimize the Use of Pointers**
-   - Prefer references (`&`) over pointers (`*`) when possible. This reduces the complexity of memory management and minimizes the risk of errors such as dangling pointers and memory leaks.
+    virtual void makeSound() const = 0;  // Pure virtual function
 
-3. **Use RAII (Resource Acquisition Is Initialization)**
-   - Always allocate and deallocate resources (like memory, file handles, etc.) in the constructor and destructor of a class. This ensures resources are automatically cleaned up when the object goes out of scope.
+    void sleep() const {
+        std::cout << name << " is sleeping" << std::endl;
+    }
+};
 
-4. **Avoid Memory Leaks**
-   - Ensure every `new` has a corresponding `delete`. C++98 does not have smart pointers, so manual memory management is required. Use `delete` to free dynamically allocated memory and avoid memory leaks.
+// Derived class with public inheritance
+class Dog : public Animal {
+private:
+    std::string breed;
 
-5. **Prefer `const` Correctness**
-   - Use `const` wherever possible, both for function parameters and member functions that don’t modify object state. This provides better safety and self-documenting code.
+public:
+    Dog(const std::string& n, int a, const std::string& b)
+        : Animal(n, a), breed(b) {}
 
-6. **Use References for Large Objects**
-   - Pass large objects (like `std::vector` or `std::string`) by reference to avoid unnecessary copies. For constant data, pass by `const` reference to prevent modification.
+    // Implementing the pure virtual function
+    void makeSound() const override {
+        std::cout << name << " says: Woof!" << std::endl;
+    }
 
-7. **Avoid Global Variables**
-   - Global variables can lead to hard-to-find bugs and hinder modularity. Use local variables or class members instead.
+    // Adding new functionality
+    void fetch() const {
+        std::cout << name << " is fetching the ball" << std::endl;
+    }
+};
 
-8. **Follow Consistent Naming Conventions**
-   - Stick to a consistent naming scheme for classes, variables, functions, and other entities. A good convention is to use camelCase for variables and functions, and PascalCase for classes.
+// Usage example
+int main() {
+    Dog rex("Rex", 3, "German Shepherd");
+    rex.makeSound();  // Calls Dog's version
+    rex.sleep();      // Calls Animal's version
+    rex.fetch();      // Dog-specific function
+}
+```
 
-9. **Keep Functions Small and Focused**
-   - Each function should ideally do one thing and do it well. If a function grows too large, break it down into smaller, more manageable pieces.
+In this example:
+- `Animal` is the base class providing common attributes and behaviors
+- `Dog` inherits from `Animal`, adding specific behaviors
+- The `protected` members in `Animal` are accessible in `Dog`
+- `virtual` functions enable polymorphic behavior
+- Constructor chaining ensures proper initialization
 
-10. **Use `#define` and Constants Carefully**
-    - Avoid overusing `#define` for constants. Use `const` or `enum` instead for type safety and better debugging.
+### Polymorphism
 
-11. **Error Handling with `try-catch`**
-    - Although exception handling was introduced in C++98, it was not widely used. However, it’s still a good practice to use `try-catch` blocks to handle potential errors, especially when dealing with dynamic memory allocation or file I/O.
+Polymorphism in C++ comes in two forms:
 
-12. **Optimize Only When Necessary**
-    - Avoid premature optimization. Focus on writing clear and maintainable code first, and optimize only when performance becomes an issue.
+1. **Static (Compile-time) Polymorphism**
+   - Function overloading
+   - Operator overloading
+   - Determined at compile time
 
-13. **Use the Standard Library**
-    - Make use of the C++98 Standard Library (STL) for common tasks like sorting, searching, and container management. It saves time and provides well-tested solutions.
+2. **Dynamic (Runtime) Polymorphism**
+   - Virtual functions
+   - Inheritance
+   - Determined at runtime
 
-14. **Avoid Using `goto`**
-    - `goto` can make the code harder to follow and maintain. Use structured programming techniques like loops and conditionals instead.
+Here's a comprehensive example showcasing both types:
 
-15. **Document Code Well**
-    - Add meaningful comments and documentation, especially for complex or non-obvious logic. It helps both you and others who may maintain the code later.
+```cpp
+class Calculator {
+public:
+    // Function overloading (Static polymorphism)
+    int add(int a, int b) {
+        return a + b;
+    }
+
+    double add(double a, double b) {
+        return a + b;
+    }
+
+    // Operator overloading
+    Calculator operator+(const Calculator& other) {
+        // Implementation here
+        return *this;
+    }
+};
+```
+
+```cpp
+// Base class for dynamic polymorphism
+class Vehicle {
+public:
+    virtual void startEngine() = 0;
+    virtual double calculateFuelEfficiency() const = 0;
+    virtual ~Vehicle() {}
+};
+
+class Car : public Vehicle {
+private:
+    double fuelCapacity;
+    double mileage;
+
+public:
+    Car(double fc, double m) : fuelCapacity(fc), mileage(m) {}
+
+    void startEngine() override {
+        std::cout << "Car engine started" << std::endl;
+    }
+
+    double calculateFuelEfficiency() const override {
+        return mileage / fuelCapacity;
+    }
+};
+
+class ElectricCar : public Vehicle {
+private:
+    double batteryCapacity;
+    double range;
+
+public:
+    ElectricCar(double bc, double r) : batteryCapacity(bc), range(r) {}
+
+    void startEngine() override {
+        std::cout << "Electric motor initialized" << std::endl;
+    }
+
+    double calculateFuelEfficiency() const override {
+        return range / batteryCapacity;
+    }
+};
+
+// Usage showing polymorphic behavior
+void testVehicle(Vehicle& v) {
+    v.startEngine();  // Calls appropriate version based on actual type
+    std::cout << "Efficiency: " << v.calculateFuelEfficiency() << std::endl;
+}
+```
+### Encapsulation
+
+Encapsulation is one of the fundamental principles of object-oriented programming that combines data and methods that operate on that data within a single unit or object. It involves bundling the data with the methods that manipulate that data and restricting direct access to some of an object's components. This is like creating a protective shield around the object's internals.
+
+The main benefits of encapsulation include:
+- Data hiding (information hiding)
+- Increased security of data
+- Prevention of unauthorized access
+- Making the interface simpler and reducing complexity
+
+Here's a comprehensive example demonstrating encapsulation:
+
+```cpp
+class BankAccount {
+private:
+    // Private data members - encapsulated data
+    double balance;
+    std::string accountNumber;
+    std::string pin;
+
+    // Private helper method
+    bool validatePin(const std::string& inputPin) const {
+        return pin == inputPin;
+    }
+
+public:
+    // Constructor initializes the encapsulated data
+    BankAccount(const std::string& accNum, const std::string& initialPin)
+        : balance(0.0), accountNumber(accNum), pin(initialPin) {}
+
+    // Public interface methods to interact with private data
+    bool deposit(double amount, const std::string& inputPin) {
+        if (!validatePin(inputPin)) {
+            std::cout << "Invalid PIN" << std::endl;
+            return false;
+        }
+
+        if (amount > 0) {
+            balance += amount;
+            return true;
+        }
+        return false;
+    }
+
+    bool withdraw(double amount, const std::string& inputPin) {
+        if (!validatePin(inputPin)) {
+            std::cout << "Invalid PIN" << std::endl;
+            return false;
+        }
+
+        if (amount > 0 && balance >= amount) {
+            balance -= amount;
+            return true;
+        }
+        return false;
+    }
+
+    // Getter method with restricted information
+    double getBalance(const std::string& inputPin) const {
+        if (!validatePin(inputPin)) {
+            std::cout << "Invalid PIN" << std::endl;
+            return -1;
+        }
+        return balance;
+    }
+
+    // Public method to get partial account number
+    std::string getDisplayAccountNumber() const {
+        // Only shows last 4 digits
+        return "XXXX-XXXX-" + accountNumber.substr(accountNumber.length() - 4);
+    }
+};
+
+// Usage example
+int main() {
+    BankAccount account("1234567890", "1234");
+
+    // Interact with the account through its public interface
+    account.deposit(1000.0, "1234");
+    std::cout << "Balance: " << account.getBalance("1234") << std::endl;
+    std::cout << "Account: " << account.getDisplayAccountNumber() << std::endl;
+
+    // Direct access to private members is not possible:
+    // account.balance = 1000000.0;  // Compilation error
+    // std::cout << account.pin;     // Compilation error
+}
+```
+
+### Abstraction
+
+Abstraction is the process of hiding complex implementation details and showing only the necessary features of an object. It helps manage complexity by hiding unnecessary details and exposing only relevant features. Think of it as creating a simplified view of an object that includes only what's essential for other code to know.
+
+Abstraction in C++ can be achieved through:
+1. Abstract classes (using pure virtual functions)
+2. Interfaces (using pure virtual functions with no data members)
+3. Well-defined public interfaces
+
+Here's an example demonstrating abstraction:
+
+```cpp
+// Abstract base class representing a generic payment method
+class PaymentMethod {
+public:
+    virtual bool processPayment(double amount) = 0;  // Pure virtual function
+    virtual std::string getPaymentType() const = 0;
+    virtual ~PaymentMethod() {}  // Virtual destructor
+};
+
+// Concrete implementation for credit card payments
+class CreditCardPayment : public PaymentMethod {
+private:
+    std::string cardNumber;
+    std::string expiryDate;
+    std::string cvv;
+
+    // Complex implementation details hidden from users
+    bool validateCard() const {
+        // Complex validation logic
+        return true;  // Simplified for example
+    }
+
+    bool connectToPaymentGateway() const {
+        // Complex network communication
+        return true;  // Simplified for example
+    }
+
+public:
+    CreditCardPayment(const std::string& card, const std::string& expiry,
+                      const std::string& cv)
+        : cardNumber(card), expiryDate(expiry), cvv(cv) {}
+
+    // Implementation of abstract methods
+    bool processPayment(double amount) override {
+        // Users don't need to know the complex steps involved
+        if (!validateCard()) return false;
+        if (!connectToPaymentGateway()) return false;
+
+        // Process the payment
+        std::cout << "Processing credit card payment of $"
+                  << amount << std::endl;
+        return true;
+    }
+
+    std::string getPaymentType() const override {
+        return "Credit Card";
+    }
+};
+
+// Another concrete implementation for PayPal
+class PayPalPayment : public PaymentMethod {
+private:
+    std::string email;
+    std::string password;
+
+    bool authenticateUser() const {
+        // Complex authentication logic
+        return true;  // Simplified for example
+    }
+
+public:
+    PayPalPayment(const std::string& em, const std::string& pwd)
+        : email(em), password(pwd) {}
+
+    bool processPayment(double amount) override {
+        if (!authenticateUser()) return false;
+
+        std::cout << "Processing PayPal payment of $"
+                  << amount << std::endl;
+        return true;
+    }
+
+    std::string getPaymentType() const override {
+        return "PayPal";
+    }
+};
+
+// Example usage demonstrating abstraction
+class OnlineStore {
+public:
+    void checkout(PaymentMethod& payment, double amount) {
+        // The store doesn't need to know the specific payment type
+        // or how it processes payments
+        if (payment.processPayment(amount)) {
+            std::cout << "Payment successful using "
+                      << payment.getPaymentType() << std::endl;
+        } else {
+            std::cout << "Payment failed" << std::endl;
+        }
+    }
+};
+
+int main() {
+    CreditCardPayment creditCard("1234-5678-9012-3456", "12/25", "123");
+    PayPalPayment payPal("user@email.com", "password");
+
+    OnlineStore store;
+    store.checkout(creditCard, 99.99);
+    store.checkout(payPal, 49.99);
+}
+```
+
+In this example:
+- The `PaymentMethod` abstract class defines a common interface for all payment methods
+- Specific payment implementations hide their complex details
+- The `OnlineStore` class works with the abstracted `PaymentMethod` interface, not caring about the specific implementation
+- Users of the payment classes don't need to know how payments are processed internally
+
+These concepts of encapsulation and abstraction work together with polymorphism to create more maintainable and robust code:
+- Encapsulation protects the data and implementation details
+- Abstraction simplifies the interface and hides complexity
+- Polymorphism allows different implementations to be used interchangeably
+
+This combination of principles enables the creation of flexible, maintainable, and secure object-oriented systems.
+
+### Memory Management
+
+Memory management in C++98 requires careful attention as it's handled manually. Understanding how memory works in C++ is crucial for writing efficient and leak-free programs.
+
+**Stack vs Heap Memory**
+C++ uses two main types of memory:
+
+1. **Stack Memory**
+   - Automatically managed
+   - Fixed size
+   - Very fast access
+   - Deallocated when variables go out of scope
+   - Used for local variables and function parameters
+
+2. **Heap Memory**
+   - Manually managed
+   - Dynamic size
+   - Slower than stack memory
+   - Must be explicitly deallocated
+   - Used for dynamic allocation
+
+Here's how memory management works in practice:
+
+```cpp
+class DynamicArray {
+private:
+    int* data;
+    size_t size;
+
+public:
+    // Constructor - allocates memory
+    DynamicArray(size_t n) : size(n) {
+        data = new int[size];  // Allocate heap memory
+        for (size_t i = 0; i < size; i++) {
+            data[i] = 0;  // Initialize all elements
+        }
+    }
+
+    // Destructor - frees memory
+    ~DynamicArray() {
+        delete[] data;  // Free heap memory
+    }
+
+    // Copy constructor - deep copy
+    DynamicArray(const DynamicArray& other) : size(other.size) {
+        data = new int[size];  // Allocate new memory
+        for (size_t i = 0; i < size; i++) {
+            data[i] = other.data[i];  // Copy elements
+        }
+    }
+
+    // Assignment operator - deep copy
+    DynamicArray& operator=(const DynamicArray& other) {
+        if (this != &other) {  // Check for self-assignment
+            delete[] data;  // Free old memory
+            size = other.size;
+            data = new int[size];  // Allocate new memory
+            for (size_t i = 0; i < size; i++) {
+                data[i] = other.data[i];  // Copy elements
+            }
+        }
+        return *this;
+    }
+
+    // Accessor methods
+    int& operator[](size_t index) {
+        if (index >= size) throw std::out_of_range("Index out of bounds");
+        return data[index];
+    }
+};
+```
+
+**Memory Management Best Practices:**
+
+1. **RAII (Resource Acquisition Is Initialization)**
+   - Resources should be acquired in constructors
+   - Resources should be released in destructors
+   - This ensures automatic cleanup when objects go out of scope
+
+```cpp
+class FileHandler {
+private:
+    std::FILE* file;
+
+public:
+    FileHandler(const char* filename) {
+        file = std::fopen(filename, "r");
+        if (!file) throw std::runtime_error("Could not open file");
+    }
+
+    ~FileHandler() {
+        if (file) {
+            std::fclose(file);
+        }
+    }
+};
+```
+
+2. **Rule of Three**
+If a class requires a custom implementation of any of these, it typically needs all three:
+   - Destructor
+   - Copy constructor
+   - Copy assignment operator
+
+### Exception Handling
+
+Exception handling provides a structured way to deal with runtime errors in C++98. It allows you to separate error-handling code from normal program logic.
+
+**Exception Handling Components:**
+
+1. **try Block**
+   - Contains code that might throw an exception
+   - Can contain multiple statements
+
+2. **catch Block**
+   - Handles exceptions thrown in the try block
+   - Can have multiple catch blocks for different exception types
+
+3. **throw Statement**
+   - Signals that an error has occurred
+   - Can throw any type of object
+
+Here's a comprehensive example:
+
+```cpp
+class DatabaseConnection {
+private:
+    bool isConnected;
+    std::string connectionString;
+
+public:
+    // Custom exception classes
+    class ConnectionError : public std::exception {
+        std::string message;
+    public:
+        ConnectionError(const std::string& msg) : message(msg) {}
+        const char* what() const throw() {
+            return message.c_str();
+        }
+    };
+
+    class QueryError : public std::exception {
+        std::string message;
+    public:
+        QueryError(const std::string& msg) : message(msg) {}
+        const char* what() const throw() {
+            return message.c_str();
+        }
+    };
+
+    // Constructor might throw
+    DatabaseConnection(const std::string& connStr)
+        : connectionString(connStr), isConnected(false) {
+        if (!connect()) {
+            throw ConnectionError("Failed to connect to database");
+        }
+    }
+
+    bool connect() {
+        // Simulation of connection logic
+        if (connectionString.empty()) {
+            return false;
+        }
+        isConnected = true;
+        return true;
+    }
+
+    void executeQuery(const std::string& query) {
+        if (!isConnected) {
+            throw ConnectionError("Not connected to database");
+        }
+        if (query.empty()) {
+            throw QueryError("Empty query string");
+        }
+        // Query execution logic here
+    }
+};
+
+// Usage example with exception handling
+void performDatabaseOperations() {
+    try {
+        DatabaseConnection db("server=localhost;user=root");
+
+        try {
+            db.executeQuery("SELECT * FROM users");
+        }
+        catch (const DatabaseConnection::QueryError& e) {
+            std::cerr << "Query error: " << e.what() << std::endl;
+            // Handle query-specific error
+        }
+    }
+    catch (const DatabaseConnection::ConnectionError& e) {
+        std::cerr << "Connection error: " << e.what() << std::endl;
+        // Handle connection-specific error
+    }
+    catch (const std::exception& e) {
+        std::cerr << "General error: " << e.what() << std::endl;
+        // Handle any other standard exceptions
+    }
+    catch (...) {
+        std::cerr << "Unknown error occurred" << std::endl;
+        // Handle any other exceptions
+    }
+}
+```
+
+**Exception Handling Best Practices:**
+
+1. **Exception Safety Guarantees**
+   - Basic Guarantee: Objects remain in valid state
+   - Strong Guarantee: Operations are atomic (all-or-nothing)
+   - No-throw Guarantee: Operations never throw
+
+2. **Resource Management**
+   - Use RAII to ensure resources are properly cleaned up
+   - Destructors should never throw exceptions
+   - Clean up resources in reverse order of acquisition
 
 
-## C++98 and the Future
+## Templates and Generic Programming
 
-While C++98 is an older standard, it laid the groundwork for the modern C++ language. However, newer versions (like C++11 and later) introduced a wealth of features, including smart pointers, lambda functions, and more powerful template capabilities.
+Templates in C++98 enable type-independent programming while maintaining type safety at compile time. They allow you to write code that works with any data type, forming the foundation of generic programming.
 
-## Conclusion
+### Function Templates
 
-By focusing on the fundamental concepts of C++98 and Object-Oriented Programming, this guide provides a solid foundation for writing efficient, object-oriented code. Although C++98 is an older standard, mastering its core principles is crucial for working with legacy code and understanding the evolution of the language.
+Function templates allow a single function definition to work with multiple data types. The compiler generates appropriate functions for each type when used:
+
+```cpp
+// Basic function template
+template<typename T>
+T maximum(T a, T b) {
+    return (a > b) ? a : b;
+}
+
+// Template with multiple types
+template<typename T, typename U>
+bool isGreater(const T& value1, const U& value2) {
+    return value1 > value2;
+}
+
+// Usage
+int maxInt = maximum(10, 20);              // Works with integers
+double maxDouble = maximum(3.14, 2.718);   // Works with doubles
+bool result = isGreater(10, 5.5);         // Comparing different types
+```
+
+### Class Templates
+
+Class templates enable creating classes that work with different data types, essential for implementing generic containers and data structures:
+
+```cpp
+template<typename T>
+class Container {
+private:
+    T* data;
+    size_t size;
+
+public:
+    explicit Container(size_t n) : size(n) {
+        data = new T[size];
+    }
+
+    ~Container() {
+        delete[] data;
+    }
+
+    T& operator[](size_t index) {
+        if (index >= size) throw std::out_of_range("Index out of bounds");
+        return data[index];
+    }
+
+    size_t getSize() const { return size; }
+};
+
+// Usage
+Container<int> numbers(5);
+Container<std::string> words(3);
+```
+
+### Template Specialization
+
+Template specialization provides different implementations for specific types while maintaining the generic interface:
+
+```cpp
+// Primary template
+template<typename T>
+class DataHandler {
+public:
+    static void process(const T& data) {
+        std::cout << "Processing generic data: " << data << std::endl;
+    }
+};
+
+// Specialization for strings
+template<>
+class DataHandler<std::string> {
+public:
+    static void process(const std::string& data) {
+        std::cout << "Processing string of length: " << data.length() << std::endl;
+    }
+};
+
+// Usage
+DataHandler<int>::process(42);
+DataHandler<std::string>::process("Hello");
+```
+
+### Best Practices
+
+When working with templates:
+
+1. Document type requirements clearly
+2. Use meaningful template parameter names
+3. Consider compilation time and code bloat
+4. Provide specialized implementations for better performance
+5. Use static assertions to catch errors at compile-time
+
+### Practical Example
+
+Here's a complete example showing templates in action:
+
+```cpp
+template<typename T>
+class SimpleVector {
+private:
+    T* elements;
+    size_t capacity;
+    size_t count;
+
+    void grow() {
+        capacity *= 2;
+        T* temp = new T[capacity];
+        for (size_t i = 0; i < count; ++i) {
+            temp[i] = elements[i];
+        }
+        delete[] elements;
+        elements = temp;
+    }
+
+public:
+    SimpleVector() : capacity(10), count(0) {
+        elements = new T[capacity];
+    }
+
+    ~SimpleVector() {
+        delete[] elements;
+    }
+
+    void push_back(const T& element) {
+        if (count == capacity) {
+            grow();
+        }
+        elements[count++] = element;
+    }
+
+    T& operator[](size_t index) {
+        if (index >= count) {
+            throw std::out_of_range("Index out of bounds");
+        }
+        return elements[index];
+    }
+
+    size_t size() const { return count; }
+};
+
+// Usage example
+int main() {
+    SimpleVector<int> numbers;
+    numbers.push_back(1);
+    numbers.push_back(2);
+    numbers.push_back(3);
+
+    SimpleVector<std::string> words;
+    words.push_back("Hello");
+    words.push_back("World");
+
+    // Access elements
+    std::cout << numbers[0] << std::endl;  // Prints: 1
+    std::cout << words[1] << std::endl;    // Prints: World
+
+    return 0;
+}
+```
+
+Templates enable you to write flexible, reusable code while maintaining type safety and performance. They are fundamental to modern C++ programming and form the basis for the Standard Template Library (STL).
+
+## Standard Template Library (STL)
+
+The Standard Template Library represents one of C++98's most powerful features, providing a collection of template classes and functions that implement commonly used data structures and algorithms. Understanding the STL is crucial because it offers efficient, tested implementations that save development time and reduce errors.
+
+### Containers
+
+Containers in the STL store and organize data in different ways, each optimized for specific use cases. Let's explore the main types:
+
+**Sequence Containers**
+These containers store elements in a linear sequence, much like items on a shelf:
+
+1. **Vector**
+The vector is the most commonly used container, providing dynamic array functionality with automatic memory management.
+
+```cpp
+#include <vector>
+
+class VectorExample {
+public:
+    void demonstrateVector() {
+        // Creating and initializing a vector
+        std::vector<int> numbers;
+
+        // Adding elements
+        numbers.push_back(1);    // Adds to end
+        numbers.push_back(2);
+        numbers.push_back(3);
+
+        // Accessing elements
+        int firstElement = numbers[0];          // Direct access
+        int lastElement = numbers.back();       // Last element
+
+        // Iterating through elements
+        for (std::vector<int>::iterator it = numbers.begin();
+             it != numbers.end(); ++it) {
+            std::cout << *it << " ";
+        }
+
+        // Size and capacity
+        size_t size = numbers.size();           // Number of elements
+        size_t capacity = numbers.capacity();   // Allocated space
+
+        // Resizing
+        numbers.resize(5);      // Grows to size 5, new elements are 0
+        numbers.reserve(10);    // Reserves space for 10 elements
+    }
+};
+```
+
+2. **List**
+A doubly-linked list allowing efficient insertions and deletions at any position:
+
+```cpp
+#include <list>
+
+class ListExample {
+public:
+    void demonstrateList() {
+        std::list<std::string> names;
+
+        // Adding elements
+        names.push_back("Alice");    // Add to end
+        names.push_front("Bob");     // Add to beginning
+
+        // Insert in middle
+        std::list<std::string>::iterator it = names.begin();
+        ++it;  // Move to second position
+        names.insert(it, "Charlie");
+
+        // Removing elements
+        names.pop_front();          // Remove first
+        names.pop_back();           // Remove last
+
+        // Splicing lists
+        std::list<std::string> otherNames;
+        otherNames.push_back("David");
+        names.splice(names.end(), otherNames);  // Move elements from otherNames
+    }
+};
+```
+
+**Associative Containers**
+These containers automatically sort and organize elements based on keys:
+
+1. **Map**
+Stores key-value pairs, sorted by key:
+
+```cpp
+#include <map>
+
+class MapExample {
+public:
+    void demonstrateMap() {
+        std::map<std::string, int> ages;
+
+        // Inserting elements
+        ages["Alice"] = 25;
+        ages.insert(std::make_pair("Bob", 30));
+
+        // Accessing elements
+        int aliceAge = ages["Alice"];    // Direct access
+
+        // Checking if key exists
+        if (ages.find("Charlie") != ages.end()) {
+            std::cout << "Charlie's age is known" << std::endl;
+        }
+
+        // Iterating through map
+        for (std::map<std::string, int>::const_iterator it = ages.begin();
+             it != ages.end(); ++it) {
+            std::cout << it->first << " is " << it->second
+                      << " years old" << std::endl;
+        }
+    }
+};
+```
+
+2. **Set**
+Stores unique elements in sorted order:
+
+```cpp
+#include <set>
+
+class SetExample {
+public:
+    void demonstrateSet() {
+        std::set<int> uniqueNumbers;
+
+        // Inserting elements
+        uniqueNumbers.insert(3);
+        uniqueNumbers.insert(1);
+        uniqueNumbers.insert(4);
+        uniqueNumbers.insert(1);  // Duplicate, won't be inserted
+
+        // Checking for elements
+        bool exists = uniqueNumbers.count(3) > 0;
+
+        // Finding elements
+        std::set<int>::iterator it = uniqueNumbers.find(4);
+        if (it != uniqueNumbers.end()) {
+            std::cout << "Found: " << *it << std::endl;
+        }
+    }
+};
+```
+
+### Algorithms
+
+The STL provides a rich set of algorithms that work with containers through iterators. These algorithms are template functions that operate independently of the container type:
+
+```cpp
+#include <algorithm>
+#include <vector>
+
+class AlgorithmsExample {
+public:
+    void demonstrateAlgorithms() {
+        std::vector<int> numbers;
+        for (int i = 1; i <= 5; ++i) {
+            numbers.push_back(i);
+        }
+
+        // Finding elements
+        std::vector<int>::iterator it =
+            std::find(numbers.begin(), numbers.end(), 3);
+
+        // Sorting
+        std::sort(numbers.begin(), numbers.end());
+
+        // Counting elements
+        int count = std::count_if(numbers.begin(), numbers.end(),
+            IsEven());  // Custom predicate
+
+        // Transforming elements
+        std::transform(numbers.begin(), numbers.end(),
+                      numbers.begin(),
+                      MultiplyByTwo());  // Custom function object
+    }
+
+private:
+    // Function object (functor) for counting
+    struct IsEven {
+        bool operator()(int n) const {
+            return n % 2 == 0;
+        }
+    };
+
+    // Function object for transformation
+    struct MultiplyByTwo {
+        int operator()(int n) const {
+            return n * 2;
+        }
+    };
+};
+```
+
+### Iterators
+
+Iterators provide a uniform way to access elements in containers, acting as a bridge between containers and algorithms:
+
+```cpp
+class IteratorExample {
+public:
+    void demonstrateIterators() {
+        std::vector<int> numbers(5, 10);  // Vector of 5 tens
+
+        // Different types of iterators
+        std::vector<int>::iterator it;           // Read-write iterator
+        std::vector<int>::const_iterator cit;    // Read-only iterator
+        std::vector<int>::reverse_iterator rit;  // Reverse iterator
+
+        // Forward iteration
+        for (it = numbers.begin(); it != numbers.end(); ++it) {
+            *it += 1;  // Modify elements
+        }
+
+        // Const iteration
+        for (cit = numbers.begin(); cit != numbers.end(); ++cit) {
+            std::cout << *cit << " ";  // Read-only access
+        }
+
+        // Reverse iteration
+        for (rit = numbers.rbegin(); rit != numbers.rend(); ++rit) {
+            std::cout << *rit << " ";  // Access in reverse order
+        }
+    }
+};
+```
+
+## Best Practices
+
+1. **Resource Management**
+   - Always pair `new` with `delete`
+   - Use constructors for initialization
+   - Clean up resources in destructors
+   - Implement the Rule of Three (destructor, copy constructor, copy assignment operator)
+
+2. **Memory Safety**
+   - Initialize all variables before use
+   - Check for null pointers
+   - Use references instead of pointers when possible
+   - Avoid memory leaks through proper resource management
+
+3. **Code Organization**
+   - Use meaningful names for variables and functions
+   - Keep functions small and focused
+   - Document code with clear comments
+   - Use consistent formatting
+
+4. **Error Handling**
+   - Use exceptions for error conditions
+   - Handle resources properly in presence of exceptions
+   - Document exceptions in function declarations
+
+## Contributing
+
+Feel free to contribute to this Readme by:
+1. Forking the project
+2. Creating your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Committing your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Pushing to the branch (`git push origin feature/AmazingFeature`)
+5. Opening a Pull Request
