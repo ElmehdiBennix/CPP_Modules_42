@@ -39,9 +39,10 @@ Welcome to a comprehensive guide on C++98 fundamentals and Object-Oriented Progr
 
 ## Introduction to C++98
 
-C++98 represents the first standardized version of C++, ratified in 1998. Created by Bjarne Stroustrup, it extends C by adding object-oriented features while maintaining backward compatibility. This standard forms the foundation of modern C++ programming and remains relevant for understanding core language concepts.
+C++98 represents the first standardized version of C++, ratified in 1998. Created by ***Bjarne Stroustrup***, it extends C by adding object-oriented features while maintaining backward compatibility. This standard forms the foundation of modern C++ programming and remains relevant for understanding core language concepts.
 
 Key features introduced in C++98:
+
 - Object-oriented programming support
 - Template programming
 - Standard Template Library (STL)
@@ -1465,7 +1466,7 @@ public:
 
 Feel free to contribute to this Readme by:
 1. Forking the project
-2. Creating your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Committing your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Pushing to the branch (`git push origin feature/AmazingFeature`)
+2. Creating your feature branch (`git checkout -b update/features`)
+3. Committing your changes (`git commit -m 'Add some features'`)
+4. Pushing to the branch (`git push origin update/features`)
 5. Opening a Pull Request
