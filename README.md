@@ -416,7 +416,7 @@ struct Shape_Vtable {
 struct Circle_Vtable {
     double (*area)(const Circle*);       // Points to Circle::area
     double (*perimeter)(const Circle*);  // Points to Circle::perimeter
-    void (*destructor)(Circle*);         // Points to Shape::~Shape
+    void (*destructor)(Circle*);         // Points to Circle::~Circle
 };
 
 class Shape {
